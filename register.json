@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "name": "Laura",
+      "email": "laura@gmail.com",
+      "password": "123",
+      "id": 1
+    },
+    {
+      "name": "Laurita",
+      "email": "laurita@gmail.com",
+      "password": "456",
+      "id": 2
+    },
+    {
+      "name": "Batman",
+      "email": "kjhsad@gmail.com",
+      "password": "235",
+      "id": 3
+    },
+    {
+      "name": "Manolo",
+      "email": "manolo@gmail.com",
+      "password": "598",
+      "id": 4
+    }
+  ]
+}
