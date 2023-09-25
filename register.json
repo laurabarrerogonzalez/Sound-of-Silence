@@ -53,6 +53,12 @@
       "email": "luri@",
       "password": "789",
       "id": 9
+    },
+    {
+      "name": "Rebeca",
+      "email": "mariarebecapoma@gmail.com",
+      "password": "159753",
+      "id": 10
     }
   ]
 }
