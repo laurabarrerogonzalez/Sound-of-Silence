@@ -47,13 +47,16 @@ const Login = () => {
 
     // Crear un nuevo usuario con los datos ingresados
     const newUser = {
-      name: userData.name,
-      email: userData.email,
-      password: userData.password,
+      // Id_user : '',
+      Name_user: userData.name,
+      Email: userData.email,
+      Password: userData.password,
+      // Id_rol: ''
+
     };
 
     // Simular el envío de datos a la "API" falsa (en este caso, al archivo register.json)
-    fetch('http://localhost:3000/users', {
+    fetch('https://localhost:7134/Users/Post', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
