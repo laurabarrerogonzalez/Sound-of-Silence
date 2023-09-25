@@ -13,6 +13,10 @@ const Login = () => {
       <video autoPlay loop muted className="video-background">
         <source src="https://res.cloudinary.com/dit2zhtwz/video/upload/v1695463586/The_sea_bugriz.mp4" type="video/mp4" />
       </video>
+      <div className="logo-container">
+        <img src="https://res.cloudinary.com/dqc0wvttr/image/upload//e_improve,e_sharpen/v1695634508/Captura_de_pantalla_2023-09-23_215716_nqz4vb-removebg-preview_lwpq0u.png" alt="Logo" className="logo" />
+      </div>
+
       <div className="welcome-back">
         {isLoginFormVisible ? (
           <>
