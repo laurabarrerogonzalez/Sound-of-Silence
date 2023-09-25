@@ -55,9 +55,15 @@
       "id": 9
     },
     {
+<<<<<<< HEAD
       "name": "Rebeca",
       "email": "mariarebecapoma@gmail.com",
       "password": "159753",
+=======
+      "name": "dfh",
+      "email": "sd",
+      "password": "5",
+>>>>>>> origin/Laura
       "id": 10
     }
   ]
