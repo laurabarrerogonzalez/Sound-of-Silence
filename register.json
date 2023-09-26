@@ -59,6 +59,18 @@
       "email": "sd",
       "password": "5",
       "id": 10
+    },
+    {
+      "Name_user": "Jack",
+      "Email": "laura_barrero_gonzalesz@hotmail.com",
+      "Password": "456",
+      "id": 11
+    },
+    {
+      "Name_user": "7410",
+      "Email": "ssssssssss",
+      "Password": "123",
+      "id": 12
     }
   ]
 }
