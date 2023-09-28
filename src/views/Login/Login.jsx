@@ -7,13 +7,13 @@ const Login = () => {
   const [isLoginFormVisible, setIsLoginFormVisible] = useState(true);
   const [isLoginFormSubmitted, setIsLoginFormSubmitted] = useState(false);
   const [userData, setUserData] = useState({
-    name: '',
+    Name_user: '', // Agregado para el nombre de usuario
     email: '',
     password: '',
   });
 
   const [errorMessages, setErrorMessages] = useState({
-    name: '',
+    Name_user: '', // Agregado para el nombre de usuario
     email: '',
     password: '',
   });
@@ -24,67 +24,65 @@ const Login = () => {
 
   const navigate = useNavigate(); // Inicializa la función de navegación
 
-  const handleLoginClick = () => {
+  const handleSubmit = () => {
     setIsLoginFormSubmitted(true);
-    // Redirige al usuario a la página de inicio
-    navigate('/home');
-  };
 
-  const handleSignUp = () => {
+    // Determinar la URL a la que se enviarán los datos según el formulario actual
+    const url = isLoginFormVisible
+      ? 'https://localhost:7134/Users/Login'
+      : 'https://localhost:7134/Users/Post'; // URL adaptada para ambos formularios
+
     // Verificar si los campos están vacíos
-    const { name, email, password } = userData;
+    const { Name_user, email, password } = userData;
     const newErrorMessages = {
-      name: !name ? 'Name is required' : '',
+      Name_user: !Name_user ? 'Name is required' : '', // Cambiado a 'Name_user'
       email: !email ? 'Email is required' : '',
       password: !password ? 'Password is required' : '',
     };
 
-    // Si algún campo está vacío, no procedemos con el registro
-    if (!name || !email || !password) {
+    // Si algún campo está vacío, no procedemos con el envío de datos
+    if (!Name_user || !email || !password) {
       setErrorMessages(newErrorMessages);
       return;
     }
 
-    // Crear un nuevo usuario con los datos ingresados
-    const newUser = {
-      // Id_user : '',
-      Name_user: userData.name,
+    const requestData = {
+      Name_user: userData.Name_user, // Cambiado a 'Name_user'
       Email: userData.email,
       Password: userData.password,
-      // Id_rol: ''
-
     };
 
-    // Simular el envío de datos a la "API" falsa (en este caso, al archivo register.json)
-    fetch('https://localhost:7134/Users/Post', {
+    // Simular el envío de datos al servidor
+    fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(newUser),
+      body: JSON.stringify(requestData),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return response.json();
+      })
       .then((data) => {
-        console.log('Usuario registrado:', data);
+        console.log(data);
 
-        // Mostrar SweetAlert cuando la cuenta se crea exitosamente
-        Swal.fire('Cuenta creada exitosamente', '', 'success');
+        // Mostrar SweetAlert cuando la acción se completa exitosamente
+        if (isLoginFormVisible) {
+          Swal.fire('Inicio de sesión exitoso', '', 'success');
+        } else {
+          Swal.fire('Cuenta creada exitosamente', '', 'success');
+        }
+
+        // Redirigir al usuario a la página de inicio o a donde desees
+        navigate('/home');
       })
       .catch((error) => {
-        console.error('Error al registrar el usuario:', error);
+        console.error('Error:', error);
+        Swal.fire('Error', 'Ha ocurrido un error en el servidor', 'error');
       });
-
-    // Limpiar los campos después de registrar al usuario y restablecer los mensajes de error
-    setUserData({
-      name: '',
-      email: '',
-      password: '',
-    });
-    setErrorMessages({
-      name: '',
-      email: '',
-      password: '',
-    });
   };
 
   const handleInputChange = (e) => {
@@ -112,15 +110,26 @@ const Login = () => {
               <input
                 type="text"
                 placeholder="Name"
+                name="Name_user" // Cambiado a 'Name_user'
+                value={userData.Name_user} // Cambiado a 'Name_user'
+                onChange={handleInputChange}
               />
               <input
                 type="email"
                 placeholder="Email"
+                name="email"
+                value={userData.email}
+                onChange={handleInputChange}
               />
+              <span className="error-message">{errorMessages.email}</span>
               <input
                 type="password"
                 placeholder="Password"
+                name="password"
+                value={userData.password}
+                onChange={handleInputChange}
               />
+              <span className="error-message">{errorMessages.password}</span>
               {isLoginFormSubmitted ? (
                 <input type="button" value="Login" className="custom-color" />
               ) : (
@@ -128,7 +137,7 @@ const Login = () => {
                   type="button"
                   value="Login"
                   className="custom-color"
-                  onClick={handleLoginClick}
+                  onClick={handleSubmit}
                 />
               )}
             </form>
@@ -159,11 +168,11 @@ const Login = () => {
               <input
                 type="text"
                 placeholder="Name"
-                name="name"
-                value={userData.name}
+                name="Name_user" // Cambiado a 'Name_user'
+                value={userData.Name_user} // Cambiado a 'Name_user'
                 onChange={handleInputChange}
               />
-              <span className="error-message">{errorMessages.name}</span>
+              <span className="error-message">{errorMessages.Name_user}</span> {/* Cambiado a 'Name_user' */}
               <input
                 type="email"
                 placeholder="Email"
@@ -184,7 +193,7 @@ const Login = () => {
                 type="button"
                 value="Sign up"
                 className="custom-signup-button"
-                onClick={handleSignUp}
+                onClick={handleSubmit}
               />
             </form>
           </>
@@ -195,3 +204,4 @@ const Login = () => {
 };
 
 export default Login;
+
