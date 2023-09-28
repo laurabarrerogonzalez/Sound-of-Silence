@@ -2,76 +2,69 @@ import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
+
 const Login = () => {
   const [isLoginFormVisible, setIsLoginFormVisible] = useState(true);
   const [isLoginFormSubmitted, setIsLoginFormSubmitted] = useState(false);
   const [userData, setUserData] = useState({
-    Name_user: '', // Agregado para el nombre de usuario
+    Name_user: '',
     email: '',
     password: '',
   });
   const [errorMessages, setErrorMessages] = useState({
-    Name_user: '', // Agregado para el nombre de usuario
+    Name_user: '',
     email: '',
     password: '',
   });
   const toggleLoginForm = () => {
     setIsLoginFormVisible(!isLoginFormVisible);
   };
-  const navigate = useNavigate(); // Inicializa la función de navegación
-  const handleSubmit = () => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async () => {
     setIsLoginFormSubmitted(true);
-    // Determinar la URL a la que se enviarán los datos según el formulario actual
-    const url = isLoginFormVisible
-      ? 'https://localhost:7134/Users/Login'
-      : 'https://localhost:7134/Users/Post'; // URL adaptada para ambos formularios
-    // Verificar si los campos están vacíos
     const { Name_user, email, password } = userData;
     const newErrorMessages = {
-      Name_user: !Name_user ? 'Name is required' : '', // Cambiado a 'Name_user'
+      Name_user: !Name_user ? 'Name is required' : '',
       email: !email ? 'Email is required' : '',
       password: !password ? 'Password is required' : '',
     };
-    // Si algún campo está vacío, no procedemos con el envío de datos
+
     if (!Name_user || !email || !password) {
       setErrorMessages(newErrorMessages);
       return;
     }
-    const requestData = {
-      Name_user: userData.Name_user, // Cambiado a 'Name_user'
-      Email: userData.email,
-      Password: userData.password,
-    };
-    // Simular el envío de datos al servidor
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(requestData),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(response.statusText);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-        // Mostrar SweetAlert cuando la acción se completa exitosamente
-        if (isLoginFormVisible) {
-          Swal.fire('Inicio de sesión exitoso', '', 'success');
-        } else {
-          Swal.fire('Cuenta creada exitosamente', '', 'success');
-        }
-        // Redirigir al usuario a la página de inicio o a donde desees
-        navigate('/subscribe');
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-        Swal.fire('Error', 'Ha ocurrido un error en el servidor', 'error');
+
+    try {
+      const response = await fetch('https://localhost:7134/Users/Login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
       });
+
+      if (response.ok) {
+        // La autenticación fue exitosa, obtén el rol del usuario desde la respuesta JSON
+        const responseData = await response.json();
+        const userRole = responseData.role; // Asegúrate de que el servidor envíe el rol en la respuesta JSON
+
+        if (userRole === 1) {
+          navigate('/admin');
+        } else if (userRole === 2) {
+          navigate('/subscribe');
+        } else {
+          Swal.fire('Error', 'Usuario no autorizado', 'error');
+        }
+      } else {
+        Swal.fire('Error', 'Credenciales incorrectas', 'error');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      Swal.fire('Error', 'Ha ocurrido un error en el servidor', 'error');
+    }
   };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setUserData({
@@ -79,6 +72,7 @@ const Login = () => {
       [name]: value,
     });
   };
+
   return (
     <div className="container-form">
       <video autoPlay loop muted className="video-background">
