@@ -6,49 +6,64 @@ import './Login.css';
 const Login = () => {
   const [isLoginFormVisible, setIsLoginFormVisible] = useState(true);
   const [isLoginFormSubmitted, setIsLoginFormSubmitted] = useState(false);
-  const [userData, setUserData] = useState({
+  const loginDataInitialState = {
+    email: '',
+    password: '',
+  };
+  const [loginData, setLoginData] = useState(loginDataInitialState);
+  const createAccountDataInitialState = {
     Name_user: '',
     email: '',
     password: '',
-  });
-  const [errorMessages, setErrorMessages] = useState({
+  };
+  const [createAccountData, setCreateAccountData] = useState(createAccountDataInitialState);
+  const errorMessagesInitialState = {
     Name_user: '',
     email: '',
     password: '',
-  });
+  };
+  const [errorMessages, setErrorMessages] = useState(errorMessagesInitialState);
+  const navigate = useNavigate();
   const toggleLoginForm = () => {
     setIsLoginFormVisible(!isLoginFormVisible);
   };
-  const navigate = useNavigate();
-
-  const handleSubmit = async () => {
+  const handleLoginInputChange = (e) => {
+    const { name, value } = e.target;
+    setLoginData({
+      ...loginData,
+      [name]: value,
+    });
+  };
+  const handleCreateAccountInputChange = (e) => {
+    const { name, value } = e.target;
+    setCreateAccountData({
+      ...createAccountData,
+      [name]: value,
+    });
+  };
+  const handleLoginSubmit = async () => {
     setIsLoginFormSubmitted(true);
-    const { Name_user, email, password } = userData;
+    const { email, password } = loginData;
     const newErrorMessages = {
-      Name_user: !Name_user ? 'Name is required' : '',
       email: !email ? 'Email is required' : '',
       password: !password ? 'Password is required' : '',
     };
-
-    if (!Name_user || !email || !password) {
+    if (!email || !password) {
       setErrorMessages(newErrorMessages);
       return;
     }
-
     try {
-      const response = await fetch('https://localhost:7134/Users/Login', {
+      const url = 'https://localhost:7134/Users/Login';
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password }),
       });
-
       if (response.ok) {
-        // La autenticación fue exitosa, obtén el rol del usuario desde la respuesta JSON
         const responseData = await response.json();
-        const userRole = responseData.role; // Asegúrate de que el servidor envíe el rol en la respuesta JSON
-
+        const userRole = responseData.role;
         if (userRole === 1) {
           navigate('/admin');
         } else if (userRole === 2) {
@@ -64,15 +79,36 @@ const Login = () => {
       Swal.fire('Error', 'Ha ocurrido un error en el servidor', 'error');
     }
   };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setUserData({
-      ...userData,
-      [name]: value,
-    });
+  const handleCreateAccountSubmit = async () => {
+    const { Name_user, email, password } = createAccountData;
+    const newErrorMessages = {
+      Name_user: !Name_user ? 'Name is required' : '',
+      email: !email ? 'Email is required' : '',
+      password: !password ? 'Password is required' : '',
+    };
+    if (!Name_user || !email || !password) {
+      setErrorMessages(newErrorMessages);
+      return;
+    }
+    try {
+      const url = 'https://localhost:7134/Users/Post';
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ Name_user, email, password }),
+      });
+      if (response.ok) {
+        Swal.fire('Cuenta creada exitosamente', '', 'success');
+      } else {
+        Swal.fire('Error', 'No se pudo crear la cuenta', 'error');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      Swal.fire('Error', 'Ha ocurrido un error en el servidor', 'error');
+    }
   };
-
   return (
     <div className="container-form">
       <video autoPlay loop muted className="video-background">
@@ -87,26 +123,19 @@ const Login = () => {
             <form className="formulario">
               <h2 className="create-account">Login</h2>
               <input
-                type="text"
-                placeholder="Name"
-                name="Name_user" // Cambiado a 'Name_user'
-                value={userData.Name_user} // Cambiado a 'Name_user'
-                onChange={handleInputChange}
-              />
-              <input
                 type="email"
                 placeholder="Email"
                 name="email"
-                value={userData.email}
-                onChange={handleInputChange}
+                value={loginData.email}
+                onChange={handleLoginInputChange}
               />
               <span className="error-message">{errorMessages.email}</span>
               <input
                 type="password"
                 placeholder="Password"
                 name="password"
-                value={userData.password}
-                onChange={handleInputChange}
+                value={loginData.password}
+                onChange={handleLoginInputChange}
               />
               <span className="error-message">{errorMessages.password}</span>
               {isLoginFormSubmitted ? (
@@ -116,7 +145,7 @@ const Login = () => {
                   type="button"
                   value="Login"
                   className="custom-color"
-                  onClick={handleSubmit}
+                  onClick={handleLoginSubmit}
                 />
               )}
             </form>
@@ -147,33 +176,37 @@ const Login = () => {
               <input
                 type="text"
                 placeholder="Name"
-                name="Name_user" // Cambiado a 'Name_user'
-                value={userData.Name_user} // Cambiado a 'Name_user'
-                onChange={handleInputChange}
+                name="Name_user"
+                value={createAccountData.Name_user}
+                onChange={handleCreateAccountInputChange}
               />
-              <span className="error-message">{errorMessages.Name_user}</span> {/* Cambiado a 'Name_user' */}
+              <span className="error-message">{errorMessages.Name_user}</span>
               <input
                 type="email"
                 placeholder="Email"
                 name="email"
-                value={userData.email}
-                onChange={handleInputChange}
+                value={createAccountData.email}
+                onChange={handleCreateAccountInputChange}
               />
               <span className="error-message">{errorMessages.email}</span>
               <input
                 type="password"
                 placeholder="Password"
                 name="password"
-                value={userData.password}
-                onChange={handleInputChange}
+                value={createAccountData.password}
+                onChange={handleCreateAccountInputChange}
               />
               <span className="error-message">{errorMessages.password}</span>
-              <input
-                type="button"
-                value="Sign up"
-                className="custom-signup-button"
-                onClick={handleSubmit}
-              />
+              {isLoginFormSubmitted ? (
+                <input type="button" value="Sign up" className="custom-signup-button" />
+              ) : (
+                <input
+                  type="button"
+                  value="Sign up"
+                  className="custom-signup-button"
+                  onClick={handleCreateAccountSubmit}
+                />
+              )}
             </form>
           </>
         )}
@@ -182,3 +215,5 @@ const Login = () => {
   );
 };
 export default Login;
+
+
