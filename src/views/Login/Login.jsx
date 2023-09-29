@@ -6,83 +6,91 @@ import './Login.css';
 const Login = () => {
   const [isLoginFormVisible, setIsLoginFormVisible] = useState(true);
   const [isLoginFormSubmitted, setIsLoginFormSubmitted] = useState(false);
-  const [userData, setUserData] = useState({
-    Name_user: '', // Agregado para el nombre de usuario
+  const loginDataInitialState = {
+    email: '',
+    password: '',
+  };
+  const [loginData, setLoginData] = useState(loginDataInitialState);
+  const createAccountDataInitialState = {
+    Name_user: '',
     email: '',
     password: '',
   });
 
   const [errorMessages, setErrorMessages] = useState({
-    Name_user: '', // Agregado para el nombre de usuario
+    name: '',
     email: '',
     password: '',
-  });
-
+  };
+  const [errorMessages, setErrorMessages] = useState(errorMessagesInitialState);
+  const navigate = useNavigate();
   const toggleLoginForm = () => {
     setIsLoginFormVisible(!isLoginFormVisible);
   };
 
   const navigate = useNavigate(); // Inicializa la función de navegación
 
-  const handleSubmit = () => {
+  const handleLoginClick = () => {
     setIsLoginFormSubmitted(true);
+    // Redirige al usuario a la página de inicio
+    navigate('/home');
+  };
 
-    // Determinar la URL a la que se enviarán los datos según el formulario actual
-    const url = isLoginFormVisible
-      ? 'https://localhost:7134/Users/Login'
-      : 'https://localhost:7134/Users/Post'; // URL adaptada para ambos formularios
-
+  const handleSignUp = () => {
     // Verificar si los campos están vacíos
-    const { Name_user, email, password } = userData;
+    const { name, email, password } = userData;
     const newErrorMessages = {
-      Name_user: !Name_user ? 'Name is required' : '', // Cambiado a 'Name_user'
+      name: !name ? 'Name is required' : '',
       email: !email ? 'Email is required' : '',
       password: !password ? 'Password is required' : '',
     };
 
-    // Si algún campo está vacío, no procedemos con el envío de datos
-    if (!Name_user || !email || !password) {
+    // Si algún campo está vacío, no procedemos con el registro
+    if (!name || !email || !password) {
       setErrorMessages(newErrorMessages);
       return;
     }
 
-    const requestData = {
-      Name_user: userData.Name_user, // Cambiado a 'Name_user'
+    // Crear un nuevo usuario con los datos ingresados
+    const newUser = {
+      // Id_user : '',
+      Name_user: userData.name,
       Email: userData.email,
       Password: userData.password,
+      // Id_rol: ''
+
     };
 
-    // Simular el envío de datos al servidor
-    fetch(url, {
+    // Simular el envío de datos a la "API" falsa (en este caso, al archivo register.json)
+    fetch('https://localhost:7134/Users/Post', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(requestData),
+      body: JSON.stringify(newUser),
     })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(response.statusText);
-        }
-        return response.json();
-      })
+      .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        console.log('Usuario registrado:', data);
 
-        // Mostrar SweetAlert cuando la acción se completa exitosamente
-        if (isLoginFormVisible) {
-          Swal.fire('Inicio de sesión exitoso', '', 'success');
-        } else {
-          Swal.fire('Cuenta creada exitosamente', '', 'success');
-        }
-
-        // Redirigir al usuario a la página de inicio o a donde desees
-        navigate('/home');
+        // Mostrar SweetAlert cuando la cuenta se crea exitosamente
+        Swal.fire('Cuenta creada exitosamente', '', 'success');
       })
       .catch((error) => {
-        console.error('Error:', error);
-        Swal.fire('Error', 'Ha ocurrido un error en el servidor', 'error');
+        console.error('Error al registrar el usuario:', error);
       });
+
+    // Limpiar los campos después de registrar al usuario y restablecer los mensajes de error
+    setUserData({
+      name: '',
+      email: '',
+      password: '',
+    });
+    setErrorMessages({
+      name: '',
+      email: '',
+      password: '',
+    });
   };
 
   const handleInputChange = (e) => {
@@ -101,7 +109,6 @@ const Login = () => {
       <div className="logo-container">
         <img src="https://res.cloudinary.com/dqc0wvttr/image/upload//e_improve,e_sharpen/v1695634508/Captura_de_pantalla_2023-09-23_215716_nqz4vb-removebg-preview_lwpq0u.png" alt="Logo" className="logo" />
       </div>
-
       <div className="welcome-back">
         {isLoginFormVisible ? (
           <>
@@ -110,24 +117,15 @@ const Login = () => {
               <input
                 type="text"
                 placeholder="Name"
-                name="Name_user" // Cambiado a 'Name_user'
-                value={userData.Name_user} // Cambiado a 'Name_user'
-                onChange={handleInputChange}
               />
               <input
                 type="email"
                 placeholder="Email"
-                name="email"
-                value={userData.email}
-                onChange={handleInputChange}
               />
               <span className="error-message">{errorMessages.email}</span>
               <input
                 type="password"
                 placeholder="Password"
-                name="password"
-                value={userData.password}
-                onChange={handleInputChange}
               />
               <span className="error-message">{errorMessages.password}</span>
               {isLoginFormSubmitted ? (
@@ -137,7 +135,7 @@ const Login = () => {
                   type="button"
                   value="Login"
                   className="custom-color"
-                  onClick={handleSubmit}
+                  onClick={handleLoginClick}
                 />
               )}
             </form>
@@ -168,32 +166,32 @@ const Login = () => {
               <input
                 type="text"
                 placeholder="Name"
-                name="Name_user" // Cambiado a 'Name_user'
-                value={userData.Name_user} // Cambiado a 'Name_user'
+                name="name"
+                value={userData.name}
                 onChange={handleInputChange}
               />
-              <span className="error-message">{errorMessages.Name_user}</span> {/* Cambiado a 'Name_user' */}
+              <span className="error-message">{errorMessages.name}</span>
               <input
                 type="email"
                 placeholder="Email"
                 name="email"
-                value={userData.email}
-                onChange={handleInputChange}
+                value={createAccountData.email}
+                onChange={handleCreateAccountInputChange}
               />
               <span className="error-message">{errorMessages.email}</span>
               <input
                 type="password"
                 placeholder="Password"
                 name="password"
-                value={userData.password}
-                onChange={handleInputChange}
+                value={createAccountData.password}
+                onChange={handleCreateAccountInputChange}
               />
               <span className="error-message">{errorMessages.password}</span>
               <input
                 type="button"
                 value="Sign up"
                 className="custom-signup-button"
-                onClick={handleSubmit}
+                onClick={handleSignUp}
               />
             </form>
           </>
@@ -202,6 +200,4 @@ const Login = () => {
     </div>
   );
 };
-
 export default Login;
-

@@ -65,6 +65,29 @@
       "password": "5",
 >>>>>>> origin/Laura
       "id": 10
+    },
+    {
+      "Name_user": "Jack",
+      "Email": "laura_barrero_gonzalesz@hotmail.com",
+      "Password": "456",
+      "id": 11
+    },
+    {
+      "Name_user": "7410",
+      "Email": "ssssssssss",
+      "Password": "123",
+      "id": 12
+    },
+    {
+      "email": "",
+      "password": "",
+      "id": 13
+    },
+    {
+      "Name_user": "lili",
+      "Email": "lili",
+      "Password": "lili",
+      "id": 14
     }
   ]
 }
