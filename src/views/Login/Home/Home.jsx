@@ -1,9 +1,19 @@
 import React from "react";
 
-const Home = () => {
-    return(
-        <h1>Hola Mundo</h1>
+import Header from "../../../Componets/Header/Header.jsx";
+import Footer from "../../../Componets/Footer/Footer.jsx";
 
+
+const Home = () => {
+    return (
+        <>
+            <Header /> {/* Muestra el componente Header */}
+            
+            <h1>Hola Mundo</h1>
+            {/* Contenido de tu página de inicio */}
+            <Footer /> {/* Muestra el componente Footer */}
+        </>
     );
-} 
+}
+
 export default Home;

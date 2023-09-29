@@ -1,0 +1,38 @@
+*{
+    width: 100%;
+}
+.logo-windons {
+    height: 100px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    background-color: #A8878F;  
+    width: 100%;
+  }
+  
+  .logo {
+    display: flex;
+  }
+  
+  .brand{
+    width: 400px;
+  }
+  
+  .welcome h1 {
+    white-space: nowrap;
+  text-align: center;
+  margin: 0 auto; 
+
+  }
+  .windons {
+    display: flex;
+    width: 100%;
+  }
+
+  .windons h1 {
+    font-size: 16px; 
+    margin: 0; 
+    padding: 10px; 
+    border-radius: 5px; 
+    white-space: nowrap;
+}   
