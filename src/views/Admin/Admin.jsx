@@ -6,7 +6,7 @@ const Admin = () => {
 
     return (
         <div className="bodyadmin">
-        <div className="container">
+        <div className="container-admin">
             <Card
                 videoSrc="https://res.cloudinary.com/dp7lr71t8/video/upload/v1695722863/637948938_1_uthtjl.mp4"
                 audioSrc="https://res.cloudinary.com/dp7lr71t8/video/upload/v1696063599/playa_2_hgfkin.mp3"
