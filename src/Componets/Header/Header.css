@@ -1,11 +1,14 @@
 
+
 .logo-windons {
     height: 100px;
+    /* width: 1500px; */
     display: flex;
     justify-content: space-between; 
     align-items: center;
     background-color: #A8878F;  
-    width: 100%;
+    /* width: 100%; */
+  
   }
   
   .logo {

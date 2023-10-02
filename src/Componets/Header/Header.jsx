@@ -1,11 +1,9 @@
 import React from 'react';
-
 import "../../Componets/Header/Header.css";
-
 
 export default function Header (){
     return (
-      <>
+     
       <header className="logo-windons">
       
       <div className="logo">
@@ -24,6 +22,6 @@ export default function Header (){
       </div>
 
       </header>
-      </>
+    
     );
   };
