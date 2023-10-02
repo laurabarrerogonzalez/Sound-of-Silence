@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
+import { Container } from 'postcss';
+
+
 
 const Login = () => {
   const [isLoginFormVisible, setIsLoginFormVisible] = useState(true);
@@ -110,6 +113,7 @@ const Login = () => {
     }
   };
   return (
+    <container id="ContainerLogin">
     <div className="container-form">
       <video autoPlay loop muted className="video-background">
         <source src="https://res.cloudinary.com/dit2zhtwz/video/upload/v1695463586/The_sea_bugriz.mp4" type="video/mp4" />
@@ -119,7 +123,8 @@ const Login = () => {
       </div>
       <div className="welcome-back">
         {isLoginFormVisible ? (
-          <>
+          <> 
+          
             <form className="formulario">
               <h2 className="create-account">Login</h2>
               <input
@@ -153,10 +158,11 @@ const Login = () => {
               <div className="welcome-text">
                 <h2>Welcome to Sound of Silence</h2>
                 <p>If you already have an account please login here</p>
-              </div>
-              <button className="custom-signup-button" onClick={toggleLoginForm}>
+                <button className="custom-signup-button" onClick={toggleLoginForm}>
                 Sign up
               </button>
+              </div>
+              
             </div>
           </>
         ) : (
@@ -165,10 +171,11 @@ const Login = () => {
               <div className="welcome-text">
                 <h2>Welcome to Sound of Silence</h2>
                 <p>If you don't have an account please register here</p>
-              </div>
-              <button className="custom-color" onClick={toggleLoginForm}>
+                 <button className="custom-color" onClick={toggleLoginForm}>
                 Login
               </button>
+              </div>
+             
             </div>
             <form className="formulario white-background">
               <h2 className="create-account">Create an account</h2>
@@ -212,6 +219,7 @@ const Login = () => {
         )}
       </div>
     </div>
+    </container>
   );
 };
 export default Login;

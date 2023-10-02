@@ -1,11 +1,9 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+*{
+  margin: 0%;
 }
 
-body {
+#ContainerLogin {
+ 
     height: 100vh;
     display: flex;
     align-items: center;
@@ -20,10 +18,14 @@ body {
 .logo-container {
     width: 50px;
     position: absolute;
-    top: -20px; 
-    left: -0px;  
+    top: -20px;
+    left: -0px;
     z-index: 2;
-   
+    transition: transform 0.3s; /* Agregamos una transición suave */
+  }
+  
+  .logo-container:hover {
+    transform: scale(1.2); /* Escala la imagen al 110% cuando el cursor está encima */
   }
   
   .logo {
