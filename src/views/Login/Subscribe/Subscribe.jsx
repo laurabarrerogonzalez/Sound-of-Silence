@@ -4,7 +4,7 @@ import Header from "../../../Componets/Header/Header.jsx";
 import Footer from "../../../Componets/Footer/Footer.jsx";
 
 
-const Home = () => {
+const Subscribe = () => {
     return (
         <>
             <Header /> {/* Muestra el componente Header */}
@@ -16,4 +16,4 @@ const Home = () => {
     );
 }
 
-export default Home;
+export default Subscribe;
