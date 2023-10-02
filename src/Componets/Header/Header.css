@@ -1,22 +1,26 @@
-
-
 .logo-windons {
     height: 100px;
     /* width: 1500px; */
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    background-color: #A8878F;  
+    background-color: #A88F72; 
     /* width: 100%; */
-  
+     
   }
   
   .logo {
+    width: auto;
+    height: 100px;
     display: flex;
+    margin-left: -30px;
+    justify-content: center;
+    align-items: center;
   }
   
   .brand{
-    width: 400px;
+    width: 350px; 
+    height: 185px;
   }
   
   .welcome h1 {
@@ -27,7 +31,22 @@
   }
   .windons {
     display: flex;
-    width: 100%;
+    align-items: center;
+    margin-right: 25px;
+    /* width: 100%; */
+  }
+
+  .windons a {
+    justify-content: space-between;
+    font-size: 20px;
+    margin-right: 10px;
+    text-decoration: none;
+    color: black;
+  }
+
+  .windons a:hover{
+   /* border-bottom:3px black solid; */
+   text-decoration: underline;
   }
 
   .windons h1 {
@@ -35,5 +54,5 @@
     margin: 0; 
     padding: 10px; 
     border-radius: 5px; 
-    white-space: nowrap;
+    /* white-space: nowrap; */
 }   

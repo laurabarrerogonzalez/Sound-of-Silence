@@ -5,14 +5,16 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: #A8878f;
+    background-color: #A88F72;
     padding: 20px;
   }
   
   .footer-container .politics,
   .footer-container .socialnetwords {
     flex: 1;
-    text-align: left;
+    text-align: center;
+    font-size: 11px;
+   
   }
   
   .footer-container .socialnetwords {
