@@ -5,7 +5,7 @@
 
 ## Project Description 🚀
 
-Multiverse is an e-commerce website designed to effectively sell merchandise products and provide customers with a satisfying shopping experience. It's a design and development project with a free theme in which we will be working on both the Front-end and Back-end. This repository contains the Front-end files along with the development of a fake API that allows us to work on the application without relying on real data or external system connections.
+Welcome to Sound of Silence, is a soothing and immersive platform designed to help you unwind, de-stress, and find tranquility through a curated collection of calming audio content. Whether you're looking to relax, meditate, or simply escape the hustle and bustle of daily life, our platform is your oasis of serenity.
 
 ## Screenshots 📷
 
