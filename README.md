@@ -79,7 +79,7 @@ Welcome to Sound of Silence, is a soothing and immersive platform designed to he
 
 
 ## Next Steps 🔜
-Coming soon, we will continue developing the Full Stack project with the repository https://github.com/miguelcidoncha/Multiverse-Back-end. The goal is to be able to work with both this Front-end repository and the Back-end repository, thus creating a fully functional e-commerce website where we will combine both the visual and the database aspects.
+Coming soon, we will continue developing the Full Stack project with the repository https://github.com/laurabarrerogonzalez/Sound-of-Silence.git. The goal is to be able to work with both this Front-end repository and the Back-end repository, creating a large network of soothing sounds, reaching as many people as possible and providing an enriching and satisfying experience and helping them to unwind.
 
 ## Authors 👨‍💻👩‍💻
 
