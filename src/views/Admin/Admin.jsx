@@ -1,10 +1,15 @@
 import React from "react";
-import './Admin.css';
+import '../Admin/Admin.css';
 import Card from "../../Componets/Header/CardFiles";
+import Header from "../../Componets/Header/Header.jsx"
+import Footer from "../../Componets/Footer/Footer.jsx"
 
 const Admin = () => {
 
     return (
+
+        <>
+        <Header/>
         <div className="bodyadmin">
         <div className="container-admin">
             <Card
@@ -52,6 +57,8 @@ const Admin = () => {
             />
         </div>
         </div>
+        <Footer/>
+        </>
     );
 };
 
