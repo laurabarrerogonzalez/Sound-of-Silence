@@ -69,7 +69,7 @@ Multiverse is an e-commerce website designed to effectively sell merchandise pro
 
 ## Installation Process ⬆️
 
-1. Clone the GitHub repository: https://github.com/miguelcidoncha/Multiverse-Proyect
+1. Clone the GitHub repository: https://github.com/laurabarrerogonzalez/Sound-of-Silence.git
 2. Open the file using Visual Studio Code.
 3. Open the terminal in Visual Studio Code.
 4. Install the following command: **npm i.**
