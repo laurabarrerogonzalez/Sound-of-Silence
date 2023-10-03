@@ -9,27 +9,193 @@ import { Container } from 'postcss';
 const Login = () => {
   const [isLoginFormVisible, setIsLoginFormVisible] = useState(true);
   const [isLoginFormSubmitted, setIsLoginFormSubmitted] = useState(false);
+
   const loginDataInitialState = {
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   };
+
   const [loginData, setLoginData] = useState(loginDataInitialState);
-  const createAccountDataInitialState = {
-    Name_user: '',
-    email: '',
-    password: '',
+
+  const errorMessagesLoginDataInitialState = {
+    email: "",
+    password: "",
   };
-  const [createAccountData, setCreateAccountData] = useState(createAccountDataInitialState);
+  const [errorMessagesLogin, setErrorMessagesLogin] = useState(
+    errorMessagesLoginDataInitialState
+  );
+
+  const createAccountDataInitialState = {
+    Name_user: "",
+    email: "",
+    password: "",
+  };
+
+  const [createAccountData, setCreateAccountData] = useState(
+    createAccountDataInitialState
+  );
+
   const errorMessagesInitialState = {
-    Name_user: '',
-    email: '',
-    password: '',
+    Name_user: "",
+    email: "",
+    password: "",
   };
   const [errorMessages, setErrorMessages] = useState(errorMessagesInitialState);
+
   const navigate = useNavigate();
+
   const toggleLoginForm = () => {
     setIsLoginFormVisible(!isLoginFormVisible);
   };
+
+  // useEffect(() => {
+  //   // Agregar un controlador de evento antes de salir de la página
+  //   const confirmExit = (e) => {
+  //     if (loginDataInitialState) {
+  //       e.preventDefault(); // Evita que la página se cierre directamente
+
+  //       // Muestra un mensaje de confirmación personalizado
+  //       Swal.fire({
+  //         title: "¿Estás seguro de salir?",
+  //         showCancelButton: true,
+  //         confirmButtonText: "Sí, cerrar sesión",
+  //         cancelButtonText: "No, mantenerme en la página",
+  //       }).then((result) => {
+  //         if (result.isConfirmed) {
+  //           // El usuario eligió cerrar sesión
+  //           // Realiza aquí cualquier acción de cierre de sesión necesaria
+  //           setErrorMessagesLogin(false);
+  //           navigate("/"); // Redirige a la página de inicio de sesión
+  //         }
+  //       });
+  //     }
+  //   };
+
+  //   window.addEventListener("beforeunload", confirmExit);
+
+  //   return () => {
+  //     // Limpia el controlador de eventos al desmontar el componente
+  //     window.removeEventListener("beforeunload", confirmExit);
+  //   };
+  // }, [loginDataInitialState]);
+
+  // const handleLogout = () => {
+  //   // Muestra un mensaje de confirmación al usuario
+  //   Swal.fire({
+  //     title: "¿Estás seguro de salir?",
+  //     showCancelButton: true,
+  //     confirmButtonText: "Sí, cerrar sesión",
+  //     cancelButtonText: "No, mantenerme en la página",
+  //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //       // El usuario eligió cerrar sesión
+  //       // Realiza aquí cualquier acción de cierre de sesión necesaria
+  //       setErrorMessagesLogin(false);
+  //       navigate("/"); // Redirige a la página de inicio de sesión
+  //     }
+  //   });
+  // };
+
+  const handleLoginSubmit = async () => {
+    const { email, password } = loginData;
+  
+    const newErrorMessages = {
+      email: !email ? "Email is required" : "",
+      password: !password ? "Password is required" : "",
+    };
+  
+    if (!email || !password) {
+      setErrorMessagesLogin(newErrorMessages);
+      return;
+    }
+  
+    try {
+      const url = "https://localhost:7134/Users/Login";
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+  
+      if (response.ok) {
+        setErrorMessagesLogin(true);
+        const responseData = await response.json();
+        const userRole = responseData.role;
+        if (userRole === 1) {
+          navigate("/admin");
+        } else if (userRole === 2) {
+          navigate("/subscribe");
+          
+        } else {
+          Swal.fire("Error", "Usuario no autorizado", "error");
+        }
+      } else {
+        setErrorMessagesLogin("Credenciales incorrectas");
+        Swal.fire("Error", "Usuario no existente", "error");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      Swal.fire("Error", "Ha ocurrido un error en el servidor", "error");
+    } finally {
+      // Limpia los campos después del inicio de sesión y restablece los mensajes de error
+      setLoginData({
+        email: "",
+        password: "",
+      });
+      setErrorMessagesLogin({
+        email: "",
+        password: "",
+      });
+  
+      // Establece isLoginFormSubmitted en false para habilitar el botón de inicio de sesión
+      setIsLoginFormSubmitted(false);
+    }
+  };
+
+  const handleCreateAccountSubmit = async () => {
+    const { Name_user, email, password } = createAccountData;
+    const newErrorMessages = {
+      Name_user: !Name_user ? "Name is required" : "",
+      email: !email ? "Email is required" : "",
+      password: !password ? "Password is required" : "",
+    };
+    if (!Name_user || !email || !password) {
+      setErrorMessages(newErrorMessages);
+      return;
+    }
+    try {
+      const url = "https://localhost:7134/Users/Post";
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ Name_user, email, password }),
+      });
+      if (response.ok) {
+        Swal.fire("Cuenta creada exitosamente", "", "success");
+      } else {
+        Swal.fire("Error", "No se pudo crear la cuenta", "error");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      Swal.fire("Error", "Ha ocurrido un error en el servidor", "error");
+    }
+    // Limpia los campos después del inicio de sesión y restablece los mensajes de error
+    setCreateAccountData({
+      Name_user: "",
+      email: "",
+      password: "",
+    });
+    setErrorMessages({
+      Name_user: "",
+      email: "",
+      password: "",
+    });
+  };
+
   const handleLoginInputChange = (e) => {
     const { name, value } = e.target;
     setLoginData({
@@ -37,6 +203,7 @@ const Login = () => {
       [name]: value,
     });
   };
+
   const handleCreateAccountInputChange = (e) => {
     const { name, value } = e.target;
     setCreateAccountData({
@@ -44,82 +211,22 @@ const Login = () => {
       [name]: value,
     });
   };
-  const handleLoginSubmit = async () => {
-    setIsLoginFormSubmitted(true);
-    const { email, password } = loginData;
-    const newErrorMessages = {
-      email: !email ? 'Email is required' : '',
-      password: !password ? 'Password is required' : '',
-    };
-    if (!email || !password) {
-      setErrorMessages(newErrorMessages);
-      return;
-    }
-    try {
-      const url = 'https://localhost:7134/Users/Login';
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
-      if (response.ok) {
-        const responseData = await response.json();
-        const userRole = responseData.role;
-        if (userRole === 1) {
-          navigate('/admin');
-        } else if (userRole === 2) {
-          navigate('/subscribe');
-        } else {
-          Swal.fire('Error', 'Usuario no autorizado', 'error');
-        }
-      } else {
-        Swal.fire('Error', 'Credenciales incorrectas', 'error');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      Swal.fire('Error', 'Ha ocurrido un error en el servidor', 'error');
-    }
-  };
-  const handleCreateAccountSubmit = async () => {
-    const { Name_user, email, password } = createAccountData;
-    const newErrorMessages = {
-      Name_user: !Name_user ? 'Name is required' : '',
-      email: !email ? 'Email is required' : '',
-      password: !password ? 'Password is required' : '',
-    };
-    if (!Name_user || !email || !password) {
-      setErrorMessages(newErrorMessages);
-      return;
-    }
-    try {
-      const url = 'https://localhost:7134/Users/Post';
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ Name_user, email, password }),
-      });
-      if (response.ok) {
-        Swal.fire('Cuenta creada exitosamente', '', 'success');
-      } else {
-        Swal.fire('Error', 'No se pudo crear la cuenta', 'error');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      Swal.fire('Error', 'Ha ocurrido un error en el servidor', 'error');
-    }
-  };
+
   return (
     <container id="ContainerLogin">
     <div className="container-form">
       <video autoPlay loop muted className="video-background">
-        <source src="https://res.cloudinary.com/dit2zhtwz/video/upload/v1695463586/The_sea_bugriz.mp4" type="video/mp4" />
+        <source
+          src="https://res.cloudinary.com/dit2zhtwz/video/upload/v1695463586/The_sea_bugriz.mp4"
+          type="video/mp4"
+        />
       </video>
       <div className="logo-container">
-        <img src="https://res.cloudinary.com/dqc0wvttr/image/upload//e_improve,e_sharpen/v1695634508/Captura_de_pantalla_2023-09-23_215716_nqz4vb-removebg-preview_lwpq0u.png" alt="Logo" className="logo" />
+        <img
+          src="https://res.cloudinary.com/dqc0wvttr/image/upload//e_improve,e_sharpen/v1695634508/Captura_de_pantalla_2023-09-23_215716_nqz4vb-removebg-preview_lwpq0u.png"
+          alt="Logo"
+          className="logo"
+        />
       </div>
       <div className="welcome-back">
         {isLoginFormVisible ? (
@@ -134,7 +241,7 @@ const Login = () => {
                 value={loginData.email}
                 onChange={handleLoginInputChange}
               />
-              <span className="error-message">{errorMessages.email}</span>
+              <span className="error-message">{errorMessagesLogin.email}</span>
               <input
                 type="password"
                 placeholder="Password"
@@ -142,7 +249,9 @@ const Login = () => {
                 value={loginData.password}
                 onChange={handleLoginInputChange}
               />
-              <span className="error-message">{errorMessages.password}</span>
+              <span className="error-message">
+                {errorMessagesLogin.password}
+              </span>
               {isLoginFormSubmitted ? (
                 <input type="button" value="Login" className="custom-color" />
               ) : (
@@ -154,7 +263,7 @@ const Login = () => {
                 />
               )}
             </form>
-            <div className={`message ${isLoginFormVisible ? '' : 'hide'}`}>
+            <div className={`message ${isLoginFormVisible ? "" : "hide"}`}>
               <div className="welcome-text">
                 <h2>Welcome to Sound of Silence</h2>
                 <p>If you already have an account please login here</p>
@@ -167,7 +276,11 @@ const Login = () => {
           </>
         ) : (
           <>
-            <div className={`message white-text bold-text ${isLoginFormVisible ? 'hide' : ''}`}>
+            <div
+              className={`message white-text bold-text ${
+                isLoginFormVisible ? "hide" : ""
+              }`}
+            >
               <div className="welcome-text">
                 <h2>Welcome to Sound of Silence</h2>
                 <p>If you don't have an account please register here</p>
@@ -205,7 +318,11 @@ const Login = () => {
               />
               <span className="error-message">{errorMessages.password}</span>
               {isLoginFormSubmitted ? (
-                <input type="button" value="Sign up" className="custom-signup-button" />
+                <input
+                  type="button"
+                  value="Sign up"
+                  className="custom-signup-button"
+                />
               ) : (
                 <input
                   type="button"
