@@ -1,0 +1,30 @@
+/* Estilos específicos del Footer */
+.footer-container {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #A88F72;
+    padding: 20px;
+  }
+  
+  .footer-container .politics,
+  .footer-container .socialnetwords {
+    flex: 1;
+    text-align: center;
+    font-size: 11px;
+   
+  }
+  
+  .footer-container .socialnetwords {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    
+  }
+  
+  .footer-container .socialnetwords img {
+    max-width: 40px; /* Ajusta el tamaño de los íconos según tu preferencia */
+  }
+  
