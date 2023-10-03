@@ -128,19 +128,6 @@ const Login = () => {
         } else {
           Swal.fire("Error", "Usuario no autorizado", "error");
         }
-        Swal.fire({
-          title: "¿Estás seguro de salir?",
-          showCancelButton: true,
-          confirmButtonText: "Sí, cerrar sesión",
-          cancelButtonText: "No, mantenerme en la página",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            // El usuario eligió cerrar sesión
-            // Realiza aquí cualquier acción de cierre de sesión necesaria
-            setErrorMessagesLogin(false);
-            navigate("/"); // Redirige a la página de inicio de sesión
-          }
-        });
       } else {
         setErrorMessagesLogin("Credenciales incorrectas");
         Swal.fire("Error", "Usuario no existente", "error");
