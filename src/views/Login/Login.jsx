@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect  } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
@@ -44,6 +44,55 @@ const Login = () => {
   const toggleLoginForm = () => {
     setIsLoginFormVisible(!isLoginFormVisible);
   };
+
+  // useEffect(() => {
+  //   // Agregar un controlador de evento antes de salir de la página
+  //   const confirmExit = (e) => {
+  //     if (loginDataInitialState) {
+  //       e.preventDefault(); // Evita que la página se cierre directamente
+
+  //       // Muestra un mensaje de confirmación personalizado
+  //       Swal.fire({
+  //         title: "¿Estás seguro de salir?",
+  //         showCancelButton: true,
+  //         confirmButtonText: "Sí, cerrar sesión",
+  //         cancelButtonText: "No, mantenerme en la página",
+  //       }).then((result) => {
+  //         if (result.isConfirmed) {
+  //           // El usuario eligió cerrar sesión
+  //           // Realiza aquí cualquier acción de cierre de sesión necesaria
+  //           setErrorMessagesLogin(false);
+  //           navigate("/"); // Redirige a la página de inicio de sesión
+  //         }
+  //       });
+  //     }
+  //   };
+
+  //   window.addEventListener("beforeunload", confirmExit);
+
+  //   return () => {
+  //     // Limpia el controlador de eventos al desmontar el componente
+  //     window.removeEventListener("beforeunload", confirmExit);
+  //   };
+  // }, [loginDataInitialState]);
+
+  // const handleLogout = () => {
+  //   // Muestra un mensaje de confirmación al usuario
+  //   Swal.fire({
+  //     title: "¿Estás seguro de salir?",
+  //     showCancelButton: true,
+  //     confirmButtonText: "Sí, cerrar sesión",
+  //     cancelButtonText: "No, mantenerme en la página",
+  //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //       // El usuario eligió cerrar sesión
+  //       // Realiza aquí cualquier acción de cierre de sesión necesaria
+  //       setErrorMessagesLogin(false);
+  //       navigate("/"); // Redirige a la página de inicio de sesión
+  //     }
+  //   });
+  // };
+
   const handleLoginSubmit = async () => {
     const { email, password } = loginData;
   
@@ -68,15 +117,30 @@ const Login = () => {
       });
   
       if (response.ok) {
+        setErrorMessagesLogin(true);
         const responseData = await response.json();
         const userRole = responseData.role;
         if (userRole === 1) {
           navigate("/admin");
         } else if (userRole === 2) {
           navigate("/subscribe");
+          
         } else {
           Swal.fire("Error", "Usuario no autorizado", "error");
         }
+        Swal.fire({
+          title: "¿Estás seguro de salir?",
+          showCancelButton: true,
+          confirmButtonText: "Sí, cerrar sesión",
+          cancelButtonText: "No, mantenerme en la página",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // El usuario eligió cerrar sesión
+            // Realiza aquí cualquier acción de cierre de sesión necesaria
+            setErrorMessagesLogin(false);
+            navigate("/"); // Redirige a la página de inicio de sesión
+          }
+        });
       } else {
         setErrorMessagesLogin("Credenciales incorrectas");
         Swal.fire("Error", "Usuario no existente", "error");
