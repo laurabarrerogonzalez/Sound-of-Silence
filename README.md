@@ -83,7 +83,7 @@ Coming soon, we will continue developing the Full Stack project with the reposit
 
 ## Authors 👨‍💻👩‍💻
 
-| [<img src="https://avatars.githubusercontent.com/u/132559559?v=4" width=100><br><sub>Laura Barrero</sub>](https://github.com/laurabarrerogonzalez) | [<img src="https://avatars.githubusercontent.com/u/132651136?v=4" width=100><br><sub>Rebeca Poma</sub>](https://github.com/rebecapoma6) | [<img src="https://avatars.githubusercontent.com/u/132766257?v=4" width=100><br><sub>Anthony Brayan</sub>]([[[https://github.com/JaviSeC](https://github.com/AnthonyBrayan)](https://github.com/AnthonyBrayan)](https://github.com/AnthonyBrayan)) | [<img src="https://avatars.githubusercontent.com/u/132567398?v=4" width=100><br><sub>Miguel Cidoncha</sub>](https://github.com/miguelcidoncha) |
+| [<img src="https://avatars.githubusercontent.com/u/132559559?v=4" width=100><br><sub>Laura Barrero</sub>](https://github.com/laurabarrerogonzalez) | [<img src="https://avatars.githubusercontent.com/u/132651136?v=4" width=100><br><sub>Rebeca Poma</sub>](https://github.com/rebecapoma6) | [<img src="https://avatars.githubusercontent.com/u/119860615?v=4" width=100><br><sub>Anthony Brayan</sub>]([[[https://github.com/JaviSeC](https://github.com/AnthonyBrayan)](https://github.com/AnthonyBrayan)](https://github.com/AnthonyBrayan)) | [<img src="https://avatars.githubusercontent.com/u/132567398?v=4" width=100><br><sub>Miguel Cidoncha</sub>](https://github.com/miguelcidoncha) |
 | :---: | :---: | :---: | :---: |
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
