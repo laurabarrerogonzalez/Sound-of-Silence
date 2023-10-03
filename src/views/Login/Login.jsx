@@ -2,13 +2,10 @@ import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
-<<<<<<< HEAD
-=======
 import { Container } from 'postcss';
 
 
 
->>>>>>> origin/Laura
 const Login = () => {
   const [isLoginFormVisible, setIsLoginFormVisible] = useState(true);
   const [isLoginFormSubmitted, setIsLoginFormSubmitted] = useState(false);
