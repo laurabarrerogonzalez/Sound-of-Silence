@@ -1,9 +1,8 @@
-Sound of Silence
+# Sound of Silence                                              
 
 [![](https://res.cloudinary.com/dqc0wvttr/image/upload/v1695634508/Captura_de_pantalla_2023-09-23_215716_nqz4vb-removebg-preview_lwpq0u.png)]
 
 [logo](https://github.com/laurabarrerogonzalez/Sound-of-Silence/assets/132609974/2b8d8395-8767-43cf-ab0c-98fbc4256341)
-
 
 ## Project Description 🚀
 
@@ -31,7 +30,10 @@ Welcome to Sound of Silence, is a soothing and immersive platform designed to he
 
 ## Libraries 📚
 
-<img src="images/ReactBoostrap.png" width="100" height="auto"><img src="images/Formik.png" width="100" height="30"><img src="images/PrimeReact.png" width="100" height="auto"><img src="images/React Hook Form.png" width="100" height="25"><img src="images/React Router.png" width="100" height="25"><img src="images/Sweet Alert.png" width="100" height="30"><img src="images/Swiper.png" width="100" height="auto"><img src="images/YUP.png" width="100" height="30"><img src="images/Cloudinary.png" width="100" height="auto">
+[![](https://res.cloudinary.com/dqc0wvttr/image/upload/v1696411817/Captura_de_pantalla_2023-10-04_112835_hzkyxv.png)]
+
+
+[![]([https://res.cloudinary.com/dqc0wvttr/image/upload/v1695634508/Captura_de_pantalla_2023-09-23_215716_nqz4vb-removebg-preview_lwpq0u.png]
 
 ## Technologies and Tools 🔨
 <div>  
