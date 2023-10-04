@@ -48,53 +48,6 @@ const Login = () => {
     setIsLoginFormVisible(!isLoginFormVisible);
   };
 
-  // useEffect(() => {
-  //   // Agregar un controlador de evento antes de salir de la página
-  //   const confirmExit = (e) => {
-  //     if (loginDataInitialState) {
-  //       e.preventDefault(); // Evita que la página se cierre directamente
-
-  //       // Muestra un mensaje de confirmación personalizado
-  //       Swal.fire({
-  //         title: "¿Estás seguro de salir?",
-  //         showCancelButton: true,
-  //         confirmButtonText: "Sí, cerrar sesión",
-  //         cancelButtonText: "No, mantenerme en la página",
-  //       }).then((result) => {
-  //         if (result.isConfirmed) {
-  //           // El usuario eligió cerrar sesión
-  //           // Realiza aquí cualquier acción de cierre de sesión necesaria
-  //           setErrorMessagesLogin(false);
-  //           navigate("/"); // Redirige a la página de inicio de sesión
-  //         }
-  //       });
-  //     }
-  //   };
-
-  //   window.addEventListener("beforeunload", confirmExit);
-
-  //   return () => {
-  //     // Limpia el controlador de eventos al desmontar el componente
-  //     window.removeEventListener("beforeunload", confirmExit);
-  //   };
-  // }, [loginDataInitialState]);
-
-  // const handleLogout = () => {
-  //   // Muestra un mensaje de confirmación al usuario
-  //   Swal.fire({
-  //     title: "¿Estás seguro de salir?",
-  //     showCancelButton: true,
-  //     confirmButtonText: "Sí, cerrar sesión",
-  //     cancelButtonText: "No, mantenerme en la página",
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       // El usuario eligió cerrar sesión
-  //       // Realiza aquí cualquier acción de cierre de sesión necesaria
-  //       setErrorMessagesLogin(false);
-  //       navigate("/"); // Redirige a la página de inicio de sesión
-  //     }
-  //   });
-  // };
 
   const handleLoginSubmit = async () => {
     const { email, password } = loginData;
@@ -176,6 +129,9 @@ const Login = () => {
       });
       if (response.ok) {
         Swal.fire("Cuenta creada exitosamente", "", "success");
+      } else if (response.status === 400) {
+        const errorMessage = await response.text();
+        Swal.fire("Error", errorMessage, "error");
       } else {
         Swal.fire("Error", "No se pudo crear la cuenta", "error");
       }
@@ -195,6 +151,7 @@ const Login = () => {
       password: "",
     });
   };
+  
 
   const handleLoginInputChange = (e) => {
     const { name, value } = e.target;
@@ -225,7 +182,7 @@ const Login = () => {
         <img
           src="https://res.cloudinary.com/dqc0wvttr/image/upload//e_improve,e_sharpen/v1695634508/Captura_de_pantalla_2023-09-23_215716_nqz4vb-removebg-preview_lwpq0u.png"
           alt="Logo"
-          className="logo"
+          className="logoLogin"
         />
       </div>
       <div className="welcome-back">
