@@ -1,7 +1,4 @@
-<p![logo](https://github.com/laurabarrerogonzalez/Sound-of-Silence/assets/132609974/2b8d8395-8767-43cf-ab0c-98fbc4256341)
- align="center">
- 
-</p>
+<p![logo](https://github.com/laurabarrerogonzalez/Sound-of-Silence/assets/132609974/2b8d8395-8767-43cf-ab0c-98fbc4256341)</p>
 
 
 ## Project Description 🚀
