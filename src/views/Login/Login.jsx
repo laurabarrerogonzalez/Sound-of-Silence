@@ -48,53 +48,7 @@ const Login = () => {
     setIsLoginFormVisible(!isLoginFormVisible);
   };
 
-  // useEffect(() => {
-  //   // Agregar un controlador de evento antes de salir de la página
-  //   const confirmExit = (e) => {
-  //     if (loginDataInitialState) {
-  //       e.preventDefault(); // Evita que la página se cierre directamente
-
-  //       // Muestra un mensaje de confirmación personalizado
-  //       Swal.fire({
-  //         title: "¿Estás seguro de salir?",
-  //         showCancelButton: true,
-  //         confirmButtonText: "Sí, cerrar sesión",
-  //         cancelButtonText: "No, mantenerme en la página",
-  //       }).then((result) => {
-  //         if (result.isConfirmed) {
-  //           // El usuario eligió cerrar sesión
-  //           // Realiza aquí cualquier acción de cierre de sesión necesaria
-  //           setErrorMessagesLogin(false);
-  //           navigate("/"); // Redirige a la página de inicio de sesión
-  //         }
-  //       });
-  //     }
-  //   };
-
-  //   window.addEventListener("beforeunload", confirmExit);
-
-  //   return () => {
-  //     // Limpia el controlador de eventos al desmontar el componente
-  //     window.removeEventListener("beforeunload", confirmExit);
-  //   };
-  // }, [loginDataInitialState]);
-
-  // const handleLogout = () => {
-  //   // Muestra un mensaje de confirmación al usuario
-  //   Swal.fire({
-  //     title: "¿Estás seguro de salir?",
-  //     showCancelButton: true,
-  //     confirmButtonText: "Sí, cerrar sesión",
-  //     cancelButtonText: "No, mantenerme en la página",
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       // El usuario eligió cerrar sesión
-  //       // Realiza aquí cualquier acción de cierre de sesión necesaria
-  //       setErrorMessagesLogin(false);
-  //       navigate("/"); // Redirige a la página de inicio de sesión
-  //     }
-  //   });
-  // };
+  
 
   const handleLoginSubmit = async () => {
     const { email, password } = loginData;
