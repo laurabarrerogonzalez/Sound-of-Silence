@@ -81,8 +81,9 @@ Coming soon, we will continue developing the Full Stack project with the reposit
 
 ## Authors 👨‍💻👩‍💻
 
-| [<img src="https://avatars.githubusercontent.com/u/132559559?v=4" width=100><br><sub>Laura Barrero</sub>](https://github.com/laurabarrerogonzalez) | [<img src="https://avatars.githubusercontent.com/u/132651136?v=4" width=100><br><sub>Rebeca Poma</sub>](https://github.com/rebecapoma6) | [<img src="https://avatars.githubusercontent.com/u/119860615?s=400&u=26aa08049bc181d41a8eca0c67183531140bee8a&v=4" width=100><br><sub>Anthony Brayan</sub>](https://github.com/AnthonyBrayan)| [<img src="https://avatars.githubusercontent.com/u/132609974?v=4" width=100><br><sub>Celia Gil</sub>](https://github.com/CeliaGilPrieto) |  
+| [<img src="https://avatars.githubusercontent.com/u/132559559?v=4" width=100><br><sub>Laura Barrero</sub>](https://github.com/laurabarrerogonzalez) | [<img src="https://avatars.githubusercontent.com/u/132651136?v=4" width=100><br><sub>Rebeca Poma</sub>](https://github.com/rebecapoma6) | [<img src="https://avatars.githubusercontent.com/u/119860615?s=400&u=26aa08049bc181d41a8eca0c67183531140bee8a&v=4" width=100><br><sub>Anthony Brayan</sub>](https://github.com/AnthonyBrayan)| [<img src="https://avatars.githubusercontent.com/u/132609974?v=4" width=100><br><sub>Celia Gil</sub>](https://github.com/CeliaGilPrieto) | [<img src="https://avatars.githubusercontent.com/u/132656487?v=4" width=100><br><sub>Juan Lumbi</sub>](https://github.com/juanlumbi)  
 | :---: | :---: | :---: | :---: |
+
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
