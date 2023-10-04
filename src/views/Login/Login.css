@@ -28,9 +28,9 @@
     transform: scale(1.2); /* Escala la imagen al 110% cuando el cursor está encima */
   }
   
-  .logo {
+  .logoLogin {
     /* max-width: 100px; */
-    width: 300px;
+    width: 250px;
     height: 200px;
  
   }

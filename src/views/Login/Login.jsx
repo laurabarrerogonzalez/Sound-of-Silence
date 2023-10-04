@@ -48,7 +48,6 @@ const Login = () => {
     setIsLoginFormVisible(!isLoginFormVisible);
   };
 
-  
 
   const handleLoginSubmit = async () => {
     const { email, password } = loginData;
@@ -130,6 +129,9 @@ const Login = () => {
       });
       if (response.ok) {
         Swal.fire("Cuenta creada exitosamente", "", "success");
+      } else if (response.status === 400) {
+        const errorMessage = await response.text();
+        Swal.fire("Error", errorMessage, "error");
       } else {
         Swal.fire("Error", "No se pudo crear la cuenta", "error");
       }
@@ -149,6 +151,7 @@ const Login = () => {
       password: "",
     });
   };
+  
 
   const handleLoginInputChange = (e) => {
     const { name, value } = e.target;
@@ -179,7 +182,7 @@ const Login = () => {
         <img
           src="https://res.cloudinary.com/dqc0wvttr/image/upload//e_improve,e_sharpen/v1695634508/Captura_de_pantalla_2023-09-23_215716_nqz4vb-removebg-preview_lwpq0u.png"
           alt="Logo"
-          className="logo"
+          className="logoLogin"
         />
       </div>
       <div className="welcome-back">
