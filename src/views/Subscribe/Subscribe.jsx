@@ -6,8 +6,8 @@ import './Subscribe.css'
 const Subscribe = () => {
   return (
     <>
-      <Header />
-      {/* <h1>Hola Margarito</h1> */}
+      <Header/> 
+      
       <br />
       <Footer />
     </>

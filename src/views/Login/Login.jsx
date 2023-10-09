@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
-import { Container } from 'postcss';
+
 
 
 
@@ -77,9 +77,9 @@ const Login = () => {
         const responseData = await response.json();
         const userRole = responseData.role;
         if (userRole === 1) {
-          navigate("/admin");
+          navigate('/admin');
         } else if (userRole === 2) {
-          navigate("/subscribe");
+          navigate('/subscribe');
           
         } else {
           Swal.fire("Error", "Usuario no autorizado", "error");

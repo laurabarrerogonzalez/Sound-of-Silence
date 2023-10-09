@@ -13,7 +13,7 @@ export default function Header() {
       </div>
 
       <div className="welcome">
-        <h1>Hola Fulanito</h1>
+        <h1>Hi Laura</h1>
       </div>
 
       <div className="windons">
