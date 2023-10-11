@@ -60,6 +60,58 @@
     text-align: center;
 }
 
+@media (max-width: 420px) {
+  .welcome-back {
+    display: flex;
+    flex-wrap: wrap;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      margin-top: 50px;
+  }
+  .custoom-signup-button::before {
+    content: "Do not you have an account yet?" ; 
+    color: white; 
+    font-weight: bold;
+}
+
+.custoom-color::before {
+  content: "Do you already have an account?" ; 
+  color: white; 
+  font-weight: bold;
+}
+
+.custoom-signup-button {
+  
+    background-color: transparent !important; /* Fondo transparente */
+    border: none !important; /* Sin borde */
+    border-radius: 0 !important; /* Sin borde redondeado */
+    color: inherit !important; /* Color heredado (generalmente negro) */
+    padding: 0; /* Eliminar el relleno si lo hay */
+    font-size: inherit; /* Tamaño de fuente heredado */
+    /* Otros estilos predeterminados según tus necesidades */
+    
+        
+}
+
+.custoom-color {
+  
+  background-color: transparent !important; /* Fondo transparente */
+  border: none !important; /* Sin borde */
+  border-radius: 0 !important; /* Sin borde redondeado */
+  color: inherit !important; /* Color heredado (generalmente negro) */
+  padding: 0; /* Eliminar el relleno si lo hay */
+  font-size: inherit; /* Tamaño de fuente heredado */
+  /* Otros estilos predeterminados según tus necesidades */
+      
+}
+
+.welcome-text h2,p{
+  display:none;
+}
+
+}
+
 .message {
     padding: 1rem;
 }
@@ -93,10 +145,22 @@
 
 .formulario {
     width: 400px;
+    height: 500px;
     padding: 1rem;
     margin: 2rem;
     background-color: rgb(51, 51, 51, 0.602);
     text-align: center;
+   
+}
+
+.formularioo {
+  width: 400px;
+  height: 500px;
+  padding: 1rem;
+  margin: 2rem;
+  background-color: rgba(255, 255, 255, 0.602);
+  text-align: center;
+ 
 }
 
 .create-account {
@@ -148,6 +212,22 @@
     color: white;
 }
 
+.formularioo input {
+  width: 70%;
+  display: block;
+  margin: auto;
+  margin-bottom: 2rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: white thin solid;
+  text-align: center;
+  outline: none;
+  padding: .2rem 0;
+  font-size: .9rem;
+  color: rgb(0, 0, 0);
+}
+
+
 .formulario input[type="button"] {
     width: 60%;
     margin: auto;
@@ -160,6 +240,21 @@
     font-size: .8rem;
     cursor: pointer;
     color: #222;
+}
+
+
+.formularioo input[type="button"] {
+  width: 60%;
+  margin: auto;
+  border: solid thin white;
+  padding: .7rem;
+  border-radius: 2rem;
+  background-color: white;
+  font-weight: 800;
+  margin-top: 3rem;
+  font-size: .8rem;
+  cursor: pointer;
+  color: #222;
 }
 
 .sign-in {
@@ -188,8 +283,23 @@
 
 
   .custom-color {
-    background-color: #411E05 !important;
-    color: white !important;
+    background-color: #411E05!important;
+  border: 4px solid #411E05!important;
+  border-radius: 6px!important;
+  color: rgb(255, 255, 255)!important;
+  cursor: pointer;
+  padding: 16px 32px;
+  font: 600 22px;
+  box-shadow: 0 6px 0 #66280a;
+  transition: .1s;
+
+  }
+
+
+
+  .custom-color:active{
+    transform: translateY(5px);
+    box-shadow: 0 3px 0 #A16543;
   }
 
   .white-background {
@@ -211,11 +321,22 @@
 
   
   .custom-signup-button {
-    background-color: #A16543 !important;
-    border: 4px solid #411E05 !important;
-    border-radius: 10px !important;
-    color: black !important;
+  background-color: #A16543!important;
+  border: 4px solid #A16543!important;
+  border-radius: 6px!important;
+  color: black!important;
+  cursor: pointer;
+  padding: 18px 32px;
+  font: 600 22px;
+  box-shadow: 0 6px 0 #411E05;
+  transition: .1s;
   }
+
+  .custom-signup-button:active{
+    transform: translateY(5px);
+    box-shadow: 0 3px 0 #411E05;
+  }
+
 
 
 
@@ -240,9 +361,10 @@
   .error-message{
     color: red;
     font-size: 10px;
-    margin-top: 5px; /* Ajusta esta propiedad para cambiar la distancia vertical */
-    margin-bottom: 10px;
-  }
+    margin-top: 10px; /* Ajusta el valor negativo para mover el mensaje hacia arriba */
+  margin-bottom: 2px; /* Mantiene el margen inferior */
+}
+  
 
 
 

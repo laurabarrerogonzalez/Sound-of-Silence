@@ -1,4 +1,6 @@
 import React, { useRef, useState } from "react";
+import "../CardFiles/CardFiles.css";
+
 
 const Card = ({ videoSrc, audioSrc, title, description }) => {
     const videoRef = useRef(null);
@@ -36,6 +38,7 @@ const Card = ({ videoSrc, audioSrc, title, description }) => {
     };
 
     return (
+        
         <div className="card" onMouseEnter={playVideo} onMouseLeave={pauseVideo}>
             <div className="imgBx">
                 <video
@@ -56,6 +59,7 @@ const Card = ({ videoSrc, audioSrc, title, description }) => {
             </div>
         </div>
     );
+
 };
 
 export default Card;

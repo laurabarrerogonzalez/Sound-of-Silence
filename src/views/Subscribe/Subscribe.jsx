@@ -1,12 +1,14 @@
 import React from "react";
-import Header from "../../Componets/Header/Header.jsx";
+
 import Footer from "../../Componets/Footer/Footer.jsx";
 import './Subscribe.css'
+import Navbar from "../../Componets/Navbar/NavBar";
+
 
 const Subscribe = () => {
   return (
     <>
-      <Header />
+      <Navbar />
       {/* <h1>Hola Margarito</h1> */}
       <br />
       <Footer />
