@@ -28,3 +28,16 @@
     max-width: 40px; /* Ajusta el tamaño de los íconos según tu preferencia */
   }
   
+
+  @media screen and (min-width: 430px) {
+    .footer-container {
+      flex-direction: row;
+    }
+  
+    .footer-container .politics,
+    .footer-container .socialnetwords {
+      flex: 1;
+      margin-bottom: 0;
+      font-size: 5px;
+    }
+  }

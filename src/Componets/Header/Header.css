@@ -56,3 +56,15 @@
     border-radius: 5px; 
     /* white-space: nowrap; */
 }   
+
+@media screen and (max-width: 430px) {
+  .windons a {
+    display: none;
+  }
+  .menu-button {
+    display: block;
+  }
+  .open .windons a {
+    display: block;
+  }
+}

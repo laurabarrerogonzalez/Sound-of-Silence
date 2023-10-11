@@ -87,6 +87,30 @@
   /* O ajusta este valor según tus necesidades */
 }
 
+@media screen and (max-width: 430px) {
+  .container-admin {
+    flex-direction: column; /* Cambia la dirección a columna */
+    align-items: center; /* Centra las tarjetas en el centro de la pantalla */
+    border-top: 25px;
+  }
+
+  .container-admin .card {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: none; /* Elimina el ancho máximo */
+    height: auto; /* Ajusta la altura automáticamente al contenido */
+    margin: 15px 0; /* Espacio entre las tarjetas */
+  }
+
+  .container-admin .card .imgBx {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    top: 0;
+    left: 0;
+    margin-left: 0;
+  }
+}
+
 
 
 
