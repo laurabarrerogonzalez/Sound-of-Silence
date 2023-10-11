@@ -22,7 +22,7 @@ const Admin = () => {
   const [filteredCards, setFilteredCards] = useState([]);
 
   useEffect(() => {
-    // Llama a la función para obtener todas las tarjetas al cargar la página
+    
     fetchAllCards();
   }, []);
 
@@ -32,12 +32,12 @@ const Admin = () => {
       if (response.ok) {
         const data = await response.json();
         setCards(data);
-        setFilteredCards(data); // Mostrar todas las tarjetas al principio
+        setFilteredCards(data); 
       } else {
-        console.error('Error en la obtención de datos');
+        console.error('Data collection error');
       }
     } catch (error) {
-      console.error('Error en la obtención de datos', error);
+      console.error('Data collection error', error);
     }
   };
 
@@ -53,7 +53,7 @@ const Admin = () => {
     e.preventDefault();
   
     if (isEditing) {
-      // Lógica para la edición de tarjetas
+      
       const updatedData = {
         videoSrc: formData.videoSrc,
         audioSrc: formData.audioSrc,
@@ -74,23 +74,23 @@ const Admin = () => {
             Swal.fire('Success', 'Card updated successfully!', 'success');
             setEditCardId(null);
             setIsEditing(false);
-            // Actualizar la lista de tarjetas
+            
             fetchAllCards();
-            // Limpiar los campos del formulario
+            
             setFormData({
               videoSrc: '',
               audioSrc: '',
               title: '',
               description: '',
-              category: 'Naturaleza',
+              category: 'Nature',
             });
           } else {
-            console.error('Error al actualizar la tarjeta', error);
+            console.error('Error updating card', error);
             Swal.fire('Error', 'Failed to update card.', 'error');
           }
         })
         .catch((error) => {
-          console.error('Error al actualizar la tarjeta', error);
+          console.error('Error updating card', error);
           Swal.fire('Error', 'An error occurred while updating the card.', 'error');
         });
     } else {
@@ -115,7 +115,7 @@ const Admin = () => {
             audioSrc: '',
             title: '',
             description: '',
-            category: 'Naturaleza',
+            category: 'Nature',
           });
   
           fetchAllCards();
@@ -132,11 +132,11 @@ const Admin = () => {
 
   const handleLogout = () => {
     Swal.fire({
-      title: '¿Estás seguro de que quieres cerrar sesión?',
+      title: 'Are you sure you want to log out?',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sí, cerrar sesión',
-      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Yes, log out',
+      cancelButtonText: 'Cancel',
     }).then((result) => {
       if (result.isConfirmed) {
         navigate('/login', { replace: true });
@@ -155,10 +155,10 @@ const Admin = () => {
           const data = await response.json();
           setFilteredCards(data);
         } else {
-          console.error('Error al obtener tarjetas por categoría');
+          console.error('Error getting cards by category');
         }
       } catch (error) {
-        console.error('Error al obtener tarjetas por categoría', error);
+        console.error('Error getting cards by category', error);
       }
     }
 
@@ -167,9 +167,9 @@ const Admin = () => {
 
   const getCategoryByName = (name) => {
     switch (name) {
-      case 'Naturaleza':
+      case 'Nature':
         return 1;
-      case 'Instrumento':
+      case 'Instrument':
         return 2;
       default:
         return null;
@@ -178,12 +178,12 @@ const Admin = () => {
 
   const handleDelete = async (id_AudioFiles) => {
     Swal.fire({
-      title: '¿Estás seguro de que quieres borrar esta tarjeta?',
-      text: 'Esta acción no se puede deshacer.',
+      title: 'Are you sure you want to delete this card?',
+      text: 'This action cannot be undone.',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sí, borrar',
-      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Yes, delete',
+      cancelButtonText: 'Cancel',
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
@@ -207,12 +207,12 @@ const Admin = () => {
 
   const handleEdit = (id) => {
     Swal.fire({
-      title: '¿Estás seguro de que quieres editar esta tarjeta?',
-      text: 'Esta acción abrirá un formulario de edición.',
+      title: 'Are you sure you want to edit this card?',
+      text: 'This action will open an edit form.',
       icon: 'info',
       showCancelButton: true,
-      confirmButtonText: 'Sí, editar',
-      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Yes, edit',
+      cancelButtonText: 'Cancel',
     }).then((result) => {
       if (result.isConfirmed) {
         const cardToEdit = cards.find((card) => card.id_AudioFiles === id);
@@ -239,11 +239,11 @@ const Admin = () => {
   const getCategoryById = (id) => {
     switch (id) {
       case 1:
-        return 'Naturaleza';
+        return 'Nature';
       case 2:
-        return 'Instrumento';
+        return 'Instrument';
       default:
-        return 'Naturaleza';
+        return 'Nature';
     }
   };
 
@@ -303,8 +303,8 @@ const Admin = () => {
               onChange={handleChange}
               required
             >
-              <option value="Naturaleza">Naturaleza</option>
-              <option value="Instrumento">Instrumento</option>
+              <option value="Nature">Nature</option>
+              <option value="Instrument">Instrument</option>
             </select>
 
             <button type="submit" className="Add">
@@ -317,16 +317,16 @@ const Admin = () => {
             All Cards
           </button>
           <button
-            onClick={() => handleFilter('Naturaleza')}
-            className={filterCategory === 'Naturaleza' ? 'active' : ''}
+            onClick={() => handleFilter('Nature')}
+            className={filterCategory === 'Nature' ? 'active' : ''}
           >
-            Naturaleza
+            Nature
           </button>
           <button
-            onClick={() => handleFilter('Instrumento')}
-            className={filterCategory === 'Instrumento' ? 'active' : ''}
+            onClick={() => handleFilter('Instrument')}
+            className={filterCategory === 'Instrument' ? 'active' : ''}
           >
-            Instrumento
+            Instrument
           </button>
         </div>
         <div className="container-admin">
