@@ -169,7 +169,7 @@ const Login = () => {
   };
 
   return (
-    <container id="ContainerLogin">
+    <div id="ContainerLogin">
       <div className="container-form">
         <video autoPlay loop muted className="video-background">
           <source
@@ -292,7 +292,7 @@ const Login = () => {
           )}
         </div>
       </div>
-    </container>
+    </div>
   );
 };
 export default Login;

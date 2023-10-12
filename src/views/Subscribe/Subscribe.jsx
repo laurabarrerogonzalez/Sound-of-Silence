@@ -1,117 +1,109 @@
 
-import React, { useState, useEffect } from 'react'; 
-import Footer from "../../Componets/Footer/Footer.jsx";
-import './Subscribe.css'
-import '../Admin/Admin.css'
-import Navbar from "../../Componets/Navbar/NavBar";
+// // import React, { useState, useEffect } from 'react'; 
+// // import Footer from "../../Componets/Footer/Footer.jsx";
+// // import './Subscribe.css'
+// // import '../Admin/Admin.css'
+// // import Navbar from "../../Componets/Navbar/Navbar.jsx";
+
+
+// // const Subscribe = () => {
+
+
+// //   return (
+// // <>
+// // <Navbar />
+
+// //   <h1>Holaaaaaaa</h1>
+
+// // <Footer />
+// // </>
+// //   );
+// //           }
+// // export default Subscribe;
+
+
+
+
+
+// // import React, { useState } from 'react';
+// // import Navbar from "../../Componets/Navbar/Navbar";
+// // import Footer from "../../Componets/Footer/Footer.jsx";
+// // import Home from "../../Home/Home";
+// // import './Subscribe.css';
+
+// // const Subscribe = () => {
+// //   const [isNavbarOpen, setIsNavbarOpen] = useState(true);
+
+// //   const handleNavbarToggle = () => {
+// //     setIsNavbarOpen(!isNavbarOpen);
+// //   };
+
+// //   return (
+// //     <>
+// //       <Navbar isOpen={isNavbarOpen} selected="home" />
+// //       <div className={`content ${isNavbarOpen ? 'content-open' : ''}`}>
+// //         {isNavbarOpen && <Home />} {/* Mostrar Home solo cuando el Navbar esté abierto */}
+// //       </div>
+// //       <Footer />
+// //     </>
+// //   );
+// // }
+
+// // export default Subscribe;
+
+
+
+// import React, { useState } from 'react';
+// import Navbar from "../../Componets/Navbar/Navbar";
+// import Footer from "../../Componets/Footer/Footer.jsx";
+// import Home from "../../Home/Home";
+
+// import './Subscribe.css';
+// import Favorites from '../../Componets/Favorites/Favorites';
+
+// const Subscribe = () => {
+//   const [isNavbarOpen, setIsNavbarOpen] = useState(true);
+//   const [selectedPage, setSelectedPage] = useState("home");
+
+//   const handleNavbarToggle = () => {
+//     setIsNavbarOpen(!isNavbarOpen);
+//   };
+
+//   const navigateTo = (page) => {
+//     setSelectedPage(page);
+//   };
+
+//   return (
+//     <div className="subscribe-container">
+//       <Navbar isOpen={isNavbarOpen} selected={selectedPage} onToggle={handleNavbarToggle} onNavigate={navigateTo} />
+//       <div className={`content ${isNavbarOpen ? 'content-open' : ''}`}>
+//         {selectedPage === 'home' && <Home />}
+//         {selectedPage === 'favorites' && <Favorites />}
+//       </div>
+//       <Footer />
+//     </div>
+//   );
+// }
+
+// export default Subscribe;
+
+
+
+
+
+
+import React, { useState } from 'react';
+import Home from '../../Home/Home';
+
 
 
 const Subscribe = () => {
-  const [cards, setCards] = useState([]);
-  const [filterCategory, setFilterCategory] = useState('all');
-  const [filteredCards, setFilteredCards] = useState([]);
-
-  useEffect(() => {
-    // Realiza una solicitud GET a tu API para obtener las tarjetas
-    fetch('https://localhost:7134/AudioFiles/Get')
-      .then((response) => response.json())
-      .then((data) => {
-        setCards(data);
-        setFilteredCards(data); // Inicialmente muestra todas las tarjetas
-      })
-      .catch((error) => {
-        console.error('Error al obtener las tarjetas:', error);
-      });
-  }, []);
-
-  const handleFilter = async (category) => {
-    if (category === 'all') {
-      setFilteredCards(cards);
-    } else {
-      try {
-        const response = await fetch(`https://localhost:7134/AudioFiles/GetByCategory/${getCategoryByName(category)}`);
-
-        if (response.ok) {
-          const data = await response.json();
-          setFilteredCards(data);
-        } else {
-          console.error('Error getting cards by category');
-        }
-      } catch (error) {
-        console.error('Error getting cards by category', error);
-      }
-    }
-
-    setFilterCategory(category);
-  };
-
-  const getCategoryByName = (name) => {
-    switch (name) {
-      case 'Nature':
-        return 1;
-      case 'Instrument':
-        return 2;
-      default:
-        return 1;
-    }
-  };
 
   return (
-<>
-<Navbar />
-<div className="bodyadmin">
-     
-      <div className="filter-buttons">
-        <button onClick={() => handleFilter('all')} className={filterCategory === 'all' ? 'active' : ''}>
-          All Cards
-        </button>
-        <button
-          onClick={() => handleFilter('Nature')}
-          className={filterCategory === 'Nature' ? 'active' : ''}
-        >
-          Nature
-        </button>
-        <button
-          onClick={() => handleFilter('Instrument')}
-          className={filterCategory === 'Instrument' ? 'active' : ''}
-        >
-          Instrument
-        </button>
-      </div>
-      <div className="container-admin">
-        <div className="card-container">
-          {filteredCards.map((card, index) => (
-            <div className="card" key={index}>
-              <div className="imgBx">
-                <video
-                  src={card.videoSrc}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="auto"
-                  poster={card.videoSrc}
-                  style={{ width: '100%', pointerEvents: 'none', marginLeft: '50px' }}
-                />
-              </div>
-              <div className="content">
-                <h2 style={{ marginTop: '-100px' }}>{card.title}</h2>
-                <p style={{ marginBottom: '10px' }}>{card.description}</p>
-                <audio controls style={{ margin: '0' }}>
-                  <source src={card.audioSrc} type="audio/mpeg" />
-                  Your browser does not support the audio element.
-                </audio>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-     
-    </div>
-  
-
-<Footer />
-</>
+    <>
+        <Home />
+    </>
   );
-          }
+}
+
 export default Subscribe;
