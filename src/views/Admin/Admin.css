@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 .bodyadmin {
   font-family: 'Poppins', sans-serif;
@@ -10,25 +9,31 @@
   align-items: center;
 }
 
+.container-admin{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.card {
+  height: 300px;
+  width: 200px;
+   /* Ajusta la posición de la imagen para evitar superposiciones */
+ }
+
 .card-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-bottom: 60px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 80px;
+  width: 100%;
+  height: 100%;
 }
 
 .container-admin > div {
   margin-top: 20px;
 }
 
-.container-admin {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 4%;
-}
 
 .container-admin .card {
   position: relative;

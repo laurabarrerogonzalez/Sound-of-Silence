@@ -59,7 +59,7 @@ const Subscribe = () => {
   return (
 <>
 <Navbar />
-<div className="bodyadmin">
+<div className="boodySubscribe">
      
       <div className="filter-buttons">
         <button onClick={() => handleFilter('all')} className={filterCategory === 'all' ? 'active' : ''}>

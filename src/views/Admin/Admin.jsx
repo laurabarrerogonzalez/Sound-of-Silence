@@ -3,6 +3,7 @@ import './Admin.css';
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../../Componets/Footer/Footer';
 
 const Admin = () => {
   const navigate = useNavigate();
@@ -254,7 +255,9 @@ const Admin = () => {
 
   return (
     <>
+   
       <div className="bodyadmin">
+      <h1>Welcome Admin</h1>
         <button className="logout-button" onClick={handleLogout}>
           Log out
         </button>
@@ -369,6 +372,7 @@ const Admin = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
