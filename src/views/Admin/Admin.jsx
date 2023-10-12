@@ -52,6 +52,10 @@ const Admin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
+    const categoryId = getCategoryByName(formData.category);
+
+
+
     if (isEditing) {
       
       const updatedData = {
@@ -59,7 +63,7 @@ const Admin = () => {
         audioSrc: formData.audioSrc,
         title: formData.title,
         description: formData.description,
-        Id_category: getCategoryByName(formData.category),
+        Id_category: categoryId,
       };
   
       fetch(`https://localhost:7134/AudioFiles/Put/${editCardId}`, {
@@ -172,7 +176,7 @@ const Admin = () => {
       case 'Instrument':
         return 2;
       default:
-        return null;
+        return 1;
     }
   };
 
