@@ -1,7 +1,8 @@
-import React from "react";
 
+import React, { useState, useEffect } from 'react'; 
 import Footer from "../../Componets/Footer/Footer.jsx";
 import './Subscribe.css'
+import '../Admin/Admin.css'
 import Navbar from "../../Componets/Navbar/NavBar";
 
 
@@ -56,11 +57,10 @@ const Subscribe = () => {
   };
 
   return (
-
-    
-
-    <div className="bodyadmin">
-       <Header />
+<>
+<Navbar />
+<div className="bodyadmin">
+     
       <div className="filter-buttons">
         <button onClick={() => handleFilter('all')} className={filterCategory === 'all' ? 'active' : ''}>
           All Cards
@@ -106,9 +106,12 @@ const Subscribe = () => {
           ))}
         </div>
       </div>
-      <Footer />
+     
     </div>
-  );
-};
+  
 
+<Footer />
+</>
+  );
+          }
 export default Subscribe;
