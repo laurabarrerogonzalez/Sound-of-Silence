@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import '../Admin/Admin.css';
-import Header from '../../Componets/Header/Header';
-import Footer from '../../Componets/Footer/Footer';
+import React from "react";
+
+import Footer from "../../Componets/Footer/Footer.jsx";
+import './Subscribe.css'
+import Navbar from "../../Componets/Navbar/NavBar";
+
 
 const Subscribe = () => {
   const [cards, setCards] = useState([]);
@@ -104,10 +106,8 @@ const Subscribe = () => {
           ))}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
-
-    
   );
 };
 
