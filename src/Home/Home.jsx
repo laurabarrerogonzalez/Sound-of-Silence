@@ -282,7 +282,7 @@ const Home = () => {
   const handleFavoriteClick = async (cardId) => {
     // Realiza una solicitud POST al backend para marcar una tarjeta como favorita
     try {
-      const response = await fetch('https://localhost:7134/Users/Favorite', {
+      const response = await fetch('https://localhost:7134/UserAudio/Post', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`, // Incluye el token en el encabezado
