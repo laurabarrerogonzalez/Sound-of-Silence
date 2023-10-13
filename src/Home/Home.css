@@ -1,0 +1,13 @@
+/* Estilo de la estrella */
+.star {
+    font-size: 20px; /* Tamaño de la estrella */
+    color: black;
+    cursor: pointer;
+    transition: color 0.3s; /* Agrega una transición para suavizar el cambio de color */
+  }
+  
+  /* Estilo de la estrella rosa */
+  .star.star-pink {
+    color: pink;
+  }
+  
