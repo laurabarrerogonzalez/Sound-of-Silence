@@ -3,11 +3,6 @@ import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> origin/Laura2
 const Login = () => {
   const [isLoginFormVisible, setIsLoginFormVisible] = useState(true);
   const [isLoginFormSubmitted, setIsLoginFormSubmitted] = useState(false);
@@ -200,17 +195,6 @@ const Login = () => {
                   value={loginData.email}
                   onChange={handleLoginInputChange}
                 />
-<<<<<<< HEAD
-              )}
-            </form>
-            <div className={`message ${isLoginFormVisible ? "" : "hide"}`}>
-              <div className="welcome-text">
-                <h2>Welcome to Sound of Silence</h2>
-                <p>If you already have an account please login here</p>
-                <button className="custom-signup-button" onClick={toggleLoginForm}>
-                Sign up
-              </button>
-=======
                 <span className="error-message">{errorMessagesLogin.email}</span>
                 <input
                   type="password"
@@ -258,7 +242,6 @@ const Login = () => {
                   </button>
                 </div>
 
->>>>>>> origin/Laura2
               </div>
               <form className="formularioo">
                 <h2 className="create-account">Create an account</h2>
