@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../Componets/Header/Header.jsx";
 import Footer from "../../Componets/Footer/Footer.jsx";
-// import MusicSearch from './components/MusicSearch';
+// import MusicSearch from "../../Componets/MusicSearch/MusicSearch.jsx";
 import './Subscribe.css'
 // import './MusicSearch.css';
 
