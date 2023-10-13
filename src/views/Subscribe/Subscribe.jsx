@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
-import Header from "../../Componets/Header/Header.jsx";
-import Footer from "../../Componets/Footer/Footer.jsx";
-import SubscribePagination from "../../Componets/Pagination/SubscribePagination.jsx"; // Asegúrate de que la ruta sea correcta
-=======
 
 // // import React, { useState, useEffect } from 'react'; 
 // // import Footer from "../../Componets/Footer/Footer.jsx";
@@ -95,32 +89,18 @@ import SubscribePagination from "../../Componets/Pagination/SubscribePagination.
 
 
 
-
-
-
 import React, { useState } from 'react';
 import Home from '../../Home/Home';
 
 
->>>>>>> origin/Laura2
 
 const Subscribe = () => {
 
   return (
     <>
-<<<<<<< HEAD
-      <Header />
-      <SubscribePagination /> {/* Habilita la paginación */}
-      <h1>Subscribe</h1>
-      <Footer />
-    </>
-  );
-};
-=======
         <Home />
     </>
   );
 }
->>>>>>> origin/Laura2
 
 export default Subscribe;

@@ -2,6 +2,7 @@ import React from 'react';
 import "../../Componets/Footer/Footer.css";
 
 
+
 const Footer=()=>{
   return(
     <div className="footer">
