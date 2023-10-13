@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
-import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
-import './Login.css';
-
-
+import React, { useState } from "react";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import "./Login.css";
 
 const Login = () => {
   const [isLoginFormVisible, setIsLoginFormVisible] = useState(true);
@@ -47,6 +45,12 @@ const Login = () => {
     setIsLoginFormVisible(!isLoginFormVisible);
   };
 
+  function setCookie(cname, cvalue, minutes) {
+    const d = new Date();
+    d.setTime(d.getTime() + minutes * 60 * 1000); // Calcula la fecha de expiración en milisegundos
+    const expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
 
   const handleLoginSubmit = async () => {
     const { email, password } = loginData;
@@ -75,11 +79,16 @@ const Login = () => {
         setErrorMessagesLogin(true);
         const responseData = await response.json();
         const userRole = responseData.role;
+        //-----------------------------------------------------------------------------
+        const token = responseData.token;
+
+        setCookie("jwtToken", token, 30);
+
+        //-----------------------------------------------------------------------------
         if (userRole === 1) {
-          navigate('/admin');
+          navigate("/admin");
         } else if (userRole === 2) {
-          navigate('/subscribe');
-          
+          navigate("/subscribe");
         } else {
           Swal.fire("Error", "Usuario no autorizado", "error");
         }
@@ -151,7 +160,6 @@ const Login = () => {
     });
   };
 
-
   const handleLoginInputChange = (e) => {
     const { name, value } = e.target;
     setLoginData({
@@ -187,7 +195,6 @@ const Login = () => {
         <div className="welcome-back">
           {isLoginFormVisible ? (
             <>
-
               <form className="formulario">
                 <h2 className="create-account">Login</h2>
                 <input
@@ -197,7 +204,9 @@ const Login = () => {
                   value={loginData.email}
                   onChange={handleLoginInputChange}
                 />
-                <span className="error-message">{errorMessagesLogin.email}</span>
+                <span className="error-message">
+                  {errorMessagesLogin.email}
+                </span>
                 <input
                   type="password"
                   placeholder="Password"
@@ -223,32 +232,35 @@ const Login = () => {
                 <div className="welcome-text">
                   <h2>Welcome to Sound of Silence</h2>
                   <p>If you don't have an account please register here</p>
-                  <button className="custoom-signup-button" onClick={toggleLoginForm}>
+                  <button
+                    className="custoom-signup-button"
+                    onClick={toggleLoginForm}
+                  >
                     Sign up
                   </button>
                 </div>
-
               </div>
             </>
           ) : (
             <>
               <div
-                className={`message white-text bold-text ${isLoginFormVisible ? "hide" : ""
-                  }`}
+                className={`message white-text bold-text ${
+                  isLoginFormVisible ? "hide" : ""
+                }`}
               >
                 <div className="welcome-text">
                   <h2>Welcome to Sound of Silence</h2>
-                  <p >If you already have an account please login here</p>
+                  <p>If you already have an account please login here</p>
                   <button className="custoom-color" onClick={toggleLoginForm}>
                     Login
                   </button>
                 </div>
-
               </div>
               <form className="formularioo">
                 <h2 className="create-account">Create an account</h2>
                 <p className="cuenta-gratis">Create an account is free</p>
-                <input className='Create'
+                <input
+                  className="Create"
                   type="text"
                   placeholder="Name"
                   name="Name_user"
@@ -262,7 +274,6 @@ const Login = () => {
                   name="email"
                   value={createAccountData.email}
                   onChange={handleCreateAccountInputChange}
-                  
                 />
                 <span className="error-message">{errorMessages.email}</span>
                 <input
