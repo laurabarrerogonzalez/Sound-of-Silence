@@ -6,11 +6,14 @@ import '../Admin/Admin.css'
 import Navbar from "../../Componets/Navbar/NavBar";
 
 
+
+
 const Subscribe = () => {
   const [cards, setCards] = useState([]);
   const [filterCategory, setFilterCategory] = useState('all');
   const [filteredCards, setFilteredCards] = useState([]);
-
+  
+  
   useEffect(() => {
     // Realiza una solicitud GET a tu API para obtener las tarjetas
     fetch('https://localhost:7134/AudioFiles/Get')
@@ -78,6 +81,8 @@ const Subscribe = () => {
           Instrument
         </button>
       </div>
+
+
       <div className="container-admin">
         <div className="card-container">
           {filteredCards.map((card, index) => (
