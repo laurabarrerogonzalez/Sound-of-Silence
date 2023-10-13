@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "../../Pagination/Pagination.css"; // Asegúrate de que la ruta del archivo CSS sea correcta
+import "../Pagination/Pagination.css"; // Asegúrate de que la ruta del archivo CSS sea correcta
 
 const itemsPerPage = 1; // Cambia esto según tus necesidades
 const adminData = [/* Tus datos de administradores aquí */]; // Asegúrate de tener un array de datos de administradores

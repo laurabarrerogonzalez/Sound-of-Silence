@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "../../Pagination/Pagination.css";
+import "../Pagination/Pagination.css";
 
 const subscribersPerPage = 6; // Cambia esto según tus necesidades
 const subscribers = [/* Tus datos de suscriptores aquí */]; // Asegúrate de tener un array de suscriptores

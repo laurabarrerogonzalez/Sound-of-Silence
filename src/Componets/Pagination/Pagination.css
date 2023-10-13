@@ -1,6 +1,8 @@
 /* Estilos generales para la paginación */
 .pagination {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 20px;
 }
 
@@ -11,6 +13,8 @@
   padding: 10px 15px;
   margin: 5px;
   cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 .pagination button:disabled {
@@ -18,17 +22,32 @@
   cursor: not-allowed;
 }
 
-/* Estilos específicos para los componentes */
-.subscriber-card {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin: 10px;
-  background-color: #f7f7f7;
+/* Estilos para los botones "Previous" y "Next" */
+.pagination button.previous {
+  background-color: #555;
 }
 
-.admin-item {
+.pagination button.next {
+  background-color: #555;
+}
+
+/* Estilos específicos para las tarjetas de suscriptores y administradores */
+.subscriber-card, .admin-item {
   border: 1px solid #ccc;
   padding: 10px;
   margin: 10px;
   background-color: #f7f7f7;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para los detalles del suscriptor o administrador */
+.subscriber-card p, .admin-item p {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* Estilo para la paginación activa */
+.pagination button.active {
+  background-color: #ff8800;
 }
