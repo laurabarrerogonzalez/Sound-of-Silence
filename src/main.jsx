@@ -38,8 +38,8 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Login from './views/Login/Login.jsx';
 import Subscribe from './views/Subscribe/Subscribe.jsx';
 import Admin from './views/Admin/Admin.jsx';
-import Home from './Home/Home.jsx';
-import Favorites from './views/Favorites/Favorites.jsx';
+import Home from './Componets/Home/Home.jsx';
+import Favorites from './Componets/Favorites/Favorites.jsx';
 
 
 

@@ -248,9 +248,9 @@
 
 
 import React, { useState, useEffect } from 'react';
-import Footer from '../Componets/Footer/Footer';
-import Navbar from '../Componets/Navbar/NavBar';
-import '../Home/Home.css';
+import Footer from '../Footer/Footer.jsx';
+import Navbar from '../Navbar/Navbar.jsx';
+import './Home.css';
 
 
 const Home = () => {
