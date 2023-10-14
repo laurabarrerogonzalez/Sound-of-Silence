@@ -39,7 +39,7 @@ import Login from './views/Login/Login.jsx';
 import Subscribe from './views/Subscribe/Subscribe.jsx';
 import Admin from './views/Admin/Admin.jsx';
 import Home from './Home/Home.jsx';
-import Favorites from './Componets/Favorites/Favorites.jsx';
+import Favorites from './views/Favorites/Favorites.jsx';
 
 
 

@@ -334,7 +334,7 @@ const Admin = () => {
             Instrument
           </button>
         </div>
-        <div className="container-admin">
+        
           <div className="card-container">
             {filteredCards.map((card, index) => (
               <div className="card" key={index}>
@@ -368,7 +368,7 @@ const Admin = () => {
             ))}
           </div>
         </div>
-      </div>
+      
     </>
   );
 };

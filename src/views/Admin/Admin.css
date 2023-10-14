@@ -17,11 +17,11 @@
   margin-bottom: 60px;
 }
 
-.container-admin > div {
+.card-container > div {
   margin-top: 20px;
 }
 
-.container-admin {
+.card-container {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -30,10 +30,11 @@
   margin-top: 4%;
 }
 
-.container-admin .card {
+.card-container .card {
   position: relative;
   min-width: 380px;
   height: 215px;
+  width: 20%;
   background-color: #FFF;
   margin: 30px 10px;
   padding: 20px 15px;
@@ -45,12 +46,12 @@
   z-index: 1;
 }
 
-.container-admin .card:hover {
+.card-container .card:hover {
   height: auto;
   transition: 2.3s ease-in-out;
 }
 
-.container-admin .card .imgBx {
+.card-container .card .imgBx {
   position: relative;
   width: 290px;
   height: 260px;
@@ -61,13 +62,13 @@
   margin-left: -13px;
 }
 
-.container-admin .card .imgBx video {
+.card-container .card .imgBx video {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
 }
 
-.container-admin .card .content {
+.card-container .card .content {
   position: relative;
   margin-top: -140px;
   padding: 10px 15px;
@@ -80,14 +81,14 @@
   margin-bottom: 5px;
 }
 
-.container-admin .card:hover .content {
+.card-container .card:hover .content {
   visibility: visible;
   opacity: 1;
   margin-top: -40px;
   transition-delay: 0.3s;
 }
 
-.container-admin .card .content audio {
+.card-container .card .content audio {
   width: 100%;
 }
 
