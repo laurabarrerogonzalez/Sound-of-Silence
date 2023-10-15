@@ -235,7 +235,7 @@ const Admin = () => {
           // Establece el ID de la tarjeta en edición
           setEditCardId(id);
 
-          // Cambia el estado a edición
+         
           setIsEditing(true);
         }
       }
