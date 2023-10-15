@@ -3,11 +3,12 @@ import './Admin.css';
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../../Componets/Footer/Footer';
 
 const Admin = () => {
   const navigate = useNavigate();
 
-  
+
   const [formData, setFormData] = useState({
     videoSrc: '',
     audioSrc: '',
@@ -23,7 +24,7 @@ const Admin = () => {
   const [filteredCards, setFilteredCards] = useState([]);
 
   useEffect(() => {
-    
+
     fetchAllCards();
   }, []);
 
@@ -33,7 +34,7 @@ const Admin = () => {
       if (response.ok) {
         const data = await response.json();
         setCards(data);
-        setFilteredCards(data); 
+        setFilteredCards(data);
       } else {
         console.error('Data collection error');
       }
@@ -52,13 +53,13 @@ const Admin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const categoryId = getCategoryByName(formData.category);
 
 
 
     if (isEditing) {
-      
+
       const updatedData = {
         videoSrc: formData.videoSrc,
         audioSrc: formData.audioSrc,
@@ -66,7 +67,7 @@ const Admin = () => {
         description: formData.description,
         Id_category: categoryId,
       };
-  
+
       fetch(`https://localhost:7134/AudioFiles/Put/${editCardId}`, {
         method: 'PATCH',
         headers: {
@@ -79,9 +80,9 @@ const Admin = () => {
             Swal.fire('Success', 'Card updated successfully!', 'success');
             setEditCardId(null);
             setIsEditing(false);
-            
+
             fetchAllCards();
-            
+
             setFormData({
               videoSrc: '',
               audioSrc: '',
@@ -101,10 +102,10 @@ const Admin = () => {
     } else {
       // Lógica para agregar una nueva tarjeta
       const categoryId = getCategoryByName(formData.category);
-  
+
       if (categoryId !== null) {
         formData.Id_category = categoryId;
-  
+
         const response = await fetch('https://localhost:7134/AudioFiles/Post', {
           method: 'POST',
           headers: {
@@ -112,7 +113,7 @@ const Admin = () => {
           },
           body: JSON.stringify(formData),
         });
-  
+
         if (response.ok) {
           const newAudioFileId = await response.json();
           setFormData({
@@ -122,9 +123,9 @@ const Admin = () => {
             description: '',
             category: 'Nature',
           });
-  
+
           fetchAllCards();
-  
+
           Swal.fire('Success', `Card added successfully with ID ${newAudioFileId}!`, 'success');
         } else {
           Swal.fire('Error', 'Failed to add card.', 'error');
@@ -258,6 +259,9 @@ const Admin = () => {
         <button className="logout-button" onClick={handleLogout}>
           Log out
         </button>
+        <div>
+          <h1 className='welcome-admin'>Welcome Admin</h1>
+        </div>
 
         <div className="form-styles">
           <form onSubmit={handleSubmit} className="form-container">
@@ -316,59 +320,72 @@ const Admin = () => {
               {isEditing ? 'Edit Card' : 'Add Card'}
             </button>
           </form>
+          <hr className='line-admin'></hr>
         </div>
         <div className="filter-buttons">
-          <button onClick={() => handleFilter('all')} className={filterCategory === 'all' ? 'active' : ''}>
+          <button onClick={() => handleFilter('all')} className={`all-cards-button ${filterCategory === 'all' ? 'active' : ''}`}>
             All Cards
           </button>
-          <button
-            onClick={() => handleFilter('Nature')}
-            className={filterCategory === 'Nature' ? 'active' : ''}
-          >
+          <button onClick={() => handleFilter('Nature')} className={`nature-button ${filterCategory === 'Nature' ? 'active' : ''}`}>
             Nature
           </button>
-          <button
-            onClick={() => handleFilter('Instrument')}
-            className={filterCategory === 'Instrument' ? 'active' : ''}
-          >
+          <button onClick={() => handleFilter('Instrument')} className={`instrument-button ${filterCategory === 'Instrument' ? 'active' : ''}`}>
             Instrument
           </button>
         </div>
-        
-          <div className="card-container">
-            {filteredCards.map((card, index) => (
-              <div className="card" key={index}>
-                <div className="imgBx">
-                  <video
-                    src={card.videoSrc}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="auto"
-                    poster={card.videoSrc}
-                    style={{ width: '100%', pointerEvents: 'none', marginLeft: '50px' }}
-                  />
-                </div>
-                <div className="content">
-                  <h2 style={{ marginTop: '-100px' }}>{card.title}</h2>
-                  <p style={{ marginBottom: '10px' }}>{card.description}</p>
-                  <audio controls style={{ margin: '0' }}>
-                    <source src={card.audioSrc} type="audio/mpeg" />
-                    Your browser does not support the audio element.
-                  </audio>
-                  <button className="edit" onClick={() => handleEdit(card.id_AudioFiles)}>
-                    Edit
-                  </button>
-                  <button className="delete" onClick={() => handleDelete(card.id_AudioFiles)}>
-                    Delete
-                  </button>
-                </div>
-              </div>
-            ))}
+
+        {filterCategory === 'all' && (
+          <div className="all-cards-text">
+            <p>All Cards</p>
           </div>
+        )}
+
+        {filterCategory === 'Nature' && (
+          <div className="nature-button-text">
+            <p>Nature</p>
+          </div>
+        )}
+
+        {filterCategory === 'Instrument' && (
+          <div className="instrument-button-tex">
+            <p>Instrument</p>
+          </div>
+        )}
+
+        <div className="card-container">
+          {filteredCards.map((card, index) => (
+            <div className="card" key={index}>
+              <div className="imgBx">
+                <video
+                  src={card.videoSrc}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
+                  poster={card.videoSrc}
+                  style={{ width: '100%', pointerEvents: 'none', marginLeft: '50px' }}
+                />
+              </div>
+              <div className="content">
+                <h2 style={{ marginTop: '-100px' }}>{card.title}</h2>
+                <p style={{ marginBottom: '10px' }}>{card.description}</p>
+                <audio controls style={{ margin: '0' }}>
+                  <source src={card.audioSrc} type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
+                <button className="edit" onClick={() => handleEdit(card.id_AudioFiles)}>
+                  Edit
+                </button>
+                <button className="delete" onClick={() => handleDelete(card.id_AudioFiles)}>
+                  Delete
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
-      
+      </div>
+            <Footer/>
     </>
   );
 };

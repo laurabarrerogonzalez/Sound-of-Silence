@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 .bodyadmin {
   font-family: 'Poppins', sans-serif;
@@ -8,7 +7,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  
 }
+
 
 .card-container {
   display: grid;
@@ -157,5 +159,107 @@
 }
 
 .logout-button{
-  margin-left: 80rem;
+  margin-top: 20px;
+  background-color: #FF5733; /* Cambia el color de fondo a tu preferencia */
+  color: white; /* Cambia el color del texto a tu preferencia */
+  border: none;
+  border-radius: 5px;
+  padding: 10;
+  margin-bottom: 20px; /* Ajusta el margen inferior del botón de cierre de sesión según tus preferencias */
+
+}
+
+.nature-button {
+  background-color: #4CAF50; /* Color verde relacionado con la naturaleza */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.nature-button.active {
+  background-color: #45A049; /* Cambio de color cuando el botón está activo */
+}
+
+.all-cards-button {
+  background-color: #007BFF; /* Color azul */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.all-cards-button.active {
+  background-color: #0056b3; /* Cambio de color cuando el botón está activo */
+}
+
+.instrument-button {
+  background-color: #FFD700; /* Color dorado relacionado con instrumentos */
+  color: black; /* Cambia el color del texto a tu preferencia */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.instrument-button.active {
+  background-color: #DAA520; /* Cambio de color cuando el botón está activo */
+}
+
+.all-cards-button.active{
+  background-color: #000075; /* Color de resaltado cuando está activo */
+  color: white; /* Cambia el color del texto a tu preferencia */
+  transform: scale(1.10);
+}
+
+.nature-button.active{
+  background-color: #026e00; /* Color de resaltado cuando está activo */
+  color: white; /* Cambia el color del texto a tu preferencia */
+  transform: scale(1.10); 
+}
+
+.instrument-button.active{
+  background-color: #bbc100; /* Color de resaltado cuando está activo */
+  color: white; /* Cambia el color del texto a tu preferencia */
+  transform: scale(1.10); 
+}
+
+
+.all-cards-text,
+.nature-button-text,
+.instrument-button-tex {
+  width: 100%;
+  text-align: left;
+  margin-left: 20%;
+  margin-top: 20px; /* Ajusta el espaciado hacia abajo según tus preferencias */
+  font-size: 30px; /* Ajusta el tamaño de fuente según tus preferencias */
+  font-weight: bold; /* Opcional: Puedes hacer que el texto sea negrita */
+}
+
+.line-admin {
+  height: 2px; /* Ajusta el grosor de la línea según tus preferencias */
+  background-color: #000; /* Color de la línea (en este caso, negro) */
+  border: none;
+  margin-top: 20px; /* Ajusta la separación desde arriba según tus preferencias */
+  margin-bottom: 20px; /* Ajusta la separación desde abajo según tus preferencias */
+}
+
+.filter-buttons {
+  margin-top: 20px; /* Ajusta la separación desde arriba de los botones según tus preferencias */
+}
+
+.welcome-admin {
+  font-size: 36px; /* Ajusta el tamaño de fuente según tus preferencias */
+  color: #333; /* Color del texto (personalízalo según tu diseño) */
+  margin-top: 20px; /* Ajusta el espaciado desde arriba según tus preferencias */
+  font-weight: bold; /* Puedes hacer que el texto sea negrita si lo deseas */
+  text-align: center; /* Alinea el texto al centro si lo prefieres */
 }
