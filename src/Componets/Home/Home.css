@@ -10,4 +10,41 @@
   .star.star-pink {
     color: pink;
   }
+  .tittle-home{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .tittle-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px; /* Ajusta el tamaño de fuente según tus preferencias */
+  }
+  
+  .music-note {
+    font-size: 40px; /* Ajusta el tamaño de fuente para los símbolos de partitura */
+  }
+  
+  .left {
+    margin-right: 10px; /* Espacio entre el símbolo y el texto */
+    animation: musicNoteEffect 2s infinite alternate;
+  }
+  
+  .right {
+    margin-left: 10px; /* Espacio entre el símbolo y el texto */
+    animation: musicNoteEffect 2s infinite alternate;
+  }
+  
+  @keyframes musicNoteEffect {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
   

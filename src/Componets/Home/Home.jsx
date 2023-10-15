@@ -10,7 +10,7 @@
 // //     const [cards, setCards] = useState([]);
 // //     const [filterCategory, setFilterCategory] = useState('all');
 // //     const [filteredCards, setFilteredCards] = useState([]);
-  
+
 // //     useEffect(() => {
 // //       // Realiza una solicitud GET a tu API para obtener las tarjetas
 // //       fetch('https://localhost:7134/AudioFiles/Get')
@@ -23,14 +23,14 @@
 // //           console.error('Error al obtener las tarjetas:', error);
 // //         });
 // //     }, []);
-  
+
 // //     const handleFilter = async (category) => {
 // //       if (category === 'all') {
 // //         setFilteredCards(cards);
 // //       } else {
 // //         try {
 // //           const response = await fetch(`https://localhost:7134/AudioFiles/GetByCategory/${getCategoryByName(category)}`);
-  
+
 // //           if (response.ok) {
 // //             const data = await response.json();
 // //             setFilteredCards(data);
@@ -41,10 +41,10 @@
 // //           console.error('Error getting cards by category', error);
 // //         }
 // //       }
-  
+
 // //       setFilterCategory(category);
 // //     };
-  
+
 // //     const getCategoryByName = (name) => {
 // //       switch (name) {
 // //         case 'Nature':
@@ -55,12 +55,12 @@
 // //           return 1;
 // //       }
 // //     };
-  
+
 // //     return (
 // //   <>
 // //   <Navbar />
 // //   <div className="bodyadmin">
-       
+
 // //         <div className="filter-buttons">
 // //           <button onClick={() => handleFilter('all')} className={filterCategory === 'all' ? 'active' : ''}>
 // //             All Cards
@@ -106,16 +106,16 @@
 // //             ))}
 // //           </div>
 // //         </div>
-       
+
 // //       </div>
-    
-  
+
+
 // //   <Footer />
 // //   </>
 // //     );
 // //             }
 // //   export default Home;
-  
+
 
 
 
@@ -353,23 +353,40 @@ const Home = () => {
     <>
       <Navbar />
       <div className="bodyadmin">
+        <div className='tittle-home'>
+          <div className='music-note left'>&#119070;</div>
+          <h1>Welcome</h1>
+          <div className='music-note right'>&#119070;</div>
+        </div>
         <div className="filter-buttons">
-          <button onClick={() => handleFilter('all')} className={filterCategory === 'all' ? 'active' : ''}>
+          <button onClick={() => handleFilter('all')} className={`all-cards-button ${filterCategory === 'all' ? 'active' : ''}`}>
             All Cards
           </button>
-          <button
-            onClick={() => handleFilter('Nature')}
-            className={filterCategory === 'Nature' ? 'active' : ''}
-          >
+          <button onClick={() => handleFilter('Nature')} className={`nature-button ${filterCategory === 'Nature' ? 'active' : ''}`}>
             Nature
           </button>
-          <button
-            onClick={() => handleFilter('Instrument')}
-            className={filterCategory === 'Instrument' ? 'active' : ''}
-          >
+          <button onClick={() => handleFilter('Instrument')} className={`instrument-button ${filterCategory === 'Instrument' ? 'active' : ''}`}>
             Instrument
           </button>
         </div>
+
+        {filterCategory === 'all' && (
+          <div className="all-cards-text">
+            <p>All Cards</p>
+          </div>
+        )}
+
+        {filterCategory === 'Nature' && (
+          <div className="nature-button-text">
+            <p>Nature</p>
+          </div>
+        )}
+
+        {filterCategory === 'Instrument' && (
+          <div className="instrument-button-tex">
+            <p>Instrument</p>
+          </div>
+        )}
         <div className="container-admin">
           <div className="card-container">
             {filteredCards.map((card, index) => (

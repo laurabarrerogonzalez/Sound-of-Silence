@@ -321,8 +321,8 @@ const Admin = () => {
             </button>
           </form>
         </div>
-          <div className='line-container'>
-        <hr className='line-admin'></hr>
+        <div className='line-container'>
+          <hr className='line-admin'></hr>
         </div>
         <div className="filter-buttons">
           <button onClick={() => handleFilter('all')} className={`all-cards-button ${filterCategory === 'all' ? 'active' : ''}`}>
@@ -335,24 +335,25 @@ const Admin = () => {
             Instrument
           </button>
         </div>
+        <div className='text-title'>
+          {filterCategory === 'all' && (
+            <div className="all-cards-text">
+              <p>All Cards</p>
+            </div>
+          )}
 
-        {filterCategory === 'all' && (
-          <div className="all-cards-text">
-            <p>All Cards</p>
-          </div>
-        )}
+          {filterCategory === 'Nature' && (
+            <div className="nature-button-text">
+              <p>Nature</p>
+            </div>
+          )}
 
-        {filterCategory === 'Nature' && (
-          <div className="nature-button-text">
-            <p>Nature</p>
-          </div>
-        )}
-
-        {filterCategory === 'Instrument' && (
-          <div className="instrument-button-tex">
-            <p>Instrument</p>
-          </div>
-        )}
+          {filterCategory === 'Instrument' && (
+            <div className="instrument-button-tex">
+              <p>Instrument</p>
+            </div>
+          )}
+        </div>
 
         <div className="card-container">
           {filteredCards.map((card, index) => (
@@ -387,7 +388,7 @@ const Admin = () => {
           ))}
         </div>
       </div>
-            <Footer/>
+      <Footer />
     </>
   );
 };
