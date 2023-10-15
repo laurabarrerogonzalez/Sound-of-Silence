@@ -320,7 +320,9 @@ const Admin = () => {
               {isEditing ? 'Edit Card' : 'Add Card'}
             </button>
           </form>
-          <hr className='line-admin'></hr>
+        </div>
+          <div className='line-container'>
+        <hr className='line-admin'></hr>
         </div>
         <div className="filter-buttons">
           <button onClick={() => handleFilter('all')} className={`all-cards-button ${filterCategory === 'all' ? 'active' : ''}`}>
