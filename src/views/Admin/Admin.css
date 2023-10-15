@@ -245,11 +245,22 @@
 }
 
 .line-admin {
-  height: 2px; /* Ajusta el grosor de la línea según tus preferencias */
-  background-color: #000; /* Color de la línea (en este caso, negro) */
   border: none;
-  margin-top: 20px; /* Ajusta la separación desde arriba según tus preferencias */
-  margin-bottom: 20px; /* Ajusta la separación desde abajo según tus preferencias */
+  width: 50%;
+  height: 2px;
+  background-color: #000000; /* Cambia el color a tu preferencia */
+  margin: 10px 0; /* Ajusta el espacio arriba y abajo */
+  
+  
+  
+}
+
+.line-container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 
 .filter-buttons {
@@ -263,3 +274,5 @@
   font-weight: bold; /* Puedes hacer que el texto sea negrita si lo deseas */
   text-align: center; /* Alinea el texto al centro si lo prefieres */
 }
+
+
