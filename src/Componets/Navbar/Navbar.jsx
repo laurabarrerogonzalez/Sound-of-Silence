@@ -16,7 +16,7 @@ const Navbar = () => {
       cancelButtonText: 'Cancel',
     }).then((result) => {
       if (result.isConfirmed) {
-        navigate('/login', { replace: true }); // Navega a la página de inicio de sesión
+        navigate('/login', { replace: true }); 
       }
     });
   };
@@ -35,7 +35,7 @@ const Navbar = () => {
         <Link to="/favorites">Favorites</Link>
         <a href="#">Contact</a>
         <button onClick={handleLogout} className='Logout'>Log out</button>
-        {/* Agrega enlaces para "Contact" y "Log out" si es necesario */}
+       
       </div>
       <div
         className={`nav_toggle ${isOpen && "open"}`}

@@ -12,8 +12,8 @@ const Home = () => {
 
   const videoRefs = {};
   const audioRefs = {};
-  // Obtén el token de acceso almacenado en el almacenamiento local o cookies
-  const token = localStorage.getItem('accessToken'); // Asegúrate de almacenar el token después del inicio de sesión
+ 
+  const token = localStorage.getItem('accessToken'); 
 
   useEffect(() => {
     fetchAllCards();
@@ -70,19 +70,6 @@ const Home = () => {
       console.error('Error al marcar la tarjeta como favorita', error);
     }
   };
-
-  // useEffect(() => {
-  //   // Realiza una solicitud GET a tu API para obtener las tarjetas
-  //   fetch('https://localhost:7134/AudioFiles/Get')
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setCards(data);
-  //       setFilteredCards(data);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error al obtener las tarjetas:', error);
-  //     });
-  // }, []);
 
   const handleFilter = async (category) => {
     if (category === 'all') {

@@ -118,7 +118,7 @@ const Admin = () => {
           Swal.fire('Error', 'An error occurred while updating the card.', 'error');
         });
     } else {
-      // Lógica para agregar una nueva tarjeta
+      
       const categoryId = getCategoryByName(formData.category);
 
       if (categoryId !== null) {
@@ -241,7 +241,7 @@ const Admin = () => {
       if (result.isConfirmed) {
         const cardToEdit = cards.find((card) => card.id_AudioFiles === id);
         if (cardToEdit) {
-          // Copia los datos de la tarjeta en el estado de edición
+         
           setFormData({
             videoSrc: cardToEdit.videoSrc,
             audioSrc: cardToEdit.audioSrc,
@@ -250,7 +250,7 @@ const Admin = () => {
             category: getCategoryById(cardToEdit.Id_category),
           });
 
-          // Establece el ID de la tarjeta en edición
+         
           setEditCardId(id);
 
          

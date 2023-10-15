@@ -21,15 +21,15 @@
     top: -20px;
     left: -0px;
     z-index: 2;
-    transition: transform 0.3s; /* Agregamos una transición suave */
+    transition: transform 0.3s; 
   }
   
   .logo-container:hover {
-    transform: scale(1.2); /* Escala la imagen al 110% cuando el cursor está encima */
+    transform: scale(1.2); 
   }
   
   .logoLogin {
-    /* max-width: 100px; */
+   
     width: 250px;
     height: 200px;
  
@@ -42,7 +42,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1; /* Para asegurarte de que esté detrás de otros elementos */
+    z-index: -1; 
   } 
   
 
@@ -64,22 +64,21 @@
   .formulario, .formularioo {
     width: 80%;
     margin: 0 auto;
-    background-color: transparent; /* Restablece el fondo a transparente */
+    background-color: transparent;
   }
   .video-background{
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw; /* Haz que el video ocupe todo el ancho de la pantalla */
-    height: 100vh; /* Haz que el video ocupe toda la altura de la pantalla */
+    width: 100vw; 
+    height: 100vh; 
     object-fit: cover;
     z-index: -1;
   }
   .welcome-back {
-    flex-direction: column; /* Cambia la dirección de los elementos dentro de "welcome-back" para alinearlos verticalmente */
-    align-items: center; /* Centra los elementos horizontalmente */
-      /* width: 80%;
-      height: 50%; */
+    flex-direction: column; 
+    align-items: center; 
+      
       justify-content: center;
       margin-top: 100px;
   }
@@ -97,26 +96,26 @@
 
 .custoom-signup-button {
   
-    background-color: transparent !important; /* Fondo transparente */
-    border: none !important; /* Sin borde */
-    border-radius: 0 !important; /* Sin borde redondeado */
-    color: inherit !important; /* Color heredado (generalmente negro) */
-    padding: 0; /* Eliminar el relleno si lo hay */
-    font-size: inherit; /* Tamaño de fuente heredado */
-    /* Otros estilos predeterminados según tus necesidades */
+    background-color: transparent !important;
+    border: none !important; 
+    border-radius: 0 !important; 
+    color: inherit !important; 
+    padding: 0; 
+    font-size: inherit; 
+    
     
         
 }
 
 .custoom-color {
   
-  background-color: transparent !important; /* Fondo transparente */
-  border: none !important; /* Sin borde */
-  border-radius: 0 !important; /* Sin borde redondeado */
-  color: inherit !important; /* Color heredado (generalmente negro) */
-  padding: 0; /* Eliminar el relleno si lo hay */
-  font-size: inherit; /* Tamaño de fuente heredado */
-  /* Otros estilos predeterminados según tus necesidades */
+  background-color: transparent !important; 
+  border: none !important; 
+  border-radius: 0 !important; 
+  color: inherit !important; 
+  padding: 0; 
+  font-size: inherit; 
+ 
       
 }
 
@@ -323,7 +322,7 @@
   .welcome-text {
     display: inline-block;
     vertical-align: middle;
-    margin-right: 20px; /* Ajusta el margen derecho según tus preferencias */
+    margin-right: 20px; 
   }
 
   .larger-button {
@@ -356,13 +355,12 @@
 
 
   .login-message {
-    /* Estilos para el mensaje de inicio de sesión */
-    /* Por ejemplo, puedes definir el color de fondo, el color del texto y la duración de la animación */
+  
     background-color: #4a4aee;
     color: white;
     padding: 1rem;
     position: absolute;
-    bottom: 10px; /* Ajusta la posición vertical según tus preferencias */
+    bottom: 10px; 
     left: 50%;
     transform: translateX(-50%);
     border-radius: 5px;
@@ -375,7 +373,7 @@
   .error-message{
     color: red;
     font-size: 10px;
-    margin-top: 10px; /* Ajusta el valor negativo para mover el mensaje hacia arriba */
-  margin-bottom: 2px; /* Mantiene el margen inferior */
+    margin-top: 10px; 
+  margin-bottom: 2px; 
 }
   
