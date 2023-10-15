@@ -1,9 +1,26 @@
 import React, { useState } from 'react';
 import "../Navbar/Navbar.css";
-import { Link } from 'react-router-dom'; // Importa Link desde react-router-dom
+import { Link, useNavigate } from 'react-router-dom'; 
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    Swal.fire({
+      title: 'Are you sure you want to log out?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, log out',
+      cancelButtonText: 'Cancel',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        navigate('/login', { replace: true }); // Navega a la página de inicio de sesión
+      }
+    });
+  };
+
 
   return (
     <div className="navbar">
@@ -17,7 +34,7 @@ const Navbar = () => {
         <Link to="/home">Home</Link>
         <Link to="/favorites">Favorites</Link>
         <a href="#">Contact</a>
-        <a href="#">Log out</a>
+        <button onClick={handleLogout} className='Logout'>Log out</button>
         {/* Agrega enlaces para "Contact" y "Log out" si es necesario */}
       </div>
       <div

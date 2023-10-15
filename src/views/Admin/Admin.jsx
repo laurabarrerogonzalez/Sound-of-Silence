@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Admin.css';
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
@@ -7,7 +7,8 @@ import Footer from '../../Componets/Footer/Footer';
 
 const Admin = () => {
   const navigate = useNavigate();
-
+  const videoRefs = useRef({});
+  const audioRefs = useRef({});
 
   const [formData, setFormData] = useState({
     videoSrc: '',
@@ -22,7 +23,9 @@ const Admin = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [filterCategory, setFilterCategory] = useState('all');
   const [filteredCards, setFilteredCards] = useState([]);
-
+  const [shouldAutoPlayVideo, setShouldAutoPlayVideo] = useState(false);
+  
+  
   useEffect(() => {
 
     fetchAllCards();
@@ -50,6 +53,21 @@ const Admin = () => {
       [name]: value,
     });
   };
+
+  const handlePlayVideo = (id) => {
+    if (videoRefs.current[id]) {
+      videoRefs.current[id].play();
+      setShouldAutoPlayVideo(true);
+    }
+  };
+
+  const handlePauseVideo = (id) => {
+    if (videoRefs.current[id]) {
+      videoRefs.current[id].pause();
+      setShouldAutoPlayVideo(false);
+    }
+  };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -360,23 +378,27 @@ const Admin = () => {
             <div className="card" key={index}>
               <div className="imgBx">
                 <video
+                 ref={(ref) => (videoRefs.current[card.id_AudioFiles] = ref)}
                   src={card.videoSrc}
-                  autoPlay
                   loop
                   muted
-                  playsInline
-                  preload="auto"
-                  poster={card.videoSrc}
+                  autoPlay={false}
                   style={{ width: '100%', pointerEvents: 'none', marginLeft: '50px' }}
                 />
               </div>
               <div className="content">
                 <h2 style={{ marginTop: '-100px' }}>{card.title}</h2>
                 <p style={{ marginBottom: '10px' }}>{card.description}</p>
-                <audio controls style={{ margin: '0' }}>
-                  <source src={card.audioSrc} type="audio/mpeg" />
-                  Your browser does not support the audio element.
-                </audio>
+                <audio
+                    controls
+                    onPlay={() => handlePlayVideo(card.id_AudioFiles)}
+                    onPause={() => handlePauseVideo(card.id_AudioFiles)}
+                    style={{ margin: '0' }}
+                    ref={(ref) => (audioRefs.current[card.id_AudioFiles] = ref)}
+                  >
+                    <source src={card.audioSrc} type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                  </audio>
                 <button className="edit" onClick={() => handleEdit(card.id_AudioFiles)}>
                   Edit
                 </button>
