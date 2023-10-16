@@ -242,11 +242,6 @@
 
 // export default Home;
 
-
-
-
-
-
 import React, { useState, useEffect } from 'react';
 import Footer from '../Componets/Footer/Footer';
 import Navbar from '../Componets/Navbar/NavBar';
@@ -259,10 +254,21 @@ const Home = () => {
   const [filteredCards, setFilteredCards] = useState([]);
   const [isStarActive, setIsStarActive] = useState(false);
 
-  // Obtén el token de acceso almacenado en el almacenamiento local o cookies
-  const token = localStorage.getItem('accessToken'); // Asegúrate de almacenar el token después del inicio de sesión
+    // Obtén el token de acceso almacenado en el almacenamiento local o cookies
+ 
+    // Asegúrate de almacenar el token después del inicio de sesión
+    // const token = localStorage.getItem('accessToken'); 
 
   useEffect(() => {
+ 
+      // Verificar el token
+      const token = getCookie('jwtToken');
+      if (!token) {
+        // Manejar caso en el que el token no está presente
+        console.error('Token no válido o no presente');
+        return;
+      }
+
     // Realiza una solicitud GET a tu API para obtener las tarjetas, incluyendo el token en el encabezado
     fetch('https://localhost:7134/AudioFiles/Get', {
       headers: {
@@ -277,20 +283,38 @@ const Home = () => {
       .catch((error) => {
         console.error('Error al obtener las tarjetas:', error);
       });
-  }, [token]);
+  }, []);
 
   const handleFavoriteClick = async (cardId) => {
-    // Realiza una solicitud POST al backend para marcar una tarjeta como favorita
+    console.log(cardId); 
+    // Recupera el token de autenticación desde las cookies
+    const token = getCookie('jwtToken');
+    if (!token) {
+      // Manejar caso en el que el token no está presente
+      console.error('Token no válido o no presente');
+      return;
+    }
+
+      // Crea un objeto que contenga tanto el token como el cardId
+  // const data = {
+  //   cardId: cardId,
+  //   token: token
+
+  // };
+  
+    // Realiza una solicitud POST al backend para marcar la tarjeta como favorita
+    console.log(token);
     try {
-      const response = await fetch('https://localhost:7134/UserAudio/Post', {
+      const response = await fetch('https://localhost:7134/UserAudio/MarkFavorite/MarkFavorite', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`, // Incluye el token en el encabezado
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ cardId }), // Envia el ID de la tarjeta al backend
+          body: JSON.stringify({cardId}), // Envia el ID de la tarjeta al backend
+         
       });
-
+  
       if (response.ok) {
         // Actualiza el estado local para reflejar la tarjeta como favorita
         setIsStarActive(true);
@@ -301,6 +325,23 @@ const Home = () => {
       console.error('Error al marcar la tarjeta como favorita', error);
     }
   };
+  
+  // Función para obtener el valor de una cookie por nombre
+  function getCookie(cname) {
+    const name = cname + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const cookieArray = decodedCookie.split(';');
+    for (let i = 0; i < cookieArray.length; i++) {
+        let c = cookieArray[i];
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) === 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
 
   useEffect(() => {
     // Realiza una solicitud GET a tu API para obtener las tarjetas
@@ -395,7 +436,7 @@ const Home = () => {
                   </audio>
                   <span
                     className={`star ${isStarActive ? 'star-pink' : ''}`}
-                    onClick={() => handleFavoriteClick(card.id)}
+                    onClick={() => {console.log(card.id_AudioFiles); handleFavoriteClick(card.id_AudioFiles)}}
                   >
                     &#9733;
                   </span>
