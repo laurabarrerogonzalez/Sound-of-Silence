@@ -8,6 +8,9 @@ import Footer from '../../Componets/Footer/Footer';
 const Admin = () => {
   const navigate = useNavigate();
 
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+
+
 
   const [formData, setFormData] = useState({
     videoSrc: '',
@@ -236,11 +239,56 @@ const Admin = () => {
           setEditCardId(id);
 
           // Cambia el estado a edición
-          setIsEditing(true);
+          setIsEditModalOpen(true);
         }
       }
     });
   };
+
+  const handleEditSubmit = async (e) => {
+    e.preventDefault();
+  
+    // Lógica para editar la tarjeta
+    const updatedData = {
+      videoSrc: formData.videoSrc,
+      audioSrc: formData.audioSrc,
+      title: formData.title,
+      description: formData.description,
+      Id_category: getCategoryByName(formData.category),
+    };
+  
+    fetch(`https://localhost:7134/AudioFiles/Put/${editCardId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(updatedData),
+    })
+      .then((response) => {
+        if (response.ok) {
+          Swal.fire('Success', 'Card updated successfully!', 'success');
+          setEditCardId(null);
+          setIsEditModalOpen(false);
+          fetchAllCards();
+  
+          setFormData({
+            videoSrc: '',
+            audioSrc: '',
+            title: '',
+            description: '',
+            category: 'Nature',
+          });
+        } else {
+          console.error('Error updating card', error);
+          Swal.fire('Error', 'Failed to update card.', 'error');
+        }
+      })
+      .catch((error) => {
+        console.error('Error updating card', error);
+        Swal.fire('Error', 'An error occurred while updating the card.', 'error');
+      });
+  };
+  
 
   const getCategoryById = (id) => {
     switch (id) {
@@ -317,7 +365,7 @@ const Admin = () => {
             </select>
 
             <button type="submit" className="Add">
-              {isEditing ? 'Edit Card' : 'Add Card'}
+              {'Add Card'}
             </button>
           </form>
         </div>
@@ -391,6 +439,69 @@ const Admin = () => {
         </div>
       </div>
       <Footer />
+
+      {isEditModalOpen && (
+  <div className="container-modal-editcard">
+    <div className="modal-content">
+      <h2 className='title-modal'>Edit Card</h2>
+      <form className='edit-card-admin' onSubmit={handleEditSubmit}>
+        <label className='edit-card-label' htmlFor="videoSrc">Video URL:</label>
+        <input className='content-card-admin'
+          type="text"
+          id="videoSrc"
+          name="videoSrc"
+          value={formData.videoSrc}
+          onChange={handleChange}
+          required
+        />
+
+        <label className='edit-card-label' htmlFor="title">Title:</label>
+        <input className='content-card-admin'
+          type="text"
+          id="title"
+          name="title"
+          value={formData.title}
+          onChange={handleChange}
+          required
+        />
+
+        <label className='edit-card-label' htmlFor="description">Description:</label>
+        <textarea
+          id="description"
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+          required
+        ></textarea>
+
+        <label className='edit-card-label' htmlFor="audioSrc">Audio URL:</label>
+        <input className='content-card-admin'
+          type="text"
+          id="audioSrc"
+          name="audioSrc"
+          value={formData.audioSrc}
+          onChange={handleChange}
+          required
+        />
+
+        <label className='edit-card-label' htmlFor="category">Category:</label>
+        <select className='content-card-admin'
+          id="category"
+          name="category"
+          value={formData.category}
+          onChange={handleChange}
+          required
+        >
+          <option value="Nature">Nature</option>
+          <option value="Instrument">Instrument</option>
+        </select>
+
+        <button className='edit-card-button' type="submit">Save Changes</button>
+        <button className='close-modal-button' onClick={() => setIsEditModalOpen(false)}>Close</button>
+      </form>
+    </div>
+  </div>
+)}
     </>
   );
 };
