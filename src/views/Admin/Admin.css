@@ -369,7 +369,7 @@ audio:hover {
 /* Estilos para los controles del reproductor */
 audio::-webkit-media-controls {
   background-color: #583a05;
-  border: 2px solid #777;
+  border: 2px solid #583a05;
   border-radius: 5px;
 }
 
@@ -378,7 +378,7 @@ audio::-webkit-media-controls-play-button,
 audio::-webkit-media-controls-pause-button {
   background-color: #fff;
   color: #333;
-  border: 2px solid #333;
+  border: 2px solid #583a05;
   border-radius: 50%;
   width: 35px;
   height: 35px;
@@ -404,7 +404,7 @@ audio::-webkit-media-controls-timeline-progress-bar {
 /* Estilos para el tiempo de reproducción */
 audio::-webkit-media-controls-current-time-display,
 audio::-webkit-media-controls-time-remaining-display {
-  color: #fff;
+  color: #583a05;
   font-size: 14px;
 }
 
