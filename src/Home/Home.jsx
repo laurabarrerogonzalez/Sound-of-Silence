@@ -3,6 +3,7 @@ import Footer from "../Componets/Footer/Footer";
 import '../views/Subscribe/Subscribe.css'
 import '../views/Admin/Admin.css'
 import Navbar from "../Componets/Navbar/Navbar";
+import SubscribePagination from "../Componets/Pagination/SubscribePagination.jsx"
 
 
 const Home = () => {
@@ -76,6 +77,11 @@ const Home = () => {
           >
             Instrument
           </button>
+
+{/* Agrega el componente SubscribePagination aquí */}
+<SubscribePagination />
+
+
         </div>
         <div className="container-admin">
           <div className="card-container">
@@ -108,6 +114,14 @@ const Home = () => {
        
       </div>
     
+
+
+
+
+
+
+
+
   
   <Footer />
   </>

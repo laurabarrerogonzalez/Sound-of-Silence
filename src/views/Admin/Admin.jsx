@@ -3,6 +3,7 @@ import './Admin.css';
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
 import { useNavigate } from 'react-router-dom';
+import AdminPagination from "../../Componets/Pagination/AdminPagination.jsx"; // Importa el componente AdminPagination
 
 const Admin = () => {
   const navigate = useNavigate();
@@ -18,9 +19,17 @@ const Admin = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [filterCategory, setFilterCategory] = useState('all');
   const [filteredCards, setFilteredCards] = useState([]);
+  const cardsPerPage = 6;
+  const [currentPage, setCurrentPage] = useState(0);
+
   useEffect(() => {
     fetchAllCards();
   }, []);
+
+  const handlePageClick = (data) => {
+    setCurrentPage(data.selected);
+  };
+
   const fetchAllCards = async () => {
     try {
       const response = await fetch('https://localhost:7134/AudioFiles/Get');
@@ -35,6 +44,23 @@ const Admin = () => {
       console.error('Data collection error', error);
     }
   };
+
+  // Función para manejar el clic en el botón "Previous"
+  const handlePreviousPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  // Función para manejar el clic en el botón "Next"
+  const handleNextPage = () => {
+    if ((currentPage + 1) * cardsPerPage < filteredCards.length) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -329,8 +355,30 @@ const Admin = () => {
             ))}
           </div>
         </div>
+        <div className="pagination">
+          <AdminPagination 
+          currentPage={currentPage}  
+          pageCount={Math.ceil(filteredCards.length / cardsPerPage)}
+          onPageChange={handlePageClick}/>
+        </div>
       </div>
-    </>
-  );
-};
+      <div className="container-admin">
+          <div className="card-container">
+            {/* Renderiza las tarjetas en la página actual */}
+            {filteredCards
+              .slice(currentPage * cardsPerPage, (currentPage + 1) * cardsPerPage)
+              .map((card, index) => (
+                // Renderiza cada tarjeta
+                <div className="card" key={index}>
+                  {/* Contenido de la tarjeta */}
+                </div>
+              ))}
+          </div>
+        </div>
+      </>
+    );
+  };
 export default Admin;
+
+
+
