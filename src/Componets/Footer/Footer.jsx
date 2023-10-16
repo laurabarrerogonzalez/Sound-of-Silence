@@ -10,54 +10,54 @@ const Footer=()=>{
       <div className="sb_footer-links">
         <div className="sb_footer-links_div">
           <h4>For Busissnes</h4>
-          <a href="#">
+          <a className='text-footer' href="#">
             <p>Employer</p>
           </a>
 
-          <a href="#">
+          <a className='text-footer' href="#">
           <p>Health Plan</p>
           </a>
 
-          <a href="#">
+          <a className='text-footer' href="#">
           <p>Individual</p>
           </a>
 
         </div>
         <div className="sb_footer-links_div">
           <h4>Resources</h4>
-          <a href="#">
+          <a className='text-footer' href="#">
             <p>Resource center</p>
           </a>
 
-          <a href="#">
+          <a className='text-footer' href="#">
             <p>Testimonials</p>
           </a>
 
-          <a href="#">
+          <a className='text-footer' href="#">
             <p>STV</p>
           </a>
         </div>
         <div className="sb_footer-links_div">
           <h4>Partners</h4>
-          <a href="#">
+          <a className='text-footer' href="#">
             <p>Swing Tech</p>
           </a>
         </div>
         <div className="sb_footer-links_div">
           <h4>Company</h4>
-          <a href="#">
+          <a className='text-footer' href="#">
             <p>About</p>
           </a>
 
-          <a href="#">
+          <a className='text-footer' href="#">
             <p>Press</p>
           </a>
 
-          <a href="#">
+          <a className='text-footer' href="#">
             <p>Career</p>
           </a>
 
-          <a href="#">
+          <a className='text-footer' href="#">
             <p>Contact</p>
           </a>
         </div>
@@ -71,7 +71,7 @@ const Footer=()=>{
           </div>
         </div>
       </div>
-      <hr></hr>
+      <hr className='line-footer'></hr>
 
       <div className="sb_footer-below">
         <div className="sb_footer-copyright">
@@ -80,10 +80,10 @@ const Footer=()=>{
           </p>
         </div>
         <div className="sb_footer-below-links">
-          <a href="#"><div><p>Terms & Conditions</p></div></a>
-          <a href="#"><div><p>Privacy</p></div></a>
-          <a href="#"><div><p>Security</p></div></a>
-          <a href="#"><div><p>Cookie Declaration</p></div></a>
+          <a className='text-footer'  href="#"><div><p>Terms & Conditions</p></div></a>
+          <a className='text-footer' href="#"><div><p>Privacy</p></div></a>
+          <a className='text-footer' href="#"><div><p>Security</p></div></a>
+          <a className='text-footer' href="#"><div><p>Cookie Declaration</p></div></a>
 
         </div>
       </div>

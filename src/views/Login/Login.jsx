@@ -89,7 +89,7 @@ const Login = () => {
       console.error("Error:", error);
       Swal.fire("Error", "Ha ocurrido un error en el servidor", "error");
     } finally {
-      // Limpia los campos después del inicio de sesión y restablece los mensajes de error
+     
       setLoginData({
         email: "",
         password: "",
@@ -99,7 +99,7 @@ const Login = () => {
         password: "",
       });
 
-      // Establece isLoginFormSubmitted en false para habilitar el botón de inicio de sesión
+      
       setIsLoginFormSubmitted(false);
     }
   };
@@ -136,7 +136,7 @@ const Login = () => {
       console.error("Error:", error);
       Swal.fire("Error", "Ha ocurrido un error en el servidor", "error");
     }
-    // Limpia los campos después del inicio de sesión y restablece los mensajes de error
+   
     setCreateAccountData({
       Name_user: "",
       email: "",
