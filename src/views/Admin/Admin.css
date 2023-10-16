@@ -340,3 +340,116 @@
 }
 
 
+/* Estilos para el reproductor de audio */
+/* Estilos para el contenedor del reproductor de audio */
+/* Estilos para el contenedor del reproductor de audio */
+.audio-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* Estilos para el reproductor de audio */
+audio {
+  width: 80%;
+  background-color: #64480da2;
+  border: 2px solid #6d4100;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+/* Hover effect para el reproductor de audio */
+audio:hover {
+  transform: scale(1.05);
+}
+
+/* Estilos para los controles del reproductor */
+audio::-webkit-media-controls {
+  background-color: #583a05;
+  border: 2px solid #777;
+  border-radius: 5px;
+}
+
+/* Estilos para los botones de reproducción y pausa */
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-pause-button {
+  background-color: #fff;
+  color: #333;
+  border: 2px solid #333;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  margin: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+/* Hover effect para los botones de reproducción y pausa */
+audio::-webkit-media-controls-play-button:hover,
+audio::-webkit-media-controls-pause-button:hover {
+  transform: scale(1.1);
+}
+
+/* Estilos para la barra de progreso de la reproducción */
+audio::-webkit-media-controls-timeline-progress-bar {
+  background: linear-gradient(to right, #fff 0%, #fff 50%, #555 50%, #555 100%);
+  border: 2px solid #333;
+  border-radius: 10px;
+  height: 10px;
+}
+
+/* Estilos para el tiempo de reproducción */
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+  color: #fff;
+  font-size: 14px;
+}
+
+/* Estilos para el control de volumen */
+audio::-webkit-media-controls-volume-slider {
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 10px;
+  height: 10px;
+  width: 100px;
+}
+
+/* Estilos para el ícono de volumen */
+audio::-webkit-media-controls-mute-button,
+audio::-webkit-media-controls-volume-slider {
+  background-color: #fff;
+  color: #333;
+  border: 2px solid #333;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  margin: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+/* Hover effect para el ícono de volumen */
+audio::-webkit-media-controls-mute-button:hover {
+  transform: scale(1.1);
+}
+
+/* Estilos para el ícono de pantalla completa */
+audio::-webkit-media-controls-fullscreen-button {
+  background-color: #fff;
+  color: #333;
+  border: 2px solid #333;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  margin: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+/* Hover effect para el ícono de pantalla completa */
+audio::-webkit-media-controls-fullscreen-button:hover {
+  transform: scale(1.1);
+}

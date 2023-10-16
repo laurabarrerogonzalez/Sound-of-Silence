@@ -404,18 +404,23 @@ const Home = () => {
                   />
                 </div>
                 <div className="content">
-                  <h2 style={{ marginTop: '-100px' }}>{card.title}</h2>
-                  <p style={{ marginBottom: '10px' }}>{card.description}</p>
+                  <h2 style={{ marginTop: '-60px' }}>{card.title}</h2>
+                  <p>{card.description}</p>
+                  <div className="audio-container">
                   <audio controls style={{ margin: '0' }}>
+
                     <source src={card.audioSrc} type="audio/mpeg" />
                     Your browser does not support the audio element.
                   </audio>
+                  </div>
+                  <div className='star-container'>
                   <span
                     className={`star ${isStarActive ? 'star-pink' : ''}`}
                     onClick={() => handleFavoriteClick(card.id)}
                   >
                     &#9733;
                   </span>
+                  </div>
                 </div>
               </div>
             ))}

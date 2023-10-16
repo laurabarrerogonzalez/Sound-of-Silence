@@ -7,7 +7,24 @@ import './Login.css';
 
 const Login = () => {
   const [isLoginFormVisible, setIsLoginFormVisible] = useState(true);
+  const [isForgotPasswordModalVisible, setIsForgotPasswordModalVisible] = useState(false);
   const [isLoginFormSubmitted, setIsLoginFormSubmitted] = useState(false);
+  const [isPasswordResetConfirmed, setIsPasswordResetConfirmed] = useState(false);
+
+  const openForgotPasswordModal = () => {
+    setIsForgotPasswordModalVisible(true);
+  };
+
+  const closeForgotPasswordModal = () => {
+    setIsForgotPasswordModalVisible(false);
+    setIsPasswordResetConfirmed(false);
+  };
+
+  const handleForgotPassword = (e) => {
+    e.preventDefault();
+    openForgotPasswordModal();
+    setIsPasswordResetConfirmed(true);
+  };
 
   const loginDataInitialState = {
     email: "",
@@ -79,7 +96,7 @@ const Login = () => {
           navigate('/admin');
         } else if (userRole === 2) {
           navigate('/subscribe');
-          
+
         } else {
           Swal.fire("Error", "Usuario no autorizado", "error");
         }
@@ -187,7 +204,6 @@ const Login = () => {
         <div className="welcome-back">
           {isLoginFormVisible ? (
             <>
-
               <form className="formulario">
                 <h2 className="create-account">Login</h2>
                 <input
@@ -205,9 +221,7 @@ const Login = () => {
                   value={loginData.password}
                   onChange={handleLoginInputChange}
                 />
-                <span className="error-message">
-                  {errorMessagesLogin.password}
-                </span>
+                <span className="error-message">{errorMessagesLogin.password}</span>
                 {isLoginFormSubmitted ? (
                   <input type="button" value="Login" className="custom-color" />
                 ) : (
@@ -218,37 +232,38 @@ const Login = () => {
                     onClick={handleLoginSubmit}
                   />
                 )}
+                <div className='password-reseet'>
+                <a href="#" onClick={handleForgotPassword}>I do not remember my password
+</a>
+                </div>
               </form>
               <div className={`message ${isLoginFormVisible ? "" : "hide"}`}>
                 <div className="welcome-text">
                   <h2>Welcome to Sound of Silence</h2>
-                  <p>If you don't have an account please register here</p>
+                  <p>If you don't have an account, please register here</p>
                   <button className="custoom-signup-button" onClick={toggleLoginForm}>
                     Sign up
                   </button>
                 </div>
-
               </div>
             </>
           ) : (
             <>
               <div
-                className={`message white-text bold-text ${isLoginFormVisible ? "hide" : ""
-                  }`}
+                className={`message white-text bold-text ${isLoginFormVisible ? "hide" : ""}`}
               >
                 <div className="welcome-text">
                   <h2>Welcome to Sound of Silence</h2>
-                  <p >If you already have an account please login here</p>
+                  <p>If you already have an account, please login here</p>
                   <button className="custoom-color" onClick={toggleLoginForm}>
                     Login
                   </button>
                 </div>
-
               </div>
               <form className="formularioo">
                 <h2 className="create-account">Create an account</h2>
                 <p className="cuenta-gratis">Create an account is free</p>
-                <input className='Create'
+                <input
                   type="text"
                   placeholder="Name"
                   name="Name_user"
@@ -262,7 +277,6 @@ const Login = () => {
                   name="email"
                   value={createAccountData.email}
                   onChange={handleCreateAccountInputChange}
-                  
                 />
                 <span className="error-message">{errorMessages.email}</span>
                 <input
@@ -277,7 +291,7 @@ const Login = () => {
                   <input
                     type="button"
                     value="Sign up"
-                    className="custom-signup-button"
+                    className="customm-signup-button"
                   />
                 ) : (
                   <input
@@ -292,7 +306,29 @@ const Login = () => {
           )}
         </div>
       </div>
+
+      {isForgotPasswordModalVisible && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={closeForgotPasswordModal}>
+              &times;
+            </span>
+            {/* Contenido del modal de recuperación de contraseña */}
+            <h2 className='modal-h2'>Forgot Password</h2>
+            <p>Please enter your email to reset your password.</p>
+            <input className='modal-input' type="email" placeholder="Email" />
+            <button className='modal-button'>Reset Password</button>
+          </div>
+        </div>
+      )}
+      {isPasswordResetConfirmed && (
+        <div className="confirmation-message">
+          <p>Password reset email has been sent to your email address.</p>
+        </div>
+      )}
+
     </div>
   );
 };
+
 export default Login;

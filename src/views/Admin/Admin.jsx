@@ -373,10 +373,12 @@ const Admin = () => {
               <div className="content">
                 <h2 style={{ marginTop: '-100px' }}>{card.title}</h2>
                 <p style={{ marginBottom: '10px' }}>{card.description}</p>
+                <div className="audio-container">
                 <audio controls style={{ margin: '0' }}>
                   <source src={card.audioSrc} type="audio/mpeg" />
                   Your browser does not support the audio element.
                 </audio>
+                </div>
                 <button className="edit" onClick={() => handleEdit(card.id_AudioFiles)}>
                   Edit
                 </button>
