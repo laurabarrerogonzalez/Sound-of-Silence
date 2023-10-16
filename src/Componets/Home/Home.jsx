@@ -214,21 +214,7 @@ useEffect(() => {
           </button>
         </div>
 
-        <div className="pagination">
-          {Array.from({ length: Math.ceil(cards.length / cardsPerPage) }).map(
-            (_, index) => (
-              <button
-                key={index + 1}
-                onClick={() => handlePageChange(index + 1)}
-                className={`page-button ${
-                  currentPage === index + 1 ? "active" : ""
-                }`}
-              >
-                {index + 1}
-              </button>
-            )
-          )}
-        </div>
+        
 
         <div className="container-admin">
           <div className="card-container">
@@ -271,10 +257,31 @@ useEffect(() => {
                     &#9733;
                   </span>
                 </div>
+                
               </div>
             ))}
           </div>
         </div>
+        <div className="pagination">
+  {Array.from({ length: Math.ceil(cards.length / cardsPerPage) }).map(
+    (_, index) => (
+      <button
+        key={index + 1}
+        onClick={() => handlePageChange(index + 1)}
+        className={`page-button ${currentPage === index + 1 ? "active" : ""}`}
+        style={{
+          padding: "5px",
+          backgroundColor: "blue",
+          border: "2px solid black",
+          marginBottom: "20px",
+          color: "white", // Cambia el color del texto a blanco para mayor visibilidad
+        }}
+      >
+        {index + 1}
+      </button>
+    )
+  )}
+</div>
       </div>
       <Footer />
     </>
