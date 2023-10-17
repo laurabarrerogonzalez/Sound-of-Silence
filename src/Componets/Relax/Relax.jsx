@@ -9,31 +9,31 @@ const Relax = () => {
       <Navbar />
 
       <div className="relax-landing">
-        <h1>Consejos para Relajarse Escuchando Sonidos de la Naturaleza e Instrumentos</h1>
+        <h1>Tips for Relaxing by Listening to Nature Sounds and Instruments</h1>
         <div className="relax-content">
-          <h2>Consejos para una Experiencia Relajante</h2>
+          <h2>Tips for a Relaxing Experience</h2>
           <p>
-            Disfruta de los sonidos de la naturaleza y melodías de instrumentos para una experiencia de relajación completa. Aquí tienes algunos consejos para aprovechar al máximo tu experiencia:
+          Enjoy the sounds of nature and instrument melodies for a complete relaxation experience. Here are some tips to make the most of your experience:
           </p>
           <ul>
             <li>
-              <h3>1. Seleccione sonidos adecuados:</h3>
+              <h3>1. Select appropriate sounds:</h3>
               <p>
-                Elija sonidos de la naturaleza como el canto de los pájaros, el sonido de las olas del mar o arroyos suaves. También puede optar por melodías de instrumentos como la flauta, el piano o la guitarra, dependiendo de sus preferencias.
+              Choose sounds from nature such as birdsong, the sound of ocean waves or gentle streams. You can also opt for melodies from instruments such as the flute, piano or guitar, depending on your preferences.
               </p>
             </li>
 
             <li>
-              <h3>2. Crea un ambiente tranquilo:</h3>
+              <h3>2. It creates a calm atmosphere:</h3>
               <p>
-                Encuentra un lugar sereno y cómodo. Puedes ajustar la iluminación, encender velas o inciensos, y quizás usar auriculares de calidad para sumergirte por completo en los sonidos.
+              Find a serene and comfortable place. You can adjust the lighting, light candles or incense, and perhaps use quality headphones to fully immerse yourself in the sounds.
               </p>
             </li>
 
             <li>
-              <h3>3. Practica la meditación o la respiración profunda:</h3>
+              <h3>3. Practice meditation or deep breathing:</h3>
               <p>
-                Combina la música con técnicas de meditación o respiración profunda. Esto te ayudará a relajarte y a concentrarte en el momento presente.
+              Combine music with meditation or deep breathing techniques. This will help you relax and focus on the present moment.
               </p>
             </li>
           </ul>
