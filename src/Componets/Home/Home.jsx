@@ -45,6 +45,7 @@ const Home = () => {
     const endIndex = startIndex + cardsPerPage;
     setFilteredCards(cards.slice(startIndex, endIndex));
   }, [currentPage, cards]);
+  
   const handlePlayVideo = (id) => {
     if (videoRefs[id]) {
       videoRefs[id].play();
@@ -97,8 +98,7 @@ const Home = () => {
     // Realiza una solicitud POST al backend para marcar la tarjeta como favorita
     console.log(token);
     try {
-      const response = await fetch(
-        "https://localhost:7134/UserAudio/MarkFavorite/MarkFavorite",
+      const response = await fetch("https://localhost:7134/UserAudio/MarkFavorite/MarkFavorite",
         {
           method: "POST",
           headers: {
