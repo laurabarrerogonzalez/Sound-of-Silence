@@ -7,6 +7,11 @@
 
 }
 
+.active {
+    background-color: #7F6B53; /* Color de fondo ligeramente más oscuro que #A88F72 */
+    /* Otros estilos para el enlace activo, como color de texto, bordes, etc. */
+  }
+
 .nav_logo{
     font-weight: bold;
     font-size: 10px;
