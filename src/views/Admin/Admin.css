@@ -153,7 +153,6 @@
     border-radius: 0;
     cursor: pointer;
     font-family: "Booster Next FY", "Avenir Next", Avenir, sans-serif;
-   
     vertical-align: bottom;
     position: relative;
     transform: translate(0.5em -0.4em);
@@ -238,7 +237,7 @@
 
 .all-cards-text,
 .nature-button-text,
-.instrument-button-tex {
+.instrument-button-text {
   
  width: 100%;
   text-align: left;
@@ -295,6 +294,105 @@
 .text-title{
   margin-top: 20px;
   margin-bottom: 50px;
+}
+
+
+
+.container-modal-editcard {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+/* Estilos del contenido del modal */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  background: #F4F4F4;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  max-width: 400px;
+  height: 500px;
+  text-align: center;
+  align-items: center;
+}
+/* Estilos para el encabezado */
+.title-modal {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.container-modal-editcard {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+/* Estilos del contenido del modal */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  background: #F4F4F4;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  max-width: 400px;
+  height: 500px;
+  text-align: center;
+  align-items: center;
+}
+/* Estilos para el encabezado */
+.title-modal {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.edit-card-label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.content-card-admin {
+  width: 80%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+/* Estilos para el botón */
+.edit-card-button,
+.close-modal-button {
+  background: #3498DB;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.close-modal-button {
+  background: #E74C3C;
+}
+.edit-card-button:hover,
+.close-modal-button:hover {
+  background: #45A049;
 }
 
 @media (max-width: 700px) {
