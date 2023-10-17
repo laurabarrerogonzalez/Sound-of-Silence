@@ -1,51 +1,99 @@
 /* Estilos para la página de relajación */
+
 .relax-landing {
-    background-color: #f0f0f0; /* Color de fondo suave */
-    padding: 20px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin: 20px auto;
-    max-width: 1300px;
-  }
-  
-  .relax-landing h1 {
-    font-size: 36px;
-    color: #333;
-  }
-  
-  .relax-content {
-    margin-top: 20px;
-  }
-  
-  .relax-content h2 {
-    font-size: 24px;
-    color: #555;
-    margin-bottom: 10px;
-  }
-  
-  .relax-content ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
-  }
-  
-  .relax-content li {
-    margin-bottom: 20px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+  max-width: 1300px;
+}
+
+.relax-landing h1 {
+  font-size: 36px;
+  color: #333;
+}
+
+.relax-content {
+  margin-top: 20px;
+}
+
+.relax-content h2 {
+  font-size: 24px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.relax-content ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.relax-content li {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.relax-content h3 {
+  font-size: 20px;
+  color: #333;
+  margin: 0;
+}
+
+.relax-content p {
+  font-size: 16px;
+  color: #777;
+}
+
+/* Estilos para pantallas con un ancho máximo de 700px */
+@media (max-width: 700px) {
+  .relax-landing {
     padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .relax-content h3 {
-    font-size: 20px;
-    color: #333;
-    margin: 0;
-  }
-  
-  .relax-content p {
     font-size: 16px;
-    color: #777;
+    text-align: left;
+    margin: 10px auto;
+    max-width: 95%;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: transparent;
+    border: none;
+    color: #333;
   }
-  
+
+  .relax-landing h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+  }
+
+  .relax-content h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #555;
+    margin-top: 20px;
+  }
+
+  .relax-content ul {
+    margin-top: 10px;
+    padding-left: 20px;
+  }
+
+  .relax-content li {
+    margin-bottom: 10px;
+    padding: 50px;
+  }
+
+  .relax-content h3 {
+    font-size: 18px;
+    color: #333;
+  }
+
+}

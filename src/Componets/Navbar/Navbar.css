@@ -103,4 +103,14 @@
     .nav_toggle.open > span:nth-child(3){
         transform: rotate(-45deg) translate(-5px,1px);
     }
+
+    .nav_items a{
+        display: flex;
+        justify-content: space-evenly;
+        
+    }
+
+    button{
+        margin-top: 40px;
+    }
 }

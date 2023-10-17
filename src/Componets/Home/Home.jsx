@@ -236,7 +236,7 @@ useEffect(() => {
                 </div>
                 <div className="content">
                   <h2 style={{ marginTop: "-100px" }}>{card.title}</h2>
-                  <p style={{ marginBottom: "10px" }}>{card.description}</p>
+                  <h6 style={{ marginBottom: "10px" }}>{card.description}</h6>
                   <audio
                     controls
                     onPlay={() => handlePlayVideo(card.id_AudioFiles)}
