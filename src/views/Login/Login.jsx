@@ -5,7 +5,24 @@ import "./Login.css";
 
 const Login = () => {
   const [isLoginFormVisible, setIsLoginFormVisible] = useState(true);
+  const [isForgotPasswordModalVisible, setIsForgotPasswordModalVisible] = useState(false);
   const [isLoginFormSubmitted, setIsLoginFormSubmitted] = useState(false);
+  const [isPasswordResetConfirmed, setIsPasswordResetConfirmed] = useState(false);
+ 
+  
+  const openForgotPasswordModal = () => {
+    setIsForgotPasswordModalVisible(true);
+  };
+  const closeForgotPasswordModal = () => {
+    setIsForgotPasswordModalVisible(false);
+    setIsPasswordResetConfirmed(false);
+  };
+  const handleForgotPassword = (e) => {
+    e.preventDefault();
+    openForgotPasswordModal();
+    setIsPasswordResetConfirmed(true);
+  };
+
 
   const loginDataInitialState = {
     email: "",
@@ -79,12 +96,11 @@ const Login = () => {
         setErrorMessagesLogin(true);
         const responseData = await response.json();
         const userRole = responseData.role;
-        //-----------------------------------------------------------------------------
+       
         const token = responseData.token;
 
         setCookie("jwtToken", token, 30);
 
-        //-----------------------------------------------------------------------------
         if (userRole === 1) {
           navigate("/admin");
         } else if (userRole === 2) {
@@ -100,7 +116,6 @@ const Login = () => {
       console.error("Error:", error);
       Swal.fire("Error", "Ha ocurrido un error en el servidor", "error");
     } finally {
-     
       setLoginData({
         email: "",
         password: "",
@@ -110,7 +125,6 @@ const Login = () => {
         password: "",
       });
 
-      
       setIsLoginFormSubmitted(false);
     }
   };
@@ -147,7 +161,7 @@ const Login = () => {
       console.error("Error:", error);
       Swal.fire("Error", "Ha ocurrido un error en el servidor", "error");
     }
-   
+
     setCreateAccountData({
       Name_user: "",
       email: "",
@@ -227,6 +241,12 @@ const Login = () => {
                     onClick={handleLoginSubmit}
                   />
                 )}
+
+                <div className="password-reseet">
+                  <a href="#" onClick={handleForgotPassword}>
+                    I do not remember my password
+                  </a>
+                </div>
               </form>
               <div className={`message ${isLoginFormVisible ? "" : "hide"}`}>
                 <div className="welcome-text">
@@ -303,6 +323,27 @@ const Login = () => {
           )}
         </div>
       </div>
+
+{isForgotPasswordModalVisible && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={closeForgotPasswordModal}>
+              &times;
+            </span>
+            {/* Contenido del modal de recuperación de contraseña */}
+            <h2 className='modal-h2'>Forgot Password</h2>
+            <p>Please enter your email to reset your password.</p>
+            <input className='modal-input' type="email" placeholder="Email" />
+            <button className='modal-button'>Reset Password</button>
+          </div>
+        </div>
+      )}
+      {isPasswordResetConfirmed && (
+        <div className="confirmation-message">
+          <p>Password reset email has been sent to your email address.</p>
+        </div>
+      )}
+
     </div>
   );
 };
