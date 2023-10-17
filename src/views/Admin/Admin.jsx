@@ -11,7 +11,6 @@ const Admin = () => {
   const videoRefs = useRef({});
   const audioRefs = useRef({});
 
-
   const [formData, setFormData] = useState({
     videoSrc: '',
     audioSrc: '',
@@ -260,17 +259,15 @@ const Admin = () => {
           });
 
           setEditCardId(id);
-          // setIsEditing(true);
           setIsEditModalOpen(true);
         }
       }
     });
   };
 
-
   const handleEditSubmit = async (e) => {
     e.preventDefault();
-    // Lógica para editar la tarjeta
+
     const updatedData = {
       videoSrc: formData.videoSrc,
       audioSrc: formData.audioSrc,
@@ -308,7 +305,6 @@ const Admin = () => {
         Swal.fire('Error', 'An error occurred while updating the card.', 'error');
       });
   };
-
 
   const getCategoryById = (id) => {
     switch (id) {
@@ -383,13 +379,10 @@ const Admin = () => {
               <option value="Nature">Nature</option>
               <option value="Instrument">Instrument</option>
             </select>
-            
+
             <button type="submit" className="Add">
-              {'Add Card'}
-            </button>
-            {/* <button type="submit" className="Add">
               {isEditing ? 'Edit Card' : 'Add Card'}
-            </button> */}
+            </button>
           </form>
         </div>
         <div className='line-container'>
@@ -463,88 +456,97 @@ const Admin = () => {
           ))}
         </div>
         <div className="pagination">
-  {Array.from({ length: Math.ceil(cards.length / cardsPerPage) }).map(
-    (_, index) => (
-      <button
-        key={index + 1}
-        onClick={() => setCurrentPage(index + 1)}
-        className={`page-button ${currentPage === index + 1 ? 'active' : ''}`}
-        style={{
-          padding: '5px',
-          backgroundColor: 'blue',
-          border: '2px solid black',
-          marginBottom: "20px",
-          color: 'white',
-        }}
-      >
-        {index + 1}
-      </button>
-    )
-  )}
-</div>
+          {Array.from({ length: Math.ceil(cards.length / cardsPerPage) }).map(
+            (_, index) => (
+              <button
+                key={index + 1}
+                onClick={() => setCurrentPage(index + 1)}
+                className={`page-button ${currentPage === index + 1 ? 'active' : ''}`}
+                style={{
+                  padding: '5px',
+                  backgroundColor: 'blue',
+                  border: '2px solid black',
+                  marginBottom: '20px',
+                  color: 'white',
+                }}
+              >
+                {index + 1}
+              </button>
+            )
+          )}
+        </div>
       </div>
       <Footer />
 
       {isEditModalOpen && (
-  <div className="container-modal-editcard">
-    <div className="modal-content">
-      <h2 className='title-modal'>Edit Card</h2>
-      <form className='edit-card-admin' onSubmit={handleEditSubmit}>
-        <label className='edit-card-label' htmlFor="videoSrc">Video URL:</label>
-        <input className='content-card-admin'
-          type="text"
-          id="videoSrc"
-          name="videoSrc"
-          value={formData.videoSrc}
-          onChange={handleChange}
-          required
-        />
-        <label className='edit-card-label' htmlFor="title">Title:</label>
-        <input className='content-card-admin'
-          type="text"
-          id="title"
-          name="title"
-          value={formData.title}
-          onChange={handleChange}
-          required
-        />
-        <label className='edit-card-label' htmlFor="description">Description:</label>
-        <textarea
-          id="description"
-          name="description"
-          value={formData.description}
-          onChange={handleChange}
-          required
-        ></textarea>
-        <label className='edit-card-label' htmlFor="audioSrc">Audio URL:</label>
-        <input className='content-card-admin'
-          type="text"
-          id="audioSrc"
-          name="audioSrc"
-          value={formData.audioSrc}
-          onChange={handleChange}
-          required
-        />
-        <label className='edit-card-label' htmlFor="category">Category:</label>
-        <select className='content-card-admin'
-          id="category"
-          name="category"
-          value={formData.category}
-          onChange={handleChange}
-          required
-        >
-          <option value="Nature">Nature</option>
-          <option value="Instrument">Instrument</option>
-        </select>
-        <button className='edit-card-button' type="submit">Save Changes</button>
-        <button className='close-modal-button' onClick={() => setIsEditModalOpen(false)}>Close</button>
-      </form>
-    </div>
-  </div>
-)}
-
+        <div className="container-modal-editcard">
+          <div className="modal-content">
+            <h2 className='title-modal'>Edit Card</h2>
+            <form className='edit-card-admin' onSubmit={handleEditSubmit}>
+              <label className='edit-card-label' htmlFor="videoSrc">Video URL:</label>
+              <input className='content-card-admin'
+                type="text"
+                id="videoSrc"
+                name="videoSrc"
+                value={formData.videoSrc}
+                onChange={handleChange}
+                required
+              />
+              <label className='edit-card-label' htmlFor="title">Title:</label>
+              <input className='content-card-admin'
+                type="text"
+                id="title"
+                name="title"
+                value={formData.title}
+                onChange={handleChange}
+                required
+              />
+              <label className='edit-card-label' htmlFor="description">Description:</label>
+              <textarea
+                id="description"
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+                required
+              ></textarea>
+              <label className='edit-card-label' htmlFor="audioSrc">Audio URL:</label>
+              <input className='content-card-admin'
+                type="text"
+                id="audioSrc"
+                name="audioSrc"
+                value={formData.audioSrc}
+                onChange={handleChange}
+                required
+              />
+              <label className='edit-card-label' htmlFor="category">Category:</label>
+              <select className='content-card-admin'
+                id="category"
+                name="category"
+                value={formData.category}
+                onChange={handleChange}
+                required
+              >
+                <option value="Nature">Nature</option>
+                <option value="Instrument">Instrument</option>
+              </select>
+              <button className='edit-card-button' type="submit">Save Changes</button>
+        <button className='close-modal-button' onClick={() => {
+          setIsEditModalOpen(false);
+          setFormData({  // Restablece los campos del formulario
+            videoSrc: '',
+            audioSrc: '',
+            title: '',
+            description: '',
+            category: 'Nature',
+          });
+        }}>Close</button>
+            </form>
+          </div>
+        </div>
+      )}
     </>
   );
 };
 
 export default Admin;
+
