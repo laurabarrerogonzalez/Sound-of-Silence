@@ -26,7 +26,7 @@ const Favorites = () => {
       const token = getCookie("jwtToken");
       if (!token) {
         // Manejar caso en el que el token no está presente
-        console.error("Token no válido o no presente");
+        console.error("Token invalid or not present");
         return;
       }
   
@@ -47,10 +47,10 @@ const Favorites = () => {
         const data = await response.json();
         setFavoritos(data); // Almacena los datos de favoritos en el estado
       } else {
-        console.error('Error al cargar los archivos favoritos.');
+        console.error('Error loading favourite files.');
       }
     } catch (error) {
-      console.error('Error al cargar los archivos favoritos:', error);
+      console.error('Error loading favourite files:', error);
     }
   };
 
@@ -63,7 +63,7 @@ const Favorites = () => {
     <>
       <Navbar />
 
-      <h1>Tus archivos favoritos:</h1>
+      <h1>Your favourite files:</h1>
 
       <div className="card-container">
         {favoritos.map((favorito) => (
@@ -71,7 +71,7 @@ const Favorites = () => {
             <h2>{favorito.title}</h2>
             <p>{favorito.description}</p>
             <video src={favorito.videoSrc} controls>
-              Tu navegador no admite el elemento de video.
+            Your browser does not support the video element.
             </video>
             <span>
                     &#9733;
