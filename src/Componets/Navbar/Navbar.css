@@ -7,6 +7,11 @@
 
 }
 
+.active {
+    background-color: #7F6B53; /* Color de fondo ligeramente más oscuro que #A88F72 */
+    /* Otros estilos para el enlace activo, como color de texto, bordes, etc. */
+  }
+
 .nav_logo{
     font-weight: bold;
     font-size: 10px;
@@ -38,12 +43,21 @@
 }
 
 .nav_items a:hover {
-    text-decoration: underline; /* Subraya el enlace al pasar el cursor */
-    color: black; /* Cambia el color del texto a negro al pasar el cursor */
+    color: black; 
     font-size: 20px;
 }
 .nav_toggle{
     display: none;
+}
+
+
+.Logout{
+    background-color: #A88F72; 
+    border: none;
+    color: white; 
+    cursor: pointer;
+    padding: 10px 20px; 
+    font-size: 16px; 
 }
 
 @media(max-width:768px){
@@ -88,5 +102,15 @@
     }
     .nav_toggle.open > span:nth-child(3){
         transform: rotate(-45deg) translate(-5px,1px);
+    }
+
+    .nav_items a{
+        display: flex;
+        justify-content: space-evenly;
+        
+    }
+
+    button{
+        margin-top: 40px;
     }
 }

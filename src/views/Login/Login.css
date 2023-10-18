@@ -21,15 +21,15 @@
     top: -20px;
     left: -0px;
     z-index: 2;
-    transition: transform 0.3s; /* Agregamos una transición suave */
+    transition: transform 0.3s; 
   }
   
   .logo-container:hover {
-    transform: scale(1.2); /* Escala la imagen al 110% cuando el cursor está encima */
+    transform: scale(1.2); 
   }
   
   .logoLogin {
-    /* max-width: 100px; */
+   
     width: 250px;
     height: 200px;
  
@@ -42,7 +42,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1; /* Para asegurarte de que esté detrás de otros elementos */
+    z-index: -1; 
   } 
   
 
@@ -60,14 +60,27 @@
     text-align: center;
 }
 
-@media (max-width: 420px) {
+@media (max-width: 700px) {
+  .formulario, .formularioo {
+    width: 80%;
+    margin: 0 auto;
+    background-color: transparent;
+  }
+  .video-background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh; 
+    object-fit: cover;
+    z-index: -1;
+  }
   .welcome-back {
-    display: flex;
-    flex-wrap: wrap;
-      width: 100%;
-      height: 100%;
+    flex-direction: column; 
+    align-items: center; 
+      
       justify-content: center;
-      margin-top: 50px;
+      margin-top: 100px;
   }
   .custoom-signup-button::before {
     content: "Do not you have an account yet?" ; 
@@ -83,26 +96,26 @@
 
 .custoom-signup-button {
   
-    background-color: transparent !important; /* Fondo transparente */
-    border: none !important; /* Sin borde */
-    border-radius: 0 !important; /* Sin borde redondeado */
-    color: inherit !important; /* Color heredado (generalmente negro) */
-    padding: 0; /* Eliminar el relleno si lo hay */
-    font-size: inherit; /* Tamaño de fuente heredado */
-    /* Otros estilos predeterminados según tus necesidades */
+    background-color: transparent !important;
+    border: none !important; 
+    border-radius: 0 !important; 
+    color: inherit !important; 
+    padding: 0; 
+    font-size: inherit; 
+    
     
         
 }
 
 .custoom-color {
   
-  background-color: transparent !important; /* Fondo transparente */
-  border: none !important; /* Sin borde */
-  border-radius: 0 !important; /* Sin borde redondeado */
-  color: inherit !important; /* Color heredado (generalmente negro) */
-  padding: 0; /* Eliminar el relleno si lo hay */
-  font-size: inherit; /* Tamaño de fuente heredado */
-  /* Otros estilos predeterminados según tus necesidades */
+  background-color: transparent !important; 
+  border: none !important; 
+  border-radius: 0 !important; 
+  color: inherit !important; 
+  padding: 0; 
+  font-size: inherit; 
+ 
       
 }
 
@@ -309,7 +322,7 @@
   .welcome-text {
     display: inline-block;
     vertical-align: middle;
-    margin-right: 20px; /* Ajusta el margen derecho según tus preferencias */
+    margin-right: 20px; 
   }
 
   .larger-button {
@@ -342,13 +355,12 @@
 
 
   .login-message {
-    /* Estilos para el mensaje de inicio de sesión */
-    /* Por ejemplo, puedes definir el color de fondo, el color del texto y la duración de la animación */
+  
     background-color: #4a4aee;
     color: white;
     padding: 1rem;
     position: absolute;
-    bottom: 10px; /* Ajusta la posición vertical según tus preferencias */
+    bottom: 10px; 
     left: 50%;
     transform: translateX(-50%);
     border-radius: 5px;
@@ -361,12 +373,60 @@
   .error-message{
     color: red;
     font-size: 10px;
-    margin-top: 10px; /* Ajusta el valor negativo para mover el mensaje hacia arriba */
-  margin-bottom: 2px; /* Mantiene el margen inferior */
+    margin-top: 10px; 
+  margin-bottom: 2px; 
+}
+
+
+.modal {
+display: none;
+position: fixed;
+z-index: 1;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.7);
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.modal-content {
+position: relative;
+background-color: #fff;
+padding: 20px;
+border-radius: 10px;
+width: 70%;
+height: 50%; /* Cambia el valor para ajustar el ancho del modal */
+}
+.close {
+position: absolute;
+top: 10px; /* Ajusta la posición vertical de la X */
+right: 10px; /* Ajusta la posición horizontal de la X */
+font-size: 24px;
+cursor: pointer;
+}
+.modal-h2 {
+font-size: 24px;
+margin-bottom: 10px;
+}
+.modal-input[type="email"] {
+width: 90%;
+padding: 10px;
+margin-bottom: 10px;
+}
+.modal-button {
+background-color: #007BFF;
+color: #fff;
+padding: 10px 20px;
+border: none;
+cursor: pointer;
+border-radius: 5px;
+}
+.password-reseet {
+margin-top: 20px;
+}
+.password-reseet a{
+color: white;
 }
   
-
-
-
-
-
