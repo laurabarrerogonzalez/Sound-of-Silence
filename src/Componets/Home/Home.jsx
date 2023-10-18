@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Footer from "../Footer/Footer.jsx";
 import Navbar from "../Navbar/Navbar.jsx";
 import "./Home.css";
-
 const Home = () => {
   const [cards, setCards] = useState([]);
   const [filterCategory, setFilterCategory] = useState("all");
@@ -10,32 +9,27 @@ const Home = () => {
   const [isStarActive, setIsStarActive] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const cardsPerPage = 6;
-
   const videoRefs = {};
   const audioRefs = {};
-
   const token = localStorage.getItem("accessToken");
 
   useEffect(() => {
     fetchAllCards();
   }, [filterCategory, currentPage]);
-
+  
   const fetchAllCards = async () => {
     try {
       let url = "https://localhost:7134/AudioFiles/Get";
-
       if (filterCategory !== "all") {
         url = `https://localhost:7134/AudioFiles/GetByCategory/${getCategoryByName(
           filterCategory
         )}`;
       }
-
       const response = await fetch(url, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-
       if (response.ok) {
         const data = await response.json();
         setCards(data);
@@ -46,30 +40,26 @@ const Home = () => {
       console.error("Data collection error", error);
     }
   };
-
   useEffect(() => {
     const startIndex = (currentPage - 1) * cardsPerPage;
     const endIndex = startIndex + cardsPerPage;
     setFilteredCards(cards.slice(startIndex, endIndex));
   }, [currentPage, cards]);
-
+  
   const handlePlayVideo = (id) => {
     if (videoRefs[id]) {
       videoRefs[id].play();
     }
   };
-
   const handlePauseVideo = (id) => {
     if (videoRefs[id]) {
       videoRefs[id].pause();
     }
   };
-
   const handleFilter = (category) => {
     setFilterCategory(category);
     setCurrentPage(1);
   };
-
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
@@ -81,7 +71,6 @@ const Home = () => {
       console.error("Token no válido o no presente");
       return;
     }
-
     // Realiza una solicitud GET a tu API para obtener las tarjetas, incluyendo el token en el encabezado
     fetch("https://localhost:7134/AudioFiles/Get", {
       headers: {
@@ -97,7 +86,6 @@ const Home = () => {
         console.error("Error al obtener las tarjetas:", error);
       });
   }, []);
-
   const handleFavoriteClick = async (cardId) => {
     console.log(cardId);
     // Recupera el token de autenticación desde las cookies
@@ -107,12 +95,10 @@ const Home = () => {
       console.error("Token no válido o no presente");
       return;
     }
-
     // Realiza una solicitud POST al backend para marcar la tarjeta como favorita
     console.log(token);
     try {
-      const response = await fetch(
-        "https://localhost:7134/UserAudio/MarkFavorite/MarkFavorite",
+      const response = await fetch("https://localhost:7134/UserAudio/MarkFavorite/MarkFavorite",
         {
           method: "POST",
           headers: {
@@ -122,7 +108,6 @@ const Home = () => {
           body: JSON.stringify({ cardId }), // Envia el ID de la tarjeta al backend
         }
       );
-
       if (response.ok) {
         // Actualiza el estado local para reflejar la tarjeta como favorita
         setIsStarActive(true);
@@ -133,8 +118,6 @@ const Home = () => {
       console.error("Error al marcar la tarjeta como favorita", error);
     }
   };
-
-  
   // Función para obtener el valor de una cookie por nombre
   function getCookie(cname) {
     const name = cname + "=";
@@ -163,10 +146,6 @@ useEffect(() => {
       console.error('Error al obtener las tarjetas:', error);
     });
 }, []);
-
-
-
-
   const getCategoryByName = (name) => {
     switch (name) {
       case "Nature":
@@ -177,7 +156,6 @@ useEffect(() => {
         return 1;
     }
   };
-
   return (
     <>
       <Navbar />
@@ -274,7 +252,7 @@ useEffect(() => {
           backgroundColor: "blue",
           border: "2px solid black",
           marginBottom: "20px",
-          color: "white", // Cambia el color del texto a blanco para mayor visibilidad
+          color: "white", 
         }}
       >
         {index + 1}
@@ -287,5 +265,4 @@ useEffect(() => {
     </>
   );
 };
-
 export default Home;
