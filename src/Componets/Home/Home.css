@@ -1,14 +1,11 @@
 /* Estilos generales que no dependen del tamaño de la pantalla */
 
 .star {
-  font-size: 20px;
-  color: black;
-  cursor: pointer;
-  transition: color 0.3s;
+  color: black; /* Color por defecto de la estrella */
 }
 
-.star.star-pink {
-  color: pink;
+.star.star-blue {
+  color: blue; /* Color cuando está marcada como favorita */
 }
 
 .tittle-home {
@@ -22,6 +19,15 @@
 
 .music-note {
   font-size: 40px;
+}
+
+
+.all-cards-button{
+  margin-right: 30px;
+}
+
+.nature-button{
+  margin-right: 30px;
 }
 
 .left {
