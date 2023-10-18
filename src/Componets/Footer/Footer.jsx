@@ -63,8 +63,8 @@ const Footer=()=>{
         <div className="sb_footer-links_div">
           <h4>Coming soon on</h4>
           <div className="socialmedia">
-            <p><img src="https://res.cloudinary.com/dqc0wvttr/image/upload/v1695800992/2227_ppwytm.jpg" alt=""/></p>
-            <p><img src="https://res.cloudinary.com/dqc0wvttr/image/upload/v1695800934/facebook_jriern.png" alt=""/></p>
+            <p><img src="https://res.cloudinary.com/dqc0wvttr/image/upload/v1695800992/2227_ppwytm.jpg" alt="logo instagram"/></p>
+            <p><img src="https://res.cloudinary.com/dqc0wvttr/image/upload/v1695800934/facebook_jriern.png" alt="logo facebook"/></p>
             <p><img src="https://res.cloudinary.com/dqc0wvttr/image/upload/v1695801650/tik-tok_1_haqcvk.png" alt=""/></p>
             <p><img src="https://res.cloudinary.com/dqc0wvttr/image/upload/v1695801493/nuevo-logotipo-twitter-ahora-llamada_aiqpmp.webp" alt=""/></p>
           </div>
