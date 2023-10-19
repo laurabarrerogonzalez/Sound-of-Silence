@@ -6,11 +6,11 @@ Welcome to Sound of Silence! We are a relaxing and immersive platform carefully 
 
 ## Screenshots 📷
 <img src="https://res.cloudinary.com/dqc0wvttr/image/upload/v1697711255/Login.Desktop_wgooei.jpg" width="200" heigth="50">
-<img src="img/VistaAdmin-Desktop.jpeg" width="200" heigth="50">
-<img src="img/Adm-Desktop.jpeg" width="200" heigth="50">
-<img src="img/Login.Desktop.jpeg" width="200" heigth="50">
-<img src="img/Info-Relax.jpeg" width="200" heigth="50">
-<img src="img/favoritos-subscribe.jpeg" width="200" heigth="50">
+<img src="https://res.cloudinary.com/dqc0wvttr/image/upload/v1697711255/VistaAdmin-Desktop_emvoyi.jpg" width="200" heigth="50">
+<img src="https://res.cloudinary.com/dqc0wvttr/image/upload/v1697711255/Adm-Desktop_rv4orf.jpg" width="200" heigth="50">
+<img src="https://res.cloudinary.com/dqc0wvttr/image/upload/v1697711255/Login.Desktop_wgooei.jpg" width="200" heigth="50">
+<img src="https://res.cloudinary.com/dqc0wvttr/image/upload/v1697711255/Info-Relax_dwrtrd.jpg" width="200" heigth="50">
+<img src="https://res.cloudinary.com/dqc0wvttr/image/upload/v1697711255/favoritos-subscribe_ambbyt.jpg" width="200" heigth="50">
 
 ## Stacks 🖥️
 ● Visual Studio Code <br>
