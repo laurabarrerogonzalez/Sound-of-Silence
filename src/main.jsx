@@ -43,6 +43,8 @@ import Favorites from './Componets/Favorites/Favorites.jsx';
 
 
 
+
+
 const root = document.getElementById('root');
 const reactRoot = createRoot(root);
 
@@ -55,6 +57,7 @@ reactRoot.render(
       <Route path="/home" element={<Home />} /> 
       <Route path="/favorites" element={<Favorites />} />
       <Route path="/*" element={<Navigate to="/" />} />
+      {/* <Route path="/MusicSearch" element={<MusicSearch />} /> */}
     </Routes>
   </BrowserRouter>
 );
