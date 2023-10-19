@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../Pagination/Pagination.css';
+import "../../views/Admin/Admin.jsx"
 
 const cardsPerPage = 6; // Cambia esto según tus necesidades
 

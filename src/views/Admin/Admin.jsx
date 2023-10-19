@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../../Componets/Footer/Footer';
+import AdminPagination from '../../Componets/Pagination/Adminpagination';
 
 const Admin = () => {
   const navigate = useNavigate();
@@ -419,3 +420,4 @@ const Admin = () => {
   );
 };
 
+export default Admin;
