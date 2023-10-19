@@ -40,6 +40,11 @@
   animation: musicNoteEffect 2s infinite alternate;
 }
 
+
+.page-button{
+  margin-right: 10px;
+}
+
 /* Estilos para pantallas más pequeñas (tablets y móviles) */
 @media (max-width: 768px) {
   .star {
