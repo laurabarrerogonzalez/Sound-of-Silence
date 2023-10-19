@@ -72,8 +72,8 @@ const Footer=()=>{
       </div>
       <hr className='line-footer'></hr>
 
-      <div className="sb_footer-below">
-        <div className="sb_footer-copyright">
+      <div className="sb_footer-below" >
+        <div className="sb_footer-copyright" >
           <p>
             @{new Date().getFullYear()} CodeInn. All right reserved.
           </p>
