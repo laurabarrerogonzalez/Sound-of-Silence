@@ -155,7 +155,7 @@ const Login = () => {
         body: JSON.stringify({ Name_user, email, password }),
       });
       if (response.ok) {
-        Swal.fire("Cuenta creada exitosamente", "", "success");
+        Swal.fire("Account created successfully", "", "success");
       } else if (response.status === 400) {
         const errorMessage = await response.text();
         Swal.fire("Error", errorMessage, "error");

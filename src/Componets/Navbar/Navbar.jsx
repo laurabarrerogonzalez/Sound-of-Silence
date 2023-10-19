@@ -43,9 +43,9 @@ const Navbar = () => {
         />
       </div>
       <div className={`nav_items ${isOpen && "open"}`}>
-        <Link to="/home" className={activeLink === 'home' ? 'active' : ''}>Home</Link>
-        <Link to="/favorites" className={activeLink === 'favorites' ? 'active' : ''}>Favorites</Link>
-        <Link to="/relax" className={activeLink === 'relax' ? 'active' : ''}>Relaxation techniques</Link>
+        <Link to="/home" className={activeLink === 'home' ? 'actives' : ''}>Home</Link>
+        <Link to="/favorites" className={activeLink === 'favorites' ? 'actives' : ''}>Favorites</Link>
+        <Link to="/relax" className={activeLink === 'relax' ? 'actives' : ''}>Relaxation techniques</Link>
        
         <button onClick={handleLogout} className='Logout'>Log out</button>
       </div>
