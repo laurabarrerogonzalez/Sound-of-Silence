@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
+
+
 
 const Login = () => {
   const [isLoginFormVisible, setIsLoginFormVisible] = useState(true);
   const [isForgotPasswordModalVisible, setIsForgotPasswordModalVisible] = useState(false);
   const [isLoginFormSubmitted, setIsLoginFormSubmitted] = useState(false);
   const [isPasswordResetConfirmed, setIsPasswordResetConfirmed] = useState(false);
+  const [logoSpanActive, setLogoSpanActive] = useState(false);
+  const [logoSpanFade, setLogoSpanFade] = useState(false);
+  const [introTop, setIntroTop] = useState('0');
  
   
   const openForgotPasswordModal = () => {
@@ -189,8 +194,71 @@ const Login = () => {
       [name]: value,
     });
   };
+  useEffect(() => {
+    const logoSpan = document.querySelectorAll('.logo-parts');
+
+    setTimeout(() => {
+      logoSpan.forEach((span, index) => {
+        setTimeout(() => {
+          span.classList.add('active');
+          setLogoSpanActive(true);
+        }, (index + 1) * 100);
+      });
+
+      setTimeout(() => {
+        logoSpan.forEach((span, index) => {
+          setTimeout(() => {
+            span.classList.remove('active');
+            span.classList.add('fade');
+            setLogoSpanActive(false);
+            setLogoSpanFade(true);
+          }, (index + 1) * 50);
+        });
+      }, 2000);
+
+      setTimeout(() => {
+        setIntroTop('-100vh');
+      }, 3000);
+
+    }, []);
+
+    return () => {
+      // Cleanup if necessary
+    }
+  }, []);
+
+  const introStyle = {
+    top: introTop,
+  };
+
+
+  
 
   return (
+    <>
+    <div className="intro" style={introStyle}>
+      <img src="https://res.cloudinary.com/dp7lr71t8/image/upload/v1697568738/logo_blanco-transformed-removebg-preview_ybashr.png" alt="clarkode logo" />
+      <h1 className={`logo ${logoSpanActive ? 'active' : ''} ${logoSpanFade ? 'fade' : ''}`}>
+        <span className="logo-parts">S</span>
+        <span className="logo-parts">O</span>
+        <span className="logo-parts">U</span>
+        <span className="logo-parts">N</span>
+        <span className="logo-parts">D </span>
+        <span className="logo-parts">&nbsp;</span> {/* Espacio en blanco */}
+        <span className="logo-parts">O</span>
+        <span className="logo-parts">F </span>
+        <span className="logo-parts">&nbsp;</span> {/* Espacio en blanco */}
+        <span className="logo-parts">S</span>
+        <span className="logo-parts">I</span>
+        <span className="logo-parts">L</span>
+        <span className="logo-parts">E</span>
+        <span className="logo-parts">N</span>
+        <span className="logo-parts">C</span>
+        <span className="logo-parts">E</span>
+      </h1>
+      <p>"A different way of listening to life"</p>
+    </div>
+
     <div id="ContainerLogin">
       <div className="container-form">
         <video autoPlay loop muted className="video-background">
@@ -345,6 +413,8 @@ const Login = () => {
       )}
 
     </div>
+    </>
   );
 };
+
 export default Login;
