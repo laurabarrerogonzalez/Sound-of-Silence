@@ -5,7 +5,7 @@
 Welcome to Sound of Silence! We are a relaxing and immersive platform carefully designed to help you relax, release stress and find peace of mind through a curated collection of relaxing audio content. Whether you are looking for a moment of relaxation, meditation or simply an escape from the hustle and bustle of everyday life, our platform is your haven of serenity.
 
 ## Screenshots 📷
-<img src="img/VistaSubscribe.jpeg" width="200" heigth="50">
+<img src="https://res.cloudinary.com/dqc0wvttr/image/upload/v1697711255/Login.Desktop_wgooei.jpg" width="200" heigth="50">
 <img src="img/VistaAdmin-Desktop.jpeg" width="200" heigth="50">
 <img src="img/Adm-Desktop.jpeg" width="200" heigth="50">
 <img src="img/Login.Desktop.jpeg" width="200" heigth="50">
