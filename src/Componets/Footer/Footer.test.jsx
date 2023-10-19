@@ -13,3 +13,4 @@ describe('footer', () => {
       expect(screen.getByRole('img', { name: 'logo facebook' })).toBeInTheDocument();
     });
   });
+
