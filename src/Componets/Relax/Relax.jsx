@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../Navbar/Navbar.jsx';
 import Footer from '../../Componets/Footer/Footer.jsx';
-import './Relax.css'; // Importa tus estilos CSS aquí
+import './Relax.css'; 
 
 const Relax = () => {
   return (

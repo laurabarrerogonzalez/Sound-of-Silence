@@ -62,6 +62,10 @@
   cursor: pointer;
 }
 
+.page-button{
+  margin-right: 10px;
+}
+
 /* Cambiar el color del botón cuando se pasa el mouse sobre él */
 .form-container button:hover {
   background-color: #0056b3;
