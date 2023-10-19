@@ -7,6 +7,7 @@ export default defineConfig({
     test: {
       globals: true,
       environment: 'jsdom',
+      
       // setupFiles: [
       //   "<rootDir>/node_modules/@testing-library/jest-dom/extend-expect"
       // ]
