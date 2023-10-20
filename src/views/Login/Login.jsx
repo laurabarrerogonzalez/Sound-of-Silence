@@ -111,15 +111,15 @@ const Login = () => {
         } else if (userRole === 2) {
           navigate("/subscribe");
         } else {
-          Swal.fire("Error", "Usuario no autorizado", "error");
+          Swal.fire("Error", "Unauthorised user", "error");
         }
       } else {
-        setErrorMessagesLogin("Credenciales incorrectas");
-        Swal.fire("Error", "Usuario no existente", "error");
+        setErrorMessagesLogin("Incorrect credentials");
+        Swal.fire("Error", "User does not exist", "error");
       }
     } catch (error) {
       console.error("Error:", error);
-      Swal.fire("Error", "Ha ocurrido un error en el servidor", "error");
+      Swal.fire("Error", "A server error has occurred", "error");
     } finally {
       setLoginData({
         email: "",
@@ -160,11 +160,11 @@ const Login = () => {
         const errorMessage = await response.text();
         Swal.fire("Error", errorMessage, "error");
       } else {
-        Swal.fire("Error", "No se pudo crear la cuenta", "error");
+        Swal.fire("Error", "Could not create account", "error");
       }
     } catch (error) {
       console.error("Error:", error);
-      Swal.fire("Error", "Ha ocurrido un error en el servidor", "error");
+      Swal.fire("Error", "A server error has occurred", "error");
     }
 
     setCreateAccountData({

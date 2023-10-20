@@ -129,7 +129,7 @@ const Home = () => {
 
     const token = getCookie("jwtToken");
     if (!token) {
-      console.error("Token no válido o no presente");
+      console.error("Token invalid or not present");
       return;
     }
 
