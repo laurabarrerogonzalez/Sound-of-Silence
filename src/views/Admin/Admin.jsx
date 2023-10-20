@@ -441,8 +441,9 @@ const Admin = () => {
                   onPause={() => handlePauseVideo(card.id_AudioFiles)}
                   style={{ margin: '0' }}
                   ref={(ref) => (audioRefs.current[card.id_AudioFiles] = ref)}
+                  src={card.audioSrc}
                 >
-                  <source src={card.audioSrc} type="audio/mpeg" />
+                  {/* <source src={card.audioSrc} type="audio/mpeg" /> */}
                   Your browser does not support the audio element.
                 </audio>
                 <button className="edit" onClick={() => handleEdit(card.id_AudioFiles)}>
