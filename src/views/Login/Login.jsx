@@ -69,7 +69,7 @@ const Login = () => {
 
   function setCookie(cname, cvalue, minutes) {
     const d = new Date();
-    d.setTime(d.getTime() + minutes * 60 * 1000); // Calcula la fecha de expiración en milisegundos
+    d.setTime(d.getTime() + minutes * 60 * 1000); 
     const expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
@@ -244,10 +244,10 @@ const Login = () => {
         <span className="logo-parts">U</span>
         <span className="logo-parts">N</span>
         <span className="logo-parts">D </span>
-        <span className="logo-parts">&nbsp;</span> {/* Espacio en blanco */}
+        <span className="logo-parts">&nbsp;</span> 
         <span className="logo-parts">O</span>
         <span className="logo-parts">F </span>
-        <span className="logo-parts">&nbsp;</span> {/* Espacio en blanco */}
+        <span className="logo-parts">&nbsp;</span> 
         <span className="logo-parts">S</span>
         <span className="logo-parts">I</span>
         <span className="logo-parts">L</span>
@@ -398,7 +398,7 @@ const Login = () => {
             <span className="close" onClick={closeForgotPasswordModal}>
               &times;
             </span>
-            {/* Contenido del modal de recuperación de contraseña */}
+            
             <h2 className='modal-h2'>Forgot Password</h2>
             <p>Please enter your email to reset your password.</p>
             <input className='modal-input' type="email" placeholder="Email" />

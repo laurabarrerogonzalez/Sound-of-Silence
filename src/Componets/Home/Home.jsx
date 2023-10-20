@@ -73,7 +73,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    // Limpiar las referencias de video existentes al cambiar de página
+    
     for (const key in videoRefs) {
       if (videoRefs[key]) {
         videoRefs[key].pause();
@@ -226,7 +226,7 @@ const Home = () => {
                     ref={(ref) => (audioRefs[card.id_AudioFiles] = ref)}
                     src={card.audioSrc}
                   >
-                    {/* <source src={card.audioSrc} type="audio/mpeg" /> */}
+                   
                     Your browser does not support the audio element.
                   </audio>
                   <span
