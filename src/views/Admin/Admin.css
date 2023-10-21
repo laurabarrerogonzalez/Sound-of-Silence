@@ -1,0 +1,512 @@
+
+.bodyadmin {
+  font-family: 'Poppins', sans-serif;
+  background: #EEE3D8;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+}
+
+
+/* Estilos para el contenedor del formulario */
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para las etiquetas de los campos */
+.form-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Estilos para los campos de entrada de texto y textarea */
+.form-container input[type="text"],
+.form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+/* Estilos para el select */
+.form-container select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+/* Estilos para el botón */
+.form-container button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.page-button{
+  margin-right: 10px;
+}
+
+/* Cambiar el color del botón cuando se pasa el mouse sobre él */
+.form-container button:hover {
+  background-color: #0056b3;
+}
+
+.all-cards-button{
+  margin-right: 30px;
+}
+
+.nature-button{
+  margin-right: 30px;
+}
+
+
+
+
+.card-container > div {
+  margin-top: 20px;
+}
+
+.card-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 6%;
+}
+
+.card-container .card {
+  position: relative;
+  min-width: 380px;
+  height: 215px;
+  width: 20%;
+  background-color: #FFF;
+ 
+  margin: 30px 10px;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 5px 202px rgba(0, 0, 0, 0.5); 
+  border: 1px solid #c3c3c3; 
+  text-align: center;
+  z-index: 1;
+}
+
+.card-container .card:hover {
+  height: auto;
+  transition: 2.3s ease-in-out;
+}
+
+.card-container .card::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  bottom: 5px;
+  left: 5px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); 
+}
+
+.card-container .card .imgBx {
+  position: relative;
+  width: 290px;
+  height: 260px;
+  top: -60px;
+  left: 10px;
+  z-index: 1;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0, 5);
+  margin-left: -13px;
+}
+
+.card-container .card .imgBx video {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.card-container .card .content {
+  position: relative;
+  margin-top: -140px;
+  padding: 10px 15px;
+  text-align: center;
+  color: #111;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.0s ease-in-out;
+  margin-top: 2px;
+  margin-bottom: 5px;
+}
+
+.card-container .card:hover .content {
+  visibility: visible;
+  opacity: 1;
+  margin-top: -40px;
+  transition-delay: 0.3s;
+}
+
+.card-container .card .content audio {
+  width: 100%;
+}
+
+.form-container{
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.form-styles{
+  margin-top: 50px;
+}
+
+.Add{
+  margin-top: 30px;
+  background-color: rgb(121, 176, 213);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+.edit{
+  
+  color: #52C11F;
+  border-color: #52C11F;
+  display: inline-block;
+    margin: 6px;
+    font-size: inherit;
+    line-height: 1.42;
+    padding: 0.7em 1.4em;
+    font-weight: normal;
+    border-width: 3px;
+    border-style: solid;
+    background: transparent;
+    border-radius: 0;
+    cursor: pointer;
+    font-family: "Booster Next FY", "Avenir Next", Avenir, sans-serif;
+   
+    vertical-align: bottom;
+    position: relative;
+    transform: translate(0.5em -0.4em);
+    transition: transform 0.2s;
+}
+
+.delete{
+  color: #c11f1f;
+  border-color: #c12f1f;
+  display: inline-block;
+    margin: 6px;
+    font-size: inherit;
+    line-height: 1.42;
+    padding: 0.7em 1.4em;
+    font-weight: normal;
+    border-width: 3px;
+    border-style: solid;
+    background: transparent;
+    border-radius: 0;
+    cursor: pointer;
+    font-family: "Booster Next FY", "Avenir Next", Avenir, sans-serif;
+    vertical-align: bottom;
+    position: relative;
+    transform: translate(0.5em -0.4em);
+    transition: transform 0.2s;
+   
+}
+
+.logout-button{
+  margin-top: 20px;
+  background-color: #FF5733; 
+  color: white; 
+  border: none;
+  border-radius: 5px;
+  padding: 10;
+  margin-bottom: 20px; 
+
+}
+
+.nature-button {
+  background-color: #4CAF50; 
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.nature-button.active {
+  background-color: #45A049;
+}
+
+.all-cards-button {
+  background-color: #007BFF; 
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.all-cards-button.active {
+  background-color: #0056b3; 
+}
+
+.instrument-button {
+  background-color: #FFD700; 
+  color: black; 
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.instrument-button.active {
+  background-color: #DAA520; 
+}
+
+.all-cards-button.active{
+  background-color: #000075; 
+  color: white; 
+  transform: scale(1.10);
+}
+
+.nature-button.active{
+  background-color: #026e00; 
+  color: white; 
+  transform: scale(1.10); 
+}
+
+.instrument-button.active{
+  background-color: #bbc100; 
+  color: white; 
+  transform: scale(1.10); 
+}
+
+
+.all-cards-text,
+.nature-button-text,
+.instrument-button-text {
+  
+ width: 100%;
+  text-align: left;
+  margin-left: 20%;
+  margin-top: 20px; 
+  font-size: 30px; 
+  font-weight: bold; 
+}
+
+.line-admin {
+  border: none;
+  width: 50%;
+  height: 2px;
+  background-color: #000000; 
+  margin: 10px 0; 
+  
+  
+  
+}
+
+.line-container{
+  width: 80%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.filter-buttons {
+  margin-top: 10px;
+ 
+}
+
+.welcome-admin {
+  font-size: 36px; 
+  color: #333; 
+  margin-top: 20px; 
+  font-weight: bold; 
+  text-align: center; 
+}
+
+@media (max-width: 700px) {
+  .all-cards-text,
+  .nature-button-text,
+  .instrument-button-tex {
+    font-size: 16px;
+    text-align: center;
+   
+     
+  }
+   
+}
+.text-title{
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+
+
+
+.container-modal-editcard {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+/* Estilos del contenido del modal */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  background: #F4F4F4;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  max-width: 400px;
+  height: 500px;
+  text-align: center;
+  align-items: center;
+}
+/* Estilos para el encabezado */
+.title-modal {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.container-modal-editcard {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+/* Estilos del contenido del modal */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  background: #F4F4F4;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  max-width: 400px;
+  height: 500px;
+  text-align: center;
+  align-items: center;
+}
+/* Estilos para el encabezado */
+.title-modal {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.edit-card-label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.content-card-admin {
+  width: 80%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+/* Estilos para el botón */
+.edit-card-button,
+.close-modal-button {
+  background: #3498DB;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.close-modal-button {
+  background: #E74C3C;
+}
+.edit-card-button:hover,
+.close-modal-button:hover {
+  background: #45A049;
+}
+
+@media (max-width: 700px) {
+  .card-container .card {
+    width: 100%; 
+    min-width: auto; 
+    margin-bottom:80px;
+    height: 250px;
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    
+  }
+
+  .card-container .card .imgBx {
+    width: 100%; 
+    height: auto; 
+    top: -80px; 
+    margin-left: -60px;
+    z-index: 1; 
+    box-shadow: none; 
+     
+     position: relative;
+  }
+
+  .card-container .card:hover {
+    height: 350px;
+    transition: 0.3s ease-in-out;
+  }
+
+  .card-container .card .imgBx video {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
+  .card-container .card:hover .content {
+    visibility: visible;
+    opacity: 1;
+    margin-top: 40px;
+    transition-delay: 0.3s;
+  }
+}
+
+

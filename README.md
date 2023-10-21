@@ -1,16 +1,16 @@
 # Sound of Silence                                              
-[![](https://res.cloudinary.com/dqc0wvttr/image/upload/v1695634508/Captura_de_pantalla_2023-09-23_215716_nqz4vb-removebg-preview_lwpq0u.png)]
-
-[logo](https://github.com/laurabarrerogonzalez/Sound-of-Silence/assets/132609974/2b8d8395-8767-43cf-ab0c-98fbc4256341)
+![](https://res.cloudinary.com/dqc0wvttr/image/upload/v1695634508/Captura_de_pantalla_2023-09-23_215716_nqz4vb-removebg-preview_lwpq0u.png)
 
 ## Project Description 🚀
-
-Welcome to Sound of Silence, is a soothing and immersive platform designed to help you unwind, de-stress, and find tranquility through a curated collection of calming audio content. Whether you're looking to relax, meditate, or simply escape the hustle and bustle of daily life, our platform is your oasis of serenity.
+Welcome to Sound of Silence! We are a relaxing and immersive platform carefully designed to help you relax, release stress and find peace of mind through a curated collection of relaxing audio content. Whether you are looking for a moment of relaxation, meditation or simply an escape from the hustle and bustle of everyday life, our platform is your haven of serenity.
 
 ## Screenshots 📷
-
-<img src="images/Home.png" width="auto" height="150"><img src="images/Home2.jpeg" width="auto" height="150"><img src="images/Home3.jpeg" width="auto" height="150"><img src="images/FigAcc.jpeg" width="auto" height="150"><img src="images/Funko.jpeg" width="auto" height="150"><img src="images/Poster.jpeg" width="auto" height="150"><img src="images/Shirts.jpeg" width="auto" height="150"><img src="images/Login.jpeg" width="auto" height="150"><img src="images/Chart.jpeg" width="auto" height="150">
-
+<img src="https://res.cloudinary.com/dqc0wvttr/image/upload/v1697711255/Login.Desktop_wgooei.jpg" width="200" heigth="50">
+<img src="https://res.cloudinary.com/dqc0wvttr/image/upload/v1697711255/VistaAdmin-Desktop_emvoyi.jpg" width="200" heigth="50">
+<img src="https://res.cloudinary.com/dqc0wvttr/image/upload/v1697711255/Adm-Desktop_rv4orf.jpg" width="200" heigth="50">
+<img src="https://res.cloudinary.com/dqc0wvttr/image/upload/v1697711255/Login.Desktop_wgooei.jpg" width="200" heigth="50">
+<img src="https://res.cloudinary.com/dqc0wvttr/image/upload/v1697711255/Info-Relax_dwrtrd.jpg" width="200" heigth="50">
+<img src="https://res.cloudinary.com/dqc0wvttr/image/upload/v1697711255/favoritos-subscribe_ambbyt.jpg" width="200" heigth="50">
 
 ## Stacks 🖥️
 ● Visual Studio Code <br>
@@ -28,8 +28,15 @@ Welcome to Sound of Silence, is a soothing and immersive platform designed to he
 ● Zoom
 
 ## Libraries 📚
+Libraries are sets of prewritten code that are used to perform specific tasks or add functionality to an application or website. These libraries save developers time and effort as they can use existing code instead of writing it from scratch. In your project "Sound of Silence", you mentioned that you are using various technologies and tools, including libraries. Here are some of the libraries you mentioned in your project:
 
-[![](https://res.cloudinary.com/dqc0wvttr/image/upload/v1696411817/Captura_de_pantalla_2023-10-04_112835_hzkyxv.png)]
+React: A JavaScript library for creating interactive user interfaces.
+Bootstrap: A front-end design framework that provides ready-to-use styling and components.
+Jest: A JavaScript testing framework to make sure your code works correctly.
+Testing Library: A library used to write tests and perform user testing on web applications.
+
+Each of them fulfills a specific purpose in the development of your web application. If you have additional questions about how to use these libraries or need more details about any of them, don't hesitate to ask.
+
 
 ## Technologies and Tools 🔨
 <div>  
@@ -44,10 +51,6 @@ Welcome to Sound of Silence, is a soothing and immersive platform designed to he
 <a href="https://www.jestjs.io/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/jest.svg" alt="Jest" height="50" /></a>  
 </div>
 
-## Tech Stack 🛠️
-
-<img src="images/Axios.png" width="100" height="auto"><img src="images/JSON Server.png" width="100" height="auto"><img src="images/Node.js.png" width="100" height="auto">
-
 ## Methodology 📚
 
 ● Mob, pair and solo programming <br>
@@ -61,11 +64,10 @@ Welcome to Sound of Silence, is a soothing and immersive platform designed to he
 
 ## Tests ☑️
 
-<img src="images/Jestt.png" width="100" height="auto"><img src="images/Testing Library.png" width="90" height="30"><img src="images/Vitest.png" width="80" height="30">
+The Testing Library is an essential library in our 'Sound of Silence' project. This library is used to write and run tests that ensure our web application runs smoothly and meets quality standards. With Testing Library, we can simulate users' interaction with the application and verify that all components and functions respond correctly, thus providing an optimal user experience.
 
 ## Test Screenshot ✔️
-
-<img src="images/Test.png" width="auto" height="300">
+![Testing](https://github.com/laurabarrerogonzalez/Sound-of-Silence/assets/132656487/8e8fc89e-e311-4417-8aeb-ab823443a42e)
 
 ## Installation Process ⬆️
 
@@ -87,8 +89,5 @@ Coming soon, we will continue developing the Full Stack project with the reposit
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 
-comando para abrir el local host:     json-server --watch card.json 

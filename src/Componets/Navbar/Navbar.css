@@ -1,0 +1,116 @@
+.navbar{
+    background: #A88F72;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.actives {
+    background-color: #7F6B53; /* Color de fondo ligeramente más oscuro que #A88F72 */
+    /* Otros estilos para el enlace activo, como color de texto, bordes, etc. */
+  }
+
+.nav_logo{
+    font-weight: bold;
+    font-size: 10px;
+    margin: 15px;
+    color: white;
+
+}
+
+.nav_logo img{
+   
+    width: 250px;
+    height: 250px;
+    margin: 15px;
+    color: white;
+    transition: transform 0.3s;
+
+}
+
+.nav_logo img:hover{
+    transform: scale(1.2);
+}
+.nav_items a{
+    margin: 20px;
+    color: white;
+    position: relative;
+    text-decoration: none;
+    font-size: 19px;
+    transition: color 0.3s;
+}
+
+.nav_items a:hover {
+    color: black; 
+    font-size: 20px;
+}
+.nav_toggle{
+    display: none;
+}
+
+
+.Logout{
+    background-color: #A88F72; 
+    border: none;
+    color: white; 
+    cursor: pointer;
+    padding: 10px 20px; 
+    font-size: 16px; 
+}
+
+@media(max-width:768px){
+    .nav_items{
+        position:absolute;
+        top:90px;
+        left:0;
+        background: #ddcbb8;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        transform: translateX(-100%);
+        transition: 0.3s ease all;
+        z-index: 2;
+    }
+    .nav_items.open{
+        transform: translateX(0) !important;
+    }
+    .nav_toggle{
+        display: flex !important;
+        flex-direction: column;
+        margin: 15px;
+        
+    }
+
+    .nav_toggle span{
+        width:30px;
+        height: 4px;
+        background: white;
+        margin-bottom: 5px;
+        border-radius: 2px;
+        transform-origin: 5px 0px;
+        transition: all 0.2s linear;
+
+    }
+    .nav_toggle.open > span{
+        transform: rotate(45deg) translate(0px,0px);    
+    }
+    .nav_toggle.open >span:nth-child(2){
+        display:none;
+    }
+    .nav_toggle.open > span:nth-child(3){
+        transform: rotate(-45deg) translate(-5px,1px);
+    }
+
+    .nav_items a{
+        display: flex;
+        justify-content: space-evenly;
+        
+    }
+
+    button{
+        margin-top: 40px;
+    }
+}

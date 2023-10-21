@@ -1,0 +1,86 @@
+/* Estilos generales que no dependen del tamaño de la pantalla */
+
+.star {
+  color: black; /* Color por defecto de la estrella */
+}
+
+.star.star-blue {
+  color: blue; /* Color cuando está marcada como favorita */
+}
+
+.tittle-home {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.music-note {
+  font-size: 40px;
+}
+
+
+.all-cards-button{
+  margin-right: 30px;
+}
+
+.nature-button{
+  margin-right: 30px;
+}
+
+.left {
+  margin-right: 10px;
+  animation: musicNoteEffect 2s infinite alternate;
+}
+
+.right {
+  margin-left: 10px;
+  animation: musicNoteEffect 2s infinite alternate;
+}
+
+
+.page-button{
+  margin-right: 10px;
+}
+
+/* Estilos para pantallas más pequeñas (tablets y móviles) */
+@media (max-width: 768px) {
+  .star {
+    font-size: 16px;
+  }
+  .tittle-home {
+    font-size: 18px;
+  }
+}
+
+/* Estilos para pantallas aún más pequeñas (móviles en orientación vertical) */
+@media (max-width: 480px) {
+  .star {
+    font-size: 14px;
+  }
+  .tittle-home {
+    font-size: 16px;
+  }
+
+  .filter-buttons{
+    margin-bottom: 80px;
+  }
+
+  h2{
+    margin-bottom: 10px;
+  }
+ 
+}
+
+@keyframes musicNoteEffect {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
